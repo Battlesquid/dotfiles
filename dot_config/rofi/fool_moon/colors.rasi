@@ -1,0 +1,18 @@
+* {
+    red: #f7768e;
+    dark-navy: #222940;
+    light-gray: #777777;
+    gray: #3c3c47;
+    dark-gray: #1F1F26;
+    light-blue: #c0caf5;
+    blue: #577bb5;
+    dark-blue: #364A73;
+    yellow: #ebba5e;
+    purple: #bb9af7; 
+    green: #9ece6a;
+    peach: #ff9e64;
+    teal: #4ba37d;
+    mint: #76c2a1;
+    raisin-black: #20202A;
+    bg: #1b1b26;
+}

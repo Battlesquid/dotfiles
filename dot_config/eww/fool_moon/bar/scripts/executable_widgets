@@ -1,0 +1,36 @@
+#!/bin/sh
+
+eww_menu="eww -c $HOME/.config/eww/fool_moon/menu"
+CACHE_DIR="$HOME/.cache/eww"
+
+function toggle_menu() {
+    $eww_menu open --toggle menu &> /dev/null
+}
+
+function toggle_notifs() {
+    $eww_menu close time-menu media-menu
+    $eww_menu open --toggle notif-menu &> /dev/null
+}
+
+function toggle_media() {
+    $eww_menu close time-menu notif-menu
+    $eww_menu open --toggle media-menu &> /dev/null
+}
+
+function toggle_time() {
+    $eww_menu close media-menu notif-menu
+    $eww_menu open --toggle time-menu &> /dev/null
+}
+
+if ! [ -d "$CACHE_DIR" ];then
+    mkdir -p "$CACHE_DIR"
+fi
+
+case "$1" in
+    "toggle-menu") toggle_menu;;
+    "toggle-notifs") toggle_notifs;;
+    "toggle-media") toggle_media;;
+    "toggle-time") toggle_time;;
+    *) echo "Unknown command";;
+esac
+

@@ -1,0 +1,24 @@
+#!/bin/sh
+
+conn_status=`nmcli | grep "^wlan0" | cut -d ":" -d " " -f 2`
+conn_name=`nmcli -t -f NAME c show --active | head -1`
+
+function icon() {
+    if [ "$conn_status" = "connected" ];then
+        echo ""
+    else
+        echo ""
+    fi
+}
+
+function text() {
+    if [ "$conn_status" = "connected" ];then
+        echo "Connected to $conn_name"
+    else
+        echo "Disconnected"
+    fi
+}
+
+[ "$1" = "icon" ] && icon && exit
+[ "$1" = "text" ] && text && exit
+echo "unknown option"

@@ -1,0 +1,120 @@
+.media-menu {
+    padding: 1rem 1rem 0 1rem;
+}
+
+scale.now-playing-vol-scale trough {
+    all: unset;
+    background-color: $gray;
+    border-radius: 16px;
+    min-height: 10px;
+    min-width: 60px;
+}
+
+scale.now-playing-percent trough {
+    all: unset;
+    background-color: $gray;
+    border-radius: 16px;
+    min-height: 10px;
+    min-width: 40px;
+}
+
+.now-playing-percent trough highlight {
+    background-color: $blue;
+    border-radius: 16px;
+}
+
+.now-playing-menu, .time-menu {
+    padding: 1rem 1rem 0 1rem;
+}
+
+.now-playing-title {
+    font-size: 16px;
+}
+
+.now-playing-artist {
+    font-weight: lighter;
+    margin-bottom: 0.4rem;
+}
+
+.now-playing-overview {
+    background-color: $raisin-black;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin: 0 1rem 0 0;
+}
+
+.now-playing-playback {
+    font-size: 12px;
+}
+
+.now-playing-prev, .now-playing-toggle, .now-playing-next {
+    background-color: $bg;
+    padding: 0.5rem 1rem;
+}
+
+.now-playing-prev:hover, .now-playing-next:hover {
+    background-color: $gray;
+}
+
+.now-playing-toggle.play:hover {
+    background-color: $green;
+    color: $bg;
+}
+
+.now-playing-toggle.pause:hover {
+    background-color: $yellow;
+    color: $bg;
+}
+
+.now-playing-prev {
+    border-radius: 8px 8px 0 0;
+}
+
+.now-playing-next {
+    border-radius: 0 0 8px 8px;
+}
+
+.now-playing-time {
+    color: $gray;
+}
+
+.sliders {
+    font-family: NotoEmoji Nerd Font Mono;
+    font-size: 16px;
+    border-radius: 1rem;
+    margin: 1rem 0 0 0;
+}
+
+.vol, .bright, .mic {
+}
+
+.vol-icon, .mic-icon {
+    border-radius: 8px;
+    padding: 0.2rem 1rem;
+    margin: 0 1rem 1rem 0;
+    background-color: $raisin-black;
+}
+
+.vol-icon:hover, .mic-icon:hover {
+    background-color: $gray;
+}
+
+scale.vol-scale trough, scale.mic-scale trough {
+    all: unset;
+    background-color: $gray;
+    border-radius: 100px 0 100px 0;
+    min-height: 15px;
+    min-width: 300px;
+    margin: 0.5rem 0;
+}
+
+.vol-scale trough highlight {
+    background-color: $blue;
+    border-radius: 100px 0 100px 0;
+}
+
+.mic-scale trough highlight {
+    background-color: $purple;
+    border-radius: 100px 0 100px 0;
+}
+

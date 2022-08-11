@@ -1,0 +1,254 @@
+@import "../common/scss/colors.scss";
+@import "./notif-menu/notif-menu.scss";
+@import "./media-menu/media-menu.scss";
+@import "./time-menu/time-menu.scss";
+@import "./power-menu/power-menu.scss";
+
+* {
+    all: unset;
+    transition: 100ms ease-in;
+}
+
+.menu {
+    font-family: Noto Sans, NotoEmoji Nerd Font Mono;
+    background-color: #181821;
+    border: 1px solid $gray;
+    border-radius: 15px;
+}
+
+.menu-main, .media-menu, .time-menu, .notif-menu {
+}
+
+.user {
+    background-color: $bg;
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin: 1rem;
+}
+
+.user-pfp {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-width: 80px;
+    min-height: 80px;
+    border-radius: 40px;
+    border: 1px solid $light-gray;
+}
+
+.user-details {
+    margin: 0 0 0 1rem;
+}
+
+.user-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.user-uptime {
+    font-size: 14px;
+    color: $light-gray;
+}
+
+.time-box {
+    background-color: $bg;
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+
+.time {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.apps {
+    font-size: 18px;
+    background-color: $raisin-black;
+    border-radius: 8px;
+    margin: 0 0 0 1rem;
+}
+
+.apps button {
+    padding: 1rem;
+}
+
+.apps button:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.apps button:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+.apps-firefox:hover {
+    background-color: $peach;
+    color: $bg;
+}
+
+.apps-discord:hover {
+    background-color: $blue;
+    color: $bg;
+}
+
+.apps-vscode:hover {
+    background-color: $blue;
+    color: $bg;
+}
+
+.apps-kitty:hover {
+    background-color: $mint;
+    color: $bg;
+}
+
+.apps-github:hover {
+    background-color: $purple;
+    color: $bg;
+}
+
+.weather {
+    background-color: $bg;
+    border-radius: 8px;
+    margin: 0 1rem;
+}
+
+.weather-icon {
+    font-family: NotoEmoji Nerd Font Mono;
+    font-size: 50px;
+    color: #aaa;
+    padding: 0.5rem 0.7rem;
+}
+
+.weather-name {
+    color: whitesmoke;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.weather-temp {
+    color: $light-gray;
+    font-size: 16px;
+}
+
+.cal-box {
+    background-color: $bg;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+calendar {
+
+	&:selected {
+        color: $bg;
+        background-color: $mint;
+        border-radius: 8px;
+        padding: 0.5rem;
+	}
+
+	&:indeterminate {
+		color: $gray;
+	}
+}
+
+.section-one {
+    margin: 0 1rem 1rem 1rem;
+}
+
+.stats {
+    border-radius: 8px;
+    margin-right: 1rem;
+}
+
+.cpu-meter, .ram-meter, .bat-meter {
+    background-color: $gray;
+    margin: 0.7rem 0.5em;
+}
+
+.cpu-meter {
+    color: $mint;
+}
+
+.ram-meter {
+    color: $purple;
+}
+
+.bat-meter {
+    color: $blue;
+}
+
+.cpu-icon, .ram-icon, .bat-icon {
+    font-family: NotoEmoji Nerd Font Mono;
+    padding: 2rem;
+}
+
+.updates {
+    color: $bg;
+    background-color: $mint;
+    border-radius: 8px;
+}
+
+.updates-icon {
+    font-size: 32px;
+}
+
+.updates-val {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.powermenu {
+    font-family: NotoEmoji Nerd Font Mono;
+    font-size: 16px;
+    background-color: $bg;
+    border-radius: 8px;
+    margin: 1rem;
+}
+
+.powermenu > button {
+    padding: 1rem;
+}
+
+.powermenu button:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.powermenu button:last-child {
+    border-radius: 0 8px 8px 0;
+}
+
+.power-lock {
+}
+
+.power-lock:hover {
+    background-color: $blue;
+    color: $bg;
+}
+
+.power-exit:hover {
+    background-color: $purple;
+    color: $bg;
+}
+
+.power-reboot:hover {
+    background-color: $mint;
+    color: $bg;
+}
+
+.power-shutdown:hover {
+    background-color: $red;
+    color: $bg;
+}
+
+.sep {
+    border-bottom: 1px solid $raisin-black;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.wysi {    
+    margin: 1rem 0 1rem 1rem;
+}
+
+.wysi-icon {
+    color: $light-gray;
+}
+

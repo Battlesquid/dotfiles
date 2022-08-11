@@ -1,0 +1,26 @@
+(defwidget time-menu-main[]
+  (box :class "menu time-menu"
+       :orientation "v"
+       :space-evenly false
+    (time)
+    (box :class "cal-box"
+      (calendar :class "cal"
+                :active false
+                :show-heading false))))
+
+(defwidget time[]
+  (box :class "time-box"
+       :orientation "v"
+       :space-evenly false  
+    (label :class "time" :text time)
+    (label :class "date" :text "${date}")))
+
+(defpoll time :interval "1s" "date +'%I:%M %p'")
+(defpoll date :interval "5s" "date +'%A, %B %d'")
+
+(defwindow time-menu 
+  :monitor 0
+  :geometry (geometry :x "-10px" :y "68px" :width "384px" :anchor "top right")
+  :windowtype "dock"
+  :wm-ignore false
+  (time-menu-main))

@@ -1,0 +1,28 @@
+#!/bin/sh
+
+bat=$(cat /sys/class/power_supply/BAT0/capacity)
+
+function level() {
+    echo $bat
+}
+
+function icon() {
+    if (( bat < 20 ));then
+        echo ""
+    elif (( bat < 40 ));then
+        echo ""
+    elif (( bat < 60 ));then
+        echo ""
+    elif (( bat < 80 ));then
+        echo ""
+    else
+        echo ""
+    fi
+}
+
+if [ "$1" = "level" ];then
+    level
+elif [ "$1" = "icon" ];then
+    icon
+fi
+

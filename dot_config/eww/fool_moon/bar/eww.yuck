@@ -1,0 +1,117 @@
+(defwidget main []
+  (box :class "bar"
+    (left)
+    (right)))
+
+(defwidget left[]
+  (box :class "left"
+       :valign "center"
+       :space-evenly false
+    (start)
+    (workspaces)))
+
+(defwidget right[]
+  (box  :class "right" 
+        :space-evenly false
+        :valign "center"
+        :halign "end"
+    (notifs)
+    (vol)
+    (sys)
+    (time)))
+
+(defwidget lbar[]
+  (box :class "bar left-bar"
+    (left)))
+
+(defwidget rbar[]
+  (box :class "bar right-bar"
+    (right)))
+
+(defwidget sys[]
+  (box :class "sys"
+       :valign "center"
+       :vexpand true
+    (wifi)
+    (bat)))
+
+(defwidget notifs[]
+  (box :class "notifs"
+       :tooltip "Notifications"
+       :valign "center"
+    (button :class "notifs-btn" :onclick "scripts/widgets toggle-notifs" " ${notif-count}")))
+
+(deflisten notif-count :initial "0" "../common/scripts/notifs count")
+
+(defwidget vol[]
+  (box :class "vol"
+       :valign "center"
+    (button :class "vol-btn" :onclick "scripts/widgets toggle-media" vol-icon)))
+                 
+(defpoll vol-percent :interval "1s" "../common/scripts/vol percent")
+(defpoll vol-icon :interval "1s" "../common/scripts/vol icon")
+
+(defwidget wifi[]
+  (box :class "wifi"
+       :tooltip "${wifi-tooltip}"
+    (label :class "wifi-icon" :text wifi-icon)))
+
+(defpoll wifi-tooltip :interval "5s" "scripts/wifi text")
+(defpoll wifi-icon :interval "5s" "scripts/wifi icon")
+
+(defwidget bat []
+  (box  :class "bat"
+        :tooltip "${bat-per}%"
+    "${bat-icon}"))
+
+(defpoll bat-per :interval "5s" "scripts/bat level")
+(defpoll bat-icon :interval "5s" "scripts/bat icon")
+
+(defwidget workspaces []
+  (eventbox :onscroll "scripts/workspaces scroll {}"
+    (literal :content workspace)))
+
+(deflisten workspace `scripts/workspaces subscribe "ﱣ" "ﱣ"`)
+
+(defwidget time[]
+  (box :class "time"
+       :valign "center" 
+    (button :class "time-btn" :onclick "scripts/widgets toggle-time" "${hour}:${min}")))
+
+(defpoll hour :interval "1s" "date +%I")
+(defpoll min  :interval "1s" "date +%M")
+
+(defwidget power[]
+  (box :class "power"
+       :valign "center"
+    (button :class "power-btn" :onclick "scripts/widgets toggle-powermenu" "襤")))
+
+(defwidget start[]
+  (box :class "start"
+       :valign "center"
+    (button :onclick "scripts/widgets toggle-menu" :class "start-btn" "")))
+
+(defwindow bar 
+  :monitor 0
+  :geometry (geometry :x "0px" :y "0px" :width "100%" :height "48px")
+  :windowtype "dock"
+  :stacking "bg"
+  :reserve (struts :distance "50px" :side "top")
+  :wm-ignore false
+  :hexpand false
+  :vexpand false
+  (main))
+
+(defwindow left_bar
+  :monitor 0
+  :geometry (geometry :x "10px" :y "10px" :height "48px" :anchor "top left")
+  :windowtype "dock"
+  :reserve (struts :distance "60px" :side "top")
+  (lbar))
+
+(defwindow right_bar 
+  :monitor 0
+  :geometry (geometry :x "-10px" :y "10px" :height "48px" :anchor "top right")
+  :windowtype "dock"
+  :reserve (struts :distance "60px" :side "top")
+  (rbar))

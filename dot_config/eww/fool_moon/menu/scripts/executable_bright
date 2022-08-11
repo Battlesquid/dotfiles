@@ -1,0 +1,12 @@
+#!/bin/bash
+
+function val() {
+    brightnessctl -m | cut -d "," -f 4 | sed "s/%//"
+}
+
+
+case "$1" in
+    "val") val;;
+    *) echo "Unknown option '$1'";;
+esac
+

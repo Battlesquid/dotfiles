@@ -1,0 +1,78 @@
+#!/bin/bash
+
+CACHE_DIR="$HOME/.cache/eww"
+animate="$HOME/.config/eww/common/scripts/animations.bash"
+delta=5
+
+function percent () {
+    echo $(pamixer --get-volume) 
+}
+
+function icon() {
+    local per=$(percent)
+    local muted=$(pamixer --get-mute)
+
+    if [ "$muted" = "true" ]; then
+        echo "婢" 
+    elif (( per >= 60 )); then
+        echo "墳" 
+    elif (( per >= 20 )); then
+        echo "奔" 
+    elif (( per <= 20 )); then
+        echo "奄" 
+    fi
+}
+
+function set_vol() {
+    if [ -f "$CACHE_DIR/vol.value" ] && ! $animate is_locked "vol";then
+        local val=$(printf "%.0f\n" "$1")
+        pamixer --set-volume $val
+        echo $val > "$CACHE_DIR/vol.value"
+        icon
+    fi
+}
+
+function toggle_mute() {
+    pamixer --toggle-mute
+    icon
+}
+
+function follow() {
+    local scalar=$(percent)
+    $animate run -i "vol" -s $scalar -e "ease_out_expo"
+
+    if ! [ -f "$CACHE_DIR/vol.value" ];then
+        mkdir -p "$CACHE_DIR"
+        touch "$CACHE_DIR/vol.value"
+    fi
+
+    echo $(percent) > "$CACHE_DIR/vol.value"
+
+    tail -F "$CACHE_DIR/vol.value" 2> /dev/null
+}
+
+function follow_icon() {
+    icon
+    tail -F "$CACHE_DIR/vol-icon.value" > /dev/null
+}
+
+function change() {
+    [ "$1" = "up" ] && pamixer --increase $delta || pamixer --decrease $delta
+
+    if [ -f "$CACHE_DIR/vol.value" ] && ! $animate is_locked "vol";then
+        echo $(percent) > "$CACHE_DIR/vol.value"
+        icon
+    fi
+}
+
+
+case "$1" in
+    "percent") percent;;
+    "icon") icon;;
+    "set") set_vol "$2";;
+    "follow") follow "$2";;
+    "follow-icon") follow_icon;;
+    "change") change "$2";;
+    "toggle-mute") toggle_mute;;
+    *) echo "Unknown command";;
+esac

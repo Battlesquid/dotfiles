@@ -1,0 +1,155 @@
+configuration {
+    sidebar-mode: 					true;
+    drun-display-format:            "{name}";
+    display-window: 				"";
+    display-run: 					"";
+    display-drun: 					"";
+}
+
+@import "colors.rasi"
+ 
+window {
+    font: "Noto Sans Light 14";
+    background-color: #181821;
+    border: 1;
+    border-color: @gray;
+    border-radius: 15px;
+    padding: 						14px;
+    width: 							40%;
+    children: [ mainbox ];
+}
+
+mainbox {
+    border: 0;
+    background-color: #181821;
+    children: [ inputbar, message, body ];
+}
+
+
+inputbar {
+    background-image: url("./fool_moon/fool_moon.jpg", width);
+    background-color: @bg;
+    border-radius: 8px;
+    margin: 0 0 10px 0;
+    padding: 20px;
+    children: [ prompt, textbox-prompt-colon, entry ];
+}
+
+prompt {
+    font: "JetBrainsMono Nerd Font 18";
+    padding: 10px 20px;
+    background-color: @blue;
+    color: @bg;
+    vertical-align: 0.5;
+    border-radius: 8px;
+}
+
+textbox-prompt-colon {
+    background-color: rgba(255, 255, 255, 0);
+    expand: 						false;
+    text-color: 					inherit;
+}
+
+entry {
+    background-color: @bg;
+    border-radius: 8px;
+    color: @light-gray;
+    padding: 15px;
+    cursor: pointer;
+    vertical-align: 0.5;
+}
+
+textbox {
+    background-color: #181821;
+    color: @light-gray;
+}
+
+body {
+    background-color: #181821;
+    orientation: horizontal;
+    spacing: 14px;
+    children: [ mode-switcher, listview ];
+}
+
+listview {
+    columns: 2;
+    lines: 4;
+    spacing: 14px;
+    background-color: #181821;
+    padding: 0;
+}
+
+element {
+    orientation: horizontal;
+    children: [element-icon, element-text ];
+    border-radius: 8px;
+    padding: 10px;
+}
+
+element.normal.normal, element.alternate.normal {
+    background-color: @bg;
+    color: @light-gray;
+}
+
+element.selected.normal, element-icon.selected.normal, element-text.selected.normal {
+    background-color: @blue;
+    color: @bg;
+}
+
+element.normal.active, element-icon.normal.active, element-text.normal.active {
+    background-color: @bg;
+    color: @green;
+}
+
+element.selected.active, element-icon.selected.active, element-text.selected.active {
+    background-color: @green;
+    color: @bg;
+}
+
+element-icon, element-text {
+    background-color: @bg;
+    color: @light-gray;
+}
+
+element-icon {
+    size: 1.5em;
+    vertical-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0;
+    vertical-align: 0.5;
+}
+
+mode-switcher {
+    background-color: @bg;
+    border-radius: 12px;
+    orientation: vertical;
+    expand: false;
+    border: 0;
+    horizontal-align: 0.5;
+    padding: 10px;
+}
+
+button {
+    font: "JetBrainsMono Nerd Font 18";
+    expand: true;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+button.normal.active {
+    background-color: @blue;
+    color: @bg;
+}
+
+button.selected.normal {
+    background-color: @blue;
+    color: @bg;
+}
+
+button.normal.normal {
+    background-color: @bg;
+    color: @light-gray;
+}
+

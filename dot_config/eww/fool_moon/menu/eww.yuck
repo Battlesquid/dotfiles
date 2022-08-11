@@ -1,0 +1,151 @@
+(include "../common/eww/circlemeter.yuck")
+(include "./time-menu/time-menu.yuck")
+(include "./media-menu/media-menu.yuck")
+(include "./notif-menu/notif-menu.yuck")
+(include "./power-menu/power-menu.yuck")
+
+(defwidget menu-main[]
+  (box :class "menu menu-main"
+       :orientation "v"
+       :space-evenly false
+       :valign "end"
+       :hexpand false
+       :vexpand false
+    (header)
+    (section-one)
+    (section-two)
+    (footer)))
+
+(defwidget header[]
+  (box :class "header"
+       :hexpand true
+       :space-evenly false
+       :orientation "v"
+    (user)))
+
+(defwidget user[] 
+  (box :class "user"
+       :space-evenly false
+    (box :class "user-pfp" :halign "start" :valign "center" :style "background-image: url('assets/pfp.png');") 
+    (box :class "user-details"
+         :orientation "v"
+         :space-evenly false
+         :valign "center"
+      (label :class "user-name" :halign "start" :text uname)
+      (label :class "user-uptime" :halign "start" :text uptime-val)))) 
+
+(defpoll uname :interval "1h" "echo $USER")
+(defpoll uptime-val :interval "30s" "uptime -p")
+
+(defwidget section-two[]
+  (box :class "section-two"
+       :space-evenly false
+    (box :class "section-two-left"
+         :orientation "v"
+      (apps))
+    (box :class "section-two-right"
+         :orientation "v"
+         :hexpand true
+      (weather))))
+
+(defwidget apps[]
+  (box :class "apps"
+       :orientation "v"
+    (button :class "apps-firefox" :onclick "firefox &" :tooltip "Firefox" :timeout "2s" "")
+    (button :class "apps-discord" :onclick "discord &" :tooltip "Discord" :timeout "2s" "")
+    (button :class "apps-vscode" :onclick "code &" :tooltip "VSCode" :timeout "2s" "﬏")
+    (button :class "apps-kitty" :onclick "kitty ~ &" :tooltip "Kitty" :timeout "2s" "ﲵ")
+    (button :class "apps-github" :onclick "xdg-open 'https://github.com' &" :tooltip "Github" :timeout "2s" "ﯙ")))
+
+(defwidget weather[]
+  (box :class "weather"
+       :orientation "h"
+       :hexpand true
+    (label :class "weather-icon" :text weather-icon)
+    (box :class "weather-details"
+         :orientation "v"
+         :valign "center"
+      (label :class "weather-name" :halign "start" :text weather-name)
+      (label :class "weather-temp" :halign "start" :text "${weather-temp}° F"))))
+
+(defpoll weather-icon :interval "30m" :initial "" :timeout "1s" "scripts/weather icon") 
+(defpoll weather-name :interval "30m" :initial "" :timeout "1s" "scripts/weather name")
+(defpoll weather-temp :interval "30m" :initial "" :timeout "1s" "scripts/weather temp")
+
+(defwidget section-one[]
+  (box :class "section-one"
+       :space-evenly false
+    (stats)
+    (updates)))
+
+(defwidget stats[]
+  (box :class "stats"
+    (circlemeter :name "cpu" :val cpu-val :thickness 6 :icon "")
+    (circlemeter :name "ram" :val ram-val :thickness 6 :icon "﬙")
+    (circlemeter :name "bat" :val bat-val :thickness 6 :icon bat-icon)))
+
+(defpoll cpu-val :initial 0 :interval "5s" "scripts/cpu")
+(defpoll ram-val :initial 0 :interval "5s" "scripts/ram")
+(defpoll bat-val :initial 0 :interval "5s" "scripts/bat percent")
+(defpoll bat-icon :initial 0 :interval "5s" "scripts/bat icon")
+
+(defwidget updates[]
+  (box :class "updates"
+       :orientation "v"
+       :hexpand true
+    (label :class "updates-icon" :text "")
+    (label :class "updates-val" :valign "start" :text update-count)))
+
+(defpoll update-count :interval "30m" "checkupdates | wc -l")
+
+
+(defwidget bright[]
+  (box :class "bright"
+       :orientation "h"
+       :space-evenly false
+    (label :class "bright-icon" :text "瘟")
+    (scale :class "bright-scale"
+           :orientation "h"
+           :min 0
+           :max 101
+           :value bright-value
+           :onchange "../common/scripts/bright set {}")))
+
+(deflisten bright-value :initial 0 "../common/scripts/bright follow")
+
+
+(defwidget footer[]
+  (box :class "footer"
+       :hexpand true
+       :space-evenly false
+    (wysi)
+    (powermenu)))
+
+(defwidget wysi[]
+  (box :class "wysi"
+       :hexpand true
+       :vexpand true
+    (label :class "wysi-icon" :halign "center" :valign "center" :text "fool moon ")))
+
+(defpoll wysi-phrase :interval "1m" :initial "fool moon" "scripts/wysi")
+
+(defwidget powermenu[]
+  (box :class "powermenu"
+       :hexpand true 
+       :vexpand false
+       :valign "end"
+    (button :class "power-lock" :onclick "slock" :tooltip "Lock" "")
+    (button :class "power-exit" :onclick "bspc quit" :tooltip "Exit BSPWM" "")
+    (button :class "power-reboot" :onclick "reboot" :tooltip "Restart" "")
+    (button :class "power-shutdown" :onclick "shutdown" :tooltip "Shutdown" "")))
+
+
+(defwindow menu
+  :monitor 0
+  :geometry (geometry :x "10px" :y "68px" :width "384px" :anchor "top left")
+  :windowtype "dock"
+  :wm-ignore false
+  (menu-main))
+
+
+

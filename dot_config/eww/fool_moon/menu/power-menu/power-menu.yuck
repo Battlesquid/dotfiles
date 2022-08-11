@@ -1,0 +1,27 @@
+(defwidget power-menu-main[]
+  (box :class "power-menu-main"
+    (overlay
+      :vexpand true
+      :hexpand true
+      (box :class "bg") 
+      (power-time))))
+
+(defwidget power-time[]
+  (box :class "time"
+       :orientation "v"
+       :space-evenly false
+    (overlay
+      (label :class "day" :halign "start" :text day)
+      (label :class "month" :halign "start" :valign "end" :text month))))
+
+(defpoll month :interval "5s" "date +'%^B'")
+(defpoll day :interval "5s" "date +'%d'")
+(defpoll time :interval "1s" "date +'%I:%M%p'")
+
+(defwindow power-menu 
+  :monitor 0
+  :geometry (geometry :x "0" :y "0" :anchor "top left")
+  :windowtype "dock"
+  :wm-ignore false
+  (power-menu-main))
+

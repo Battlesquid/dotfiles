@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rofi -no-lazy-grab -show drun -modi run,window,drun -theme "$HOME/.config/rofi/fool_moon/fool_moon"

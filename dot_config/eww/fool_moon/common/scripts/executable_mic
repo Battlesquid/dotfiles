@@ -1,0 +1,58 @@
+#!/bin/bash
+
+CACHE_DIR="$HOME/.cache/eww"
+animate="$HOME/.config/eww/common/scripts/animations.bash"
+
+function percent () {
+    echo $(pamixer --default-source --get-volume) 
+}
+
+function icon() {
+    local muted=$(pamixer --default-source --get-mute)
+    [ "$muted" = "true" ] && echo "" || echo "" 
+}
+
+function set_val() {
+    if [ -f "$CACHE_DIR/mic.value" ] && ! $animate is_locked "mic";then
+        local val=$(printf "%.0f\n" "$1")
+        pamixer --default-source --set-volume $val 
+        echo $val > "$CACHE_DIR/mic.value"
+    fi
+}
+
+function toggle_mute() {
+    pamixer --default-source --toggle-mute
+}
+
+function follow() {
+    local scalar=$(percent)
+    $animate run -i "mic" -s $scalar -e "ease_out_expo"
+
+    if ! [ -f "$CACHE_DIR/mic.value" ];then
+        mkdir -p "$CACHE_DIR"
+        touch "$CACHE_DIR/mic.value"
+    fi
+
+    echo $(percent) > "$CACHE_DIR/mic.value"
+
+    tail -F "$CACHE_DIR/mic.value" 2> /dev/null
+}
+
+function change() {
+    [ "$1" = "up" ] && pamixer --default-source --increase 1 || pamixer --default-source --decrease 1 
+
+    if [ -f "$CACHE_DIR/mic.value" ] && ! $animate is_locked "mic";then
+        echo $(percent) > "$CACHE_DIR/mic.value"
+    fi
+}
+
+
+case "$1" in
+    "percent") percent;;
+    "icon") icon;;
+    "set") set_val "$2";;
+    "follow") follow "$2";;
+    "change") change "$2";;
+    "toggle-mute") toggle_mute;;
+    *) echo "Unknown command";;
+esac
