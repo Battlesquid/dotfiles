@@ -8,26 +8,26 @@ super + Return
 
 # program launcher
 super + space
-	launcher_text > ~/log/out.log
+	$HOME/.config/rofi/fool_moon/launch
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
 F1
-	pulseaudio-control togmute
+	$HOME/.config/eww/fool_moon/common/scripts/vol toggle-mute
 
 F2
-	pulseaudio-control --volume-max 130 down
+	$HOME/.config/eww/fool_moon/common/scripts/vol change down
 
 F3
-	pulseaudio-control --volume-max 130 up
+	$HOME/.config/eww/fool_moon/common/scripts/vol change up
 
 F6
-	brightnessctl --device=intel_backlight s 10%-
+	$HOME/.config/eww/fool_moon/common/scripts/bright change down
 
 F7
-	brightnessctl --device=intel_backlight s 10%+
+	$HOME/.config/eww/fool_moon/common/scripts/bright change up
 
 Print
 	flameshot gui
