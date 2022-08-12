@@ -33,6 +33,7 @@ vim.cmd [[
 	colorscheme tokyonight 
 	set number
 	set mouse+=a
+	set ts=4 sw=4
 ]]
 
 require('statusline')

@@ -5,7 +5,6 @@
 
 (defwidget left[]
   (box :class "left"
-       :valign "center"
        :space-evenly false
     (start)
     (workspaces)))
@@ -13,10 +12,7 @@
 (defwidget right[]
   (box  :class "right" 
         :space-evenly false
-        :valign "center"
-        :halign "end"
     (notifs)
-    (vol)
     (sys)
     (time)))
 
@@ -28,12 +24,16 @@
   (box :class "bar right-bar"
     (right)))
 
-(defwidget sys[]
-  (box :class "sys"
+(defwidget start[]
+  (box :class "start"
        :valign "center"
-       :vexpand true
-    (wifi)
-    (bat)))
+    (button :onclick "scripts/widgets toggle-menu" :class "start-btn" "")))
+
+(defwidget workspaces []
+  (eventbox :onscroll "scripts/workspaces scroll {}"
+    (literal :content workspace)))
+
+(deflisten workspace `scripts/workspaces subscribe "ﱣ" "ﱣ"`)
 
 (defwidget notifs[]
   (box :class "notifs"
@@ -43,53 +43,27 @@
 
 (deflisten notif-count :initial "0" "../common/scripts/notifs count")
 
-(defwidget vol[]
-  (box :class "vol"
-       :valign "center"
-    (button :class "vol-btn" :onclick "scripts/widgets toggle-media" vol-icon)))
-                 
-(defpoll vol-percent :interval "1s" "../common/scripts/vol percent")
+(defwidget sys[]
+  (eventbox :class "sys-eventbox"
+            :onclick "scripts/widgets toggle-sys"
+    (box :class "sys"
+         :valign "center"
+         :vexpand true
+      (label :class "vol-icon" :text vol-icon)
+      (label :class "wifi-icon" :text wifi-icon)
+      (label :class "bat-icon" :text bat-icon))))
+
 (defpoll vol-icon :interval "1s" "../common/scripts/vol icon")
-
-(defwidget wifi[]
-  (box :class "wifi"
-       :tooltip "${wifi-tooltip}"
-    (label :class "wifi-icon" :text wifi-icon)))
-
-(defpoll wifi-tooltip :interval "5s" "scripts/wifi text")
 (defpoll wifi-icon :interval "5s" "scripts/wifi icon")
-
-(defwidget bat []
-  (box  :class "bat"
-        :tooltip "${bat-per}%"
-    "${bat-icon}"))
-
-(defpoll bat-per :interval "5s" "scripts/bat level")
 (defpoll bat-icon :interval "5s" "scripts/bat icon")
 
-(defwidget workspaces []
-  (eventbox :onscroll "scripts/workspaces scroll {}"
-    (literal :content workspace)))
-
-(deflisten workspace `scripts/workspaces subscribe "ﱣ" "ﱣ"`)
-
 (defwidget time[]
-  (box :class "time"
-       :valign "center" 
-    (button :class "time-btn" :onclick "scripts/widgets toggle-time" "${hour}:${min}")))
+  (box
+    :class "time"
+    :valign "center"
+    (label :class "time-lbl" :text time-lbl)))
 
-(defpoll hour :interval "1s" "date +%I")
-(defpoll min  :interval "1s" "date +%M")
-
-(defwidget power[]
-  (box :class "power"
-       :valign "center"
-    (button :class "power-btn" :onclick "scripts/widgets toggle-powermenu" "襤")))
-
-(defwidget start[]
-  (box :class "start"
-       :valign "center"
-    (button :onclick "scripts/widgets toggle-menu" :class "start-btn" "")))
+(defpoll time-lbl :interval "1s" "date +%I:%M")
 
 (defwindow bar 
   :monitor 0
