@@ -122,6 +122,8 @@ source $ZSH/oh-my-zsh.sh
 # To add support for TTYs this line can be optionally added.
 # source ~/.cache/wal/colors-tty.sh
 
+source /usr/share/nvm/init-nvm.sh
+
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 
 alias chezit='chezmoi edit'
