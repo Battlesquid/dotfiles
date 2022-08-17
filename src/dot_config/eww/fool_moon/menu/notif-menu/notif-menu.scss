@@ -1,17 +1,17 @@
-.main {
-    font-family: Noto Sans, NotoEmoji Nerd Font Mono;
-}
-
 .notifications-box {
     border-radius: 8px;
-    padding: 1rem;
+}
+
+.notification-headers {
+	padding: 1rem;
 }
 
 .notification-headers-label {
-    color: whitesmoke;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: bold;
-    margin-bottom: 0.5rem;
+	color: #B8BDC9;
+	border-radius: 8px 8px 0 0;
+	padding: 1rem;
 }
 
 .notification-card-eventbox {
@@ -34,15 +34,12 @@
     border-radius: 8px;
     color: $gray;
     padding: 5px 22px;
-    margin-top: 1rem;
+	margin: 1rem;
 }
 
 .notification-headers-clear:hover {
     background-color: $red;
     color: $bg;
-}
-
-.notifications-empty-box {
 }
 
 .notifications-empty-icon {
@@ -57,9 +54,6 @@
 
 .notification-scrollbox {
     min-height: 140px;
-}
-
-.notification-card-box {
 }
 
 .notification-card-LOW {
@@ -82,15 +76,10 @@
     border-radius: 8px;
 }
 
-.notification-summary {
-    font-size: 16px;
-    color: whitesmoke;
-}
-
 .notification-card-notify-close {
     color: $red;
     font-size: 14px;
-    padding: 0.3rem;
+    padding: 0.5rem;
     border-radius: 0.5rem;
     margin: 0;
 }
@@ -100,8 +89,14 @@
     background-color: $red;
 }
 
+.notification-summary {
+    font-size: 16px;
+	font-weight: bold;
+	color: #B8BDC9;
+}
+
 .notification-body {
-    color: $gray;
+    color: $light-gray;
     font-size: 13px;
 }
 
@@ -116,15 +111,7 @@
 }
 
 .notification-card-header-box {
-    background-color: $raisin-black;
+    background-color: $bg;
     border-radius: 0 0 18px 8px;
 }
 
-.notification-app-name {
-    font-family: Noto Sans Mono;
-    font-size: 14px;
-    font-style: italic;
-    border-radius: 0 0 38px 100px;
-    padding: 0 0.5rem 0 1.2rem;
-    color: $bg;
-}

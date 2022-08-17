@@ -10,10 +10,11 @@ function subscribe() {
         local btns=()
 
         for ws in "${workspaces[@]}"; do
-            local occ=$(bspc query -D -d .occupied --names | grep "$ws")
-            local focus=$(bspc query -D -d focused --names | grep "$ws")
+            local occ=$(bspc query -D -d .occupied --names | grep "$ws" > /dev/null && echo "$ws" || echo "")
+			local focus=$(bspc query -D -d focused --names | grep "$ws" > /dev/null && echo "$ws" || echo "")
             [[ "$focus" ]] && icon=$focus_icon || icon=$unfoc_icon
-            btns+="(button :onclick \"bspc desktop -f $ws\" :class \"$un$occ$focus\" \"$icon\")"
+			local btn="(button :onclick \"bspc desktop -f $ws\" :class \"$un$occ$focus\" \"$icon\")"
+            btns+="$btn"
         done
 
         echo "(box :class \"workspaces\" :vexpand true :spacing $ws_len :space-evenly \"false\" ${btns[*]})"

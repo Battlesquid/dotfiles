@@ -1,7 +1,7 @@
 #!/bin/sh
 
 CACHE_DIR="$HOME/.cache/eww"
-animate="$HOME/.config/eww/common/scripts/animations.bash"
+animate="$HOME/.config/eww/fool_moon/common/scripts/animations"
 delta=5
 
 function percent() {

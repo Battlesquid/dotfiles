@@ -6,14 +6,18 @@
 (defwidget left[]
   (box :class "left"
        :space-evenly false
+        :halign "start"
     (start)
     (workspaces)))
 
 (defwidget right[]
   (box  :class "right" 
         :space-evenly false
+        :spacing 7 
+        :halign "end"
     (notifs)
     (sys)
+    (bat)
     (time)))
 
 (defwidget lbar[]
@@ -27,50 +31,61 @@
 (defwidget start[]
   (box :class "start"
        :valign "center"
-    (button :onclick "scripts/widgets toggle-menu" :class "start-btn" "")))
+    (button :onclick "scripts/widgets toggle-sys" :class "start-btn" "")))
 
 (defwidget workspaces []
   (eventbox :onscroll "scripts/workspaces scroll {}"
     (literal :content workspace)))
 
-(deflisten workspace `scripts/workspaces subscribe "ﱣ" "ﱣ"`)
+(deflisten workspace 'scripts/workspaces subscribe "" ""')
 
 (defwidget notifs[]
-  (box :class "notifs"
-       :tooltip "Notifications"
-       :valign "center"
-    (button :class "notifs-btn" :onclick "scripts/widgets toggle-notifs" " ${notif-count}")))
+  (eventbox :class "notifs-eventbox"
+            :tooltip "Notifications"
+            :valign "center"
+    (label :class "notifs-label" :text "  ${notif-count}")))
 
 (deflisten notif-count :initial "0" "../common/scripts/notifs count")
 
 (defwidget sys[]
-  (eventbox :class "sys-eventbox"
-            :onclick "scripts/widgets toggle-sys"
-    (box :class "sys"
-         :valign "center"
-         :vexpand true
+    (box :spacing 10
+          :class "sys"
+          :valign "center"
       (label :class "vol-icon" :text vol-icon)
-      (label :class "wifi-icon" :text wifi-icon)
-      (label :class "bat-icon" :text bat-icon))))
+      (label :class "wifi-icon ${wifi-class}" :text "")))
 
 (defpoll vol-icon :interval "1s" "../common/scripts/vol icon")
-(defpoll wifi-icon :interval "5s" "scripts/wifi icon")
-(defpoll bat-icon :interval "5s" "scripts/bat icon")
+(defpoll wifi-class :interval "1s" "scripts/wifi class")
+(defpoll bat-icon :interval "1s" "scripts/bat icon")
+
+(defwidget bat[]
+  (box :class "bat-box"
+       :space-evenly false
+    (label :class "bat-icon ${bat-class}" :valign "center" :height 25 :width 25 :text bat-icon)
+    (overlay
+      (scale :class "bat-scale ${bat-class}" :active false :min 0 :max 101 :value bat-val)
+      (label :class "bat-label" :halign "start" :text "${bat-val}%"))))
+
+(defpoll bat-val :interval "1s" "scripts/bat level")
+(defpoll bat-class :interval "1s" "scripts/bat class")
 
 (defwidget time[]
-  (box
-    :class "time"
-    :valign "center"
-    (label :class "time-lbl" :text time-lbl)))
+  (box :class "time-box"
+          :halign "center"
+    (eventbox :class "time-eventbox"
+              :onclick "scripts/widgets toggle-time"
+              :cursor "pointer"
+              :valign "center"
+      (label :class "time-label" :text "   ${time-lbl}"))))
 
-(defpoll time-lbl :interval "1s" "date +%I:%M")
+(defpoll time-lbl :interval "1s" "date +'%I:%M'")
 
 (defwindow bar 
   :monitor 0
-  :geometry (geometry :x "0px" :y "0px" :width "100%" :height "48px")
+  :geometry (geometry :x "0px" :y "0px" :width "100%" :height "48px" :anchor "top left")
   :windowtype "dock"
   :stacking "bg"
-  :reserve (struts :distance "50px" :side "top")
+  :reserve (struts :distance "52px" :side "top")
   :wm-ignore false
   :hexpand false
   :vexpand false
@@ -89,3 +104,4 @@
   :windowtype "dock"
   :reserve (struts :distance "60px" :side "top")
   (rbar))
+

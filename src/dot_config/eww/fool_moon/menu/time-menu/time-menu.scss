@@ -1,0 +1,83 @@
+.time-menu {
+	padding: 1rem;
+	padding-bottom: 0;
+}
+
+.time-box {
+	background-color: $bg;
+	border-radius: 8px;
+	padding: 0.5rem;
+
+	.time {
+		font-size: 36px;
+		font-weight: bold;
+	}
+
+	.date {
+		font-size: 14px;
+		font-weight: bold;
+		color: $light-gray;
+	}
+}
+
+.weather {
+	background-color: $bg;
+	border-radius: 8px;
+	margin-bottom: 1rem;
+}
+
+.weather-icon {
+	font-family: NotoEmoji Nerd Font Mono;
+	font-size: 50px;
+	color: $bg;
+	background-image: linear-gradient(to right, $blue, #678ac2);
+	border-radius: 8px 0 0 8px;
+	padding: 0 2rem;
+}
+
+.weather-details {
+	border-radius: 0 8px 8px 0;
+	padding-left: 1rem;
+}
+
+.weather-name {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.weather-temp {
+	color: $light-gray;
+	font-size: 16px;
+}
+
+.cal-box {
+	margin: 1rem 0;
+}
+
+.cal-header {
+	font-weight: bold;
+	color: $bg;
+	background-color: $blue;
+	background-image: linear-gradient(to right, $blue, #678ac2);
+	border-radius: 8px 8px 0 0;
+	padding: 1rem 1rem;
+}
+
+calendar {
+	font-weight: bold;
+	color: $light-gray;
+	background-color: $bg;
+	border-radius: 0 0 8px 8px;
+	padding: 1rem 0.3rem 0.2rem 0.3rem;
+
+	&:selected {
+		color: $blue;
+		border-radius: 8px;
+		padding-top: 0.5rem;
+	}
+
+	&:indeterminate {
+		color: $gray;
+	}
+}
+

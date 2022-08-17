@@ -1,0 +1,82 @@
+#!/bin/bash
+
+CACHE_DIR="$HOME/.cache/eww"
+
+function toggle_wifi() {
+	if [ -f "$CACHE_DIR/wifi.lock" ];then
+		nmcli radio wifi on 
+		rm "$CACHE_DIR/wifi.lock"
+	else
+		nmcli radio wifi off
+		touch "$CACHE_DIR/wifi.lock"
+	fi
+}
+
+function wifi_icon() {
+	local status=$(nmcli | grep "^wlan0" | cut -d ":" -d " " -f 2)
+	[ "$status" = "connected" ] && echo "" || echo ""
+}
+
+function toggle_air() {
+	if [ -f "$CACHE_DIR/air.lock" ];then
+		rm "$CACHE_DIR/air.lock"
+		rfkill unblock wlan
+		rfkill unblock bluetooth
+	else
+		touch "$CACHE_DIR/air.lock"
+		rfkill block wlan
+		rfkill block bluetooth
+	fi
+}
+
+function air_icon() {
+	[ -f "$CACHE_DIR/air.lock" ] && echo "" || echo ""
+}
+
+function toggle_dnd() {
+	if [ -f "$CACHE_DIR/dnd.lock" ]; then
+		dunstctl set-paused false
+		rm "$CACHE_DIR/dnd.lock"
+	else
+		dunstctl set-paused true
+		touch "$CACHE_DIR/dnd.lock"
+	fi
+}
+
+function dnd_icon() {
+	[ -f "$CACHE_DIR/dnd.lock" ] && echo "" || echo ""
+}
+
+function screenshot() {
+	eww -c "$HOME/.config/eww/fool_moon/menu" close sys-menu
+	flameshot gui
+}
+
+function toggle_night() {
+	if [ -f "$CACHE_DIR/night.lock" ];then
+		rm "$CACHE_DIR/night.lock"
+		redshift -x
+	else
+		touch "$CACHE_DIR/night.lock"
+		redshift -P -O 5000
+	fi
+}
+
+function night_icon() {
+	[ -f "$CACHE_DIR/night.lock" ] && echo "" || echo ""
+}
+
+case "$1" in
+	"toggle-wifi") toggle_wifi;;
+	"wifi-icon") wifi_icon;;
+	"toggle-blue") toggle_blue;;
+	"blue-icon") blue_icon;;
+	"toggle-air") toggle_air;;
+	"air-icon") air_icon;;
+	"toggle-dnd") toggle_dnd;;
+	"dnd-icon") dnd_icon;;
+	"screenshot") screenshot;;
+	"toggle-night") toggle_night;;
+	"night-icon") night_icon;;
+	*) echo "unknown command";;
+esac

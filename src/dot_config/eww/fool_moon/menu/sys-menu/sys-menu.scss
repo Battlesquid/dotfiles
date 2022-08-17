@@ -1,0 +1,259 @@
+.sys-menu {
+	padding: 1rem 1rem 0 1rem;
+}
+
+.user {
+    border-radius: 8px;
+    padding: 0.5rem;
+	margin-bottom: 1rem;
+}
+
+.user-pfp {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-width: 80px;
+    min-height: 80px;
+    border-radius: 40px;
+    border: 1px solid $light-gray;
+}
+
+.user-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.user-uptime {
+    font-size: 14px;
+    color: $light-gray;
+}
+
+.sys-btns {
+	color: #B8BDC9;
+	margin-bottom: 1rem;
+
+	.wifi, .air, .dnd, .scr, .blue, .night {
+		background-color: $bg;
+		border-radius: 8px;
+		padding: 1rem;
+	}
+
+	.wifi:hover {
+		background-color: $blue;
+		color: $bg;
+	}
+
+	.air:hover {
+		background-color: $mint;
+		color: $bg;
+	}
+
+	.dnd:hover {
+		background-color: $red;
+		color: $bg;
+	}
+
+	.scr:hover {
+		background-color: $purple;
+		color: $bg;
+	}
+
+	.blue:hover {
+		background-color: #2ac3de;
+		color: $bg;
+	}
+
+	.night:hover {
+		background-color: $orange;
+		color: $bg;
+	}
+}
+
+.stats {
+	background-color: $bg;
+	border-radius: 8px;
+	padding: 1rem;
+	margin-bottom: 1rem;
+}
+
+scale.ram-scale trough, scale.cpu-scale trough, scale.dsk-scale trough {
+	all: unset;
+	background-color: $gray;
+	border-radius: 8px;
+	min-height: 80px;
+	min-width: 15px;
+}
+
+.ram-scale trough highlight {
+	background-color: $blue;
+	border-radius: 8px;
+}
+
+.cpu-scale trough highlight {
+	background-color: $purple;
+	border-radius: 8px;
+}
+
+.dsk-scale trough highlight {
+	background-color: $light-blue;
+	border-radius: 8px;
+}
+
+.ram-box, .cpu-box, .dsk-box {
+}
+
+.ram-icon, .cpu-icon, .dsk-icon {
+	font-family: "Font Awesome 6 Free Solid";
+	font-size: 16px;
+	color: #B8BDC9;
+	padding: 1rem 0 0 0;
+}
+
+.updates {
+	color: $bg;
+	background-color: $mint;
+	border-radius: 8px;
+}
+
+.media-menu {
+	padding: 1rem 1rem 0 1rem;
+}
+
+.media-title {
+	font-size: 16px;
+	color: #B8BDC9;
+}
+
+.media-artist {
+	font-weight: lighter;
+	margin-bottom: 0.4rem;
+}
+
+.media-overview {
+	background-color: $raisin-black;
+	border-radius: 8px;
+	padding: 1rem 1.5rem;
+	margin: 0 1rem 0 0;
+}
+
+.media-playback {
+	font-size: 12px;
+	color: #B8BDC9;
+}
+
+.media-prev, .media-toggle, .media-next {
+	background-color: $bg;
+	padding: 0.5rem 1rem;
+}
+
+.media-prev:hover, .media-next:hover {
+	background-color: $gray;
+}
+
+.media-toggle.play:hover {
+	background-color: $green;
+	color: $bg;
+}
+
+.media-toggle.pause:hover {
+	background-color: $yellow;
+	color: $bg;
+}
+
+.media-prev {
+	border-radius: 8px 8px 0 0;
+}
+
+.media-next {
+	border-radius: 0 0 8px 8px;
+}
+
+.media-time {
+	color: #B8BDC9;
+}
+
+.sliders {
+	font-size: 16px;
+	border-radius: 1rem;
+	margin: 1rem 0;
+}
+
+.vol, .bright, .mic {
+}
+
+.vol-icon, .mic-icon, .bright-icon {
+	font-size: 14px;
+	color: #B8BDC9;
+	background-color: $raisin-black;
+	border-radius: 8px;
+	padding: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+.vol-icon:hover, .mic-icon:hover, .bright-icon:hover {
+	background-color: $gray;
+}
+
+scale.vol-scale trough, scale.mic-scale trough, scale.bright-scale trough {
+	all: unset;
+	background-color: $gray;
+	border-radius: 0 15px 15px 0;
+	min-height: 15px;
+	min-width: 300px;
+}
+
+.vol-scale trough highlight {
+	background-color: $blue;
+	border-radius: 0 15px 15px 0;
+}
+
+.mic-scale trough highlight {
+	background-color: $purple;
+	border-radius: 0 15px 15px 0;
+}
+
+.bright-scale trough highlight {
+	background-color: $light-blue;
+	border-radius: 0 15px 15px 0;
+}
+
+.powermenu {
+    font-size: 16px;
+	color: #B8BDC9;
+    background-color: $bg;
+    border-radius: 8px;
+	margin-bottom: 1rem;
+}
+
+.powermenu > button {
+    padding: 1rem;
+}
+
+.powermenu button:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.powermenu button:last-child {
+    border-radius: 0 8px 8px 0;
+}
+
+.power-lock:hover {
+    background-color: $blue;
+    color: $bg;
+}
+
+.power-exit:hover {
+    background-color: $purple;
+    color: $bg;
+}
+
+.power-reboot:hover {
+    background-color: $mint;
+    color: $bg;
+}
+
+.power-shutdown:hover {
+    background-color: $red;
+    color: $bg;
+}
+

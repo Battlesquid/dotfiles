@@ -1,20 +1,19 @@
 configuration {
     sidebar-mode: 					true;
     drun-display-format:            "{name}";
-    display-window: 				"";
-    display-run: 					"";
-    display-drun: 					"";
+    display-window: 				"";
+    display-run: 					"";
+    display-drun: 					"";
 }
 
 @import "colors.rasi"
  
 window {
-    font: "Noto Sans Light 14";
+    font: "Noto Sans 14";
     background-color: #181821;
     border: 1;
     border-color: @gray;
     border-radius: 15px;
-    padding: 						14px;
     width: 							40%;
     children: [ mainbox ];
 }
@@ -29,10 +28,9 @@ mainbox {
 inputbar {
     background-image: url("./fool_moon/fool_moon.jpg", width);
     background-color: @bg;
-    border-radius: 8px;
-    margin: 0 0 10px 0;
-    padding: 20px;
-    children: [ prompt, textbox-prompt-colon, entry ];
+    border-radius: 8px 8px 0 0;
+    padding: 60px;
+    children: [ textbox-prompt-colon, entry ];
 }
 
 prompt {
@@ -67,16 +65,17 @@ textbox {
 body {
     background-color: #181821;
     orientation: horizontal;
-    spacing: 14px;
+	padding: 15px;
+	spacing: 0;
     children: [ mode-switcher, listview ];
 }
 
 listview {
     columns: 2;
     lines: 4;
-    spacing: 14px;
+    spacing: 15px;
     background-color: #181821;
-    padding: 0;
+    padding: 15px;
 }
 
 element {
@@ -123,19 +122,17 @@ element-text {
 
 mode-switcher {
     background-color: @bg;
-    border-radius: 12px;
     orientation: vertical;
     expand: false;
-    border: 0;
+    border: 0px;
     horizontal-align: 0.5;
-    padding: 10px;
+	spacing: 0;
 }
 
 button {
-    font: "JetBrainsMono Nerd Font 18";
+	font: "Font Awesome 6 Free Solid 18";
     expand: true;
-    border-radius: 8px;
-    padding: 5px;
+    padding: 5px 25px;
 }
 
 button.normal.active {
@@ -144,12 +141,14 @@ button.normal.active {
 }
 
 button.selected.normal {
-    background-color: @blue;
-    color: @bg;
+	background-color: #181821;
+    color: @blue;
+	border: 0 5px 0 0;
+	border-color: @blue;
 }
 
 button.normal.normal {
-    background-color: @bg;
+    background-color: #181821;
     color: @light-gray;
 }
 

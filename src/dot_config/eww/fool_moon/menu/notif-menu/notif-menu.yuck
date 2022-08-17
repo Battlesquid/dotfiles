@@ -1,56 +1,40 @@
+; derived from Syndrizzle - https://github.com/syndrizzle/hotfiles/tree/bspwm
+
 (defwidget notif-menu-main[]
   (box :class "menu notif-menu"
        :orientation "v"
     (notifs-box)))
 
-(defwidget notification-card [?class ?urgency summary body image ?SL ?M ?L ?R application]
-  (eventbox :onmiddleclick M
-            :onclick L
-            :onrightclick R
-            :class "notification-card-eventbox ${class}"
-    (box :class "notification-wrapper" :space-evenly false :orientation "v"
-      (box :class "notification-card" :space-evenly false :orientation "h"
-        (box :class "notification-image" :style "background-image: url(\"${image}\");")
-        (box 
-             :orientation "vertical"
-             :space-evenly false
-             :hexpand true
-          (box :class "notification-content" :space-evenly false
-            (label :limit-width 25
-                   :wrap true
-                   :text summary
-                   :class "notification-summary"
-                   :halign "start"
-                   :hexpand true)
-            (button :halign "end" :onclick "../common/scripts/notifs rm_id ${SL}"
-                    :class "notification-card-notify-close" :halign "end"
-              (label :text "" :tooltip "Remove this notification.")))
-          (label :limit-width 30
-                 :wrap true
-                 :text body
-                 :halign "start"
-                 :class "notification-body")))
-      (box :space-evenly "true" :orientation "h" :class "notification-card-header-box"
-        (label :class "notification-app-name notification-card-${urgency ?: "other"}" :text "${application}" :halign "end")))))
+(defwidget notification-card [summary body image application ?class ?urgency ?SL ?M ?L ?R]
+  (eventbox :class "notification-card-eventbox ${class}" :onclick L :onmiddleclick M :onrightclick R 
+    (box :class "notification-card" :orientation "h" :space-evenly false 
+      (box :class "notifification-left"
+        (box :class "notification-image" :style "background-image: url(\"${image}\")"))
+      (box :class "notification-middle" :orientation "v"
+           :space-evenly false
+           :hexpand true
+        (label :class "notification-summary" :halign "start" :limit-width 25 :tooltip summary :text summary) 
+        (label :class "notification-body" :halign "start"  :limit-width 30 :wrap true :tooltip body :text body))
+      (box :class "notification-end"
+        (button :class "notification-card-notify-close" :halign "end" :onclick "../common/scripts/notifs rm_id ${SL}" 
+          (label :text "" :tooltip "Dismiss"))))))
 
 (defwidget notifs-box[]
-  (box :class "notifications-box" :orientation "v" :hexpand true :vexpand true
-    (box :orientation "v" :vexpand true 
-         :class "notification-layout-box"
-      (box :class "notification-headers"
-           :orientation "v"
-           :space-evenly false
-        (label :text "Notifications"
-               :class "notification-headers-label"
-               :halign "start")
-        (literal :content notifications-cards :class "notification-literal" :vexpand true) 
-        (button :onclick "../common/scripts/notifs clear" :hexpand true :vexpand false :valign "end" :tooltip "Clear Notifications" :class "notification-headers-clear" "")))))
+  (box :class "notifications-box" :orientation "v" :hexpand true :vexpand true :space-evenly false
+    (label :class "notification-headers-label" :hexpand true :text "notifications")
+    (box :class "notification-headers"
+         :orientation "v"
+         :space-evenly false
+         :vexpand true
+      (literal :content notifications-cards :class "notification-literal" :vexpand true)) 
+    (button :onclick "../common/scripts/notifs clear" :hexpand true :valign "end" :tooltip "Clear Notifications" :class "notification-headers-clear" "")))
 
 (deflisten notifications-cards "../common/scripts/notifs subscribe")
 
 (defwindow notif-menu 
   :monitor 0
-  :geometry (geometry :x "-10px" :y "68px" :width "384px" :height "1122px" :anchor "top right")
+  :geometry (geometry :x "-10px" :y "595px" :width "384px" :height "600px" :anchor "top right")
   :windowtype "dock"
   :wm-ignore false
   (notif-menu-main))
+

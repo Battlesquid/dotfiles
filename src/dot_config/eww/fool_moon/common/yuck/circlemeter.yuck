@@ -6,7 +6,7 @@
     (box :class name
          :halign "center"
          :valign "center"
-          :style styles
+         :style styles
       (circular-progress
         :class "${name}-meter"
         :value "${val}"

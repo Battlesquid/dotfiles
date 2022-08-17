@@ -1,28 +1,44 @@
 #!/bin/sh
 
-bat=$(cat /sys/class/power_supply/BAT0/capacity)
-
 function level() {
-    echo $bat
+	echo $(cat /sys/class/power_supply/BAT0/capacity)
+}
+
+function charging() {
+	[ $(cat /sys/class/power_supply/BAT0/status) = "Charging" ]
 }
 
 function icon() {
-    if (( bat < 20 ));then
+	if charging;then
+		echo ""
+	elif (( $(level) < 20 ));then
         echo ""
-    elif (( bat < 40 ));then
+	elif (( $(level) < 40 ));then
         echo ""
-    elif (( bat < 60 ));then
+	elif (( $(level) < 60 ));then
         echo ""
-    elif (( bat < 80 ));then
+	elif (( $(level) < 80 ));then
         echo ""
     else
         echo ""
     fi
 }
 
-if [ "$1" = "level" ];then
-    level
-elif [ "$1" = "icon" ];then
-    icon
-fi
+function class() {
+	if (( $(level) < 20 ));then
+		echo "low"
+	elif (( $(level) < 60 ));then
+		echo "med"
+	else
+		echo "high"
+	fi
+}
+
+
+case "$1" in
+	"level") level;;
+	"icon") icon;;
+	"class") class;;
+	*) echo "unknown command" && exit 1;;
+esac
 

@@ -5,52 +5,18 @@
 	transition: 60ms ease-in; 
 }
 
+tooltip {
+	color: #B8BDC9;
+	background-color: $bg;
+}
+
 .bar {
-	font-family: NotoSansMono Nerd Font;
+	font-family: Noto Sans, "Font Awesome 6 Free Solid";
 	background-color: #181821;
-	border: 1px solid $gray;
+	border-bottom: 1px solid $gray;
 }
 
 .left-bar, .right-bar {
-	border-radius: 15px;
-}
-
-.time {
-	font-weight: bold;
-	font-size: 14px;
-	color: whitesmoke;
-	background-color: $raisin-black;
-	border-radius: 8px;
-	padding: 0.4rem 0.6rem;
-	margin-right: 0.5rem;
-}
-
-.sys {
-	background-color: $blue;
-	color: $bg;
-	border-radius: 8px;
-	margin: 0.5rem;
-	padding: 0.4rem 0.5rem;
-
-	label {
-		padding: 0 0.5rem;
-	}
-}
-
-.notifs-btn {
-	background-color: #181821;
-	border-radius: 8px;
-	padding: 0.4rem 0.6rem;
-	margin-left: 0.5rem;
-}
-
-.notifs-btn:hover {
-	background-color: $mint;
-	color: $bg;
-}
-
-.start {
-	font-weight: bold;
 }
 
 .start-btn {
@@ -64,36 +30,143 @@
 
 .start-btn:hover {
 	color: $bg;
-	background-color: $dark-blue;
-}
-
-.0 , .01, .02, .03, .04, .05, .06,
-.011, .022, .033, .044, .055, .066 {
-}
-
-/* Unoccupied */
-.0 {
-	color: $gray;
-}
-
-/* Occupied */
-.01, .02, .03, .04, .05, .06 {
-	color: $blue;
-}
-
-/* Focused */
-.011, .022, .033, .044, .055, .066 {
-	color: $mint;
+	background-color: #679df5;
 }
 
 .workspaces {	
 	font-size: 20px;
-	font-family: JetBrainsMono Nerd Font;
 	border-radius: 8px;
 	margin: 0 1rem;
+
+	button:hover {
+		color: #679df5;
+	}
+
+	.0 , .01, .02, .03, .04, .05, .06,
+	.011, .022, .033, .044, .055, .066 {
+	}
+
+	/* Unoccupied */
+	.0 {
+		color: $gray;
+	}
+
+	/* Occupied */
+	.01, .02, .03, .04, .05, .06 {
+		color: $dark-blue;
+	}
+
+	/* Focused */
+	.011, .022, .033, .044, .055, .066 {
+		color: $blue;
+	}
 }
 
-.workspaces button:hover {
-	color: $light-blue;
+
+.sys {
+	background-color: $blue;
+	color: $bg;
+	border-radius: 8px;
+	padding: 0.4rem 0.5rem;
+
+	box {
+		padding: 0.4rem 0.6rem;
+	}
+
+	.wifi-on {
+		color: $bg;
+	}
+
+	.wifi-off {
+		color: $gray;
+	}
+}
+
+.sys:hover {
+	background-color: #679df5;
+}
+
+.notifs-eventbox {
+	font-weight: bold;
+	color: $bg;
+	background-color: $blue;
+	border-radius: 8px;
+}
+
+.notifs-eventbox:hover {
+	background-color: #679df5;
+	color: $bg;
+}
+
+.notifs-label {
+	padding: 0.2rem 0.7rem;
+}
+
+.bat-box {
+	.bat-icon {
+		color: $bg;
+		border-radius: 8px 0 0 8px;
+	}
+
+	.bat-icon.high {
+		background-color: $blue;
+	}
+
+	.bat-icon.med {
+		background-color: $yellow;
+	}
+
+	.bat-icon.low {
+		background-color: $red;
+	}
+
+	.bat-label {
+		font-weight: bold;
+		color: $bg;
+	}
+
+	scale.bat-scale trough {
+		all: unset;
+		background-color: $gray;
+		border-radius: 0 8px 8px 0;
+		min-height: 25px;
+		min-width: 60px;
+	}
+
+	.bat-scale.high trough highlight {
+		background-color: $blue;
+		border-radius: 0 8px 8px 0;
+	}
+
+	.bat-scale.med trough highlight {
+		background-color: $yellow;
+		border-radius: 0 8px 8px 0;
+	}
+
+	.bat-scale.low trough highlight {
+		background-color: $red;
+		border-radius: 0 8px 8px 0;
+	}
+}
+
+.time-box {
+	margin-right: 0.5rem;
+}
+
+.time-eventbox {
+	font-weight: bold;
+	font-size: 14px;
+	color: #B8BDC9;
+	background-color: $raisin-black;
+	border-radius: 8px;
+}
+
+.time-eventbox:hover {
+	color: $bg;
+	background-color: $blue;
+}
+
+.time-label {
+	padding: 0.25rem 0.6rem;
 }
 

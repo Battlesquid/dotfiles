@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CACHE_DIR="$HOME/.cache/eww"
-animate="$HOME/.config/eww/common/scripts/animations.bash"
+animate="$HOME/.config/eww/fool_moon/common/scripts/animations"
 
 function percent () {
     echo $(pamixer --default-source --get-volume) 
@@ -9,7 +9,7 @@ function percent () {
 
 function icon() {
     local muted=$(pamixer --default-source --get-mute)
-    [ "$muted" = "true" ] && echo "" || echo "" 
+    [ "$muted" = "true" ] && echo "" || echo "" 
 }
 
 function set_val() {
