@@ -16,7 +16,7 @@
         (label :class "notification-summary" :halign "start" :limit-width 25 :tooltip summary :text summary) 
         (label :class "notification-body" :halign "start"  :limit-width 30 :wrap true :tooltip body :text body))
       (box :class "notification-end"
-        (button :class "notification-card-notify-close" :halign "end" :onclick "../common/scripts/notifs rm_id ${SL}" 
+        (button :class "notification-card-notify-close" :halign "end" :onclick "~/.scripts/notifs rm_id ${SL}" 
           (label :text "" :tooltip "Dismiss"))))))
 
 (defwidget notifs-box[]
@@ -27,9 +27,9 @@
          :space-evenly false
          :vexpand true
       (literal :content notifications-cards :class "notification-literal" :vexpand true)) 
-    (button :onclick "../common/scripts/notifs clear" :hexpand true :valign "end" :tooltip "Clear Notifications" :class "notification-headers-clear" "")))
+    (button :onclick "~/.scripts/notifs clear" :hexpand true :valign "end" :tooltip "Clear Notifications" :class "notification-headers-clear" "")))
 
-(deflisten notifications-cards "../common/scripts/notifs subscribe")
+(deflisten notifications-cards "~/.scripts/notifs subscribe")
 
 (defwindow notif-menu 
   :monitor 0

@@ -69,6 +69,7 @@ function create_cache() {
         ICON_PATH=$FIXED_ICON_PATH
     fi
 
+	echo "$DUNST_APP_NAME"
     if [[ $DUNST_APP_NAME == "Spotify" ]]
     then
         ICON_PATH=$HOME/.cache/temp-$SPOTIFY_TITLE.png

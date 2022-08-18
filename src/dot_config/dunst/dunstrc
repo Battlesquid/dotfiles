@@ -387,5 +387,13 @@
 
 [eww]
 summary = "*"
-script = "~/.config/eww/fool_moon/common/scripts/notifs"
+script = "~/.scripts/notifs"
+
+[spotify]
+summary = "*"
+script = "~/.scripts/spotify-art"
+
+[spotify-icon]
+appname = "Spotify"
+icon = "~/.cache/temp.png"
 # vim: ft=cfg
