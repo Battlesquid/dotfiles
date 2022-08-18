@@ -6,7 +6,7 @@
 (defwidget left[]
   (box :class "left"
        :space-evenly false
-        :halign "start"
+       :halign "start"
     (start)
     (workspaces)))
 
@@ -48,11 +48,11 @@
 (deflisten notif-count :initial "0" "../common/scripts/notifs count")
 
 (defwidget sys[]
-    (box :spacing 10
-          :class "sys"
-          :valign "center"
-      (label :class "vol-icon" :text vol-icon)
-      (label :class "wifi-icon ${wifi-class}" :text "")))
+  (box :spacing 10
+       :class "sys"
+       :valign "center"
+    (label :class "vol-icon" :text vol-icon)
+    (label :class "wifi-icon ${wifi-class}" :text "")))
 
 (defpoll vol-icon :interval "1s" "../common/scripts/vol icon")
 (defpoll wifi-class :interval "1s" "scripts/wifi class")
@@ -71,11 +71,11 @@
 
 (defwidget time[]
   (box :class "time-box"
-          :halign "center"
+       :halign "center"
+       :valign "center"
     (eventbox :class "time-eventbox"
               :onclick "scripts/widgets toggle-time"
               :cursor "pointer"
-              :valign "center"
       (label :class "time-label" :text "   ${time-lbl}"))))
 
 (defpoll time-lbl :interval "1s" "date +'%I:%M'")

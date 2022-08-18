@@ -1,19 +1,19 @@
 #!/bin/bash
 
-KEY="e104f91beb4c358e2d8e774596847fb9"
-CITY="Phoenix"
+source "$HOME/.config/eww/fool_moon/common/scripts/secrets"
+
 CACHE_DIR="$HOME/.cache/eww"
 
 function fetch_weather() {
     if [ -f "$CACHE_DIR/weather" ];then
         if (($(date +"%s")-$(stat --format "%Y" "$CACHE_DIR/weather")>300));then
-            local res=$(curl --connect-timeout 4 -sf "api.openweathermap.org/data/2.5/weather?q=$CITY&appid=$KEY&units=imperial")
+            local res=$(curl --connect-timeout 4 -sf "api.openweathermap.org/data/2.5/weather?q=$WEATHER_API_CITY&appid=$WEATHER_API_KEY&units=imperial")
             if ! [ -z $res ];then
                 echo $res > "$CACHE_DIR/weather"
             fi
         fi
     else
-        local res=$(curl --connect-timeout 4 -sf "api.openweathermap.org/data/2.5/weather?q=$CITY&appid=$KEY&units=imperial")
+        local res=$(curl --connect-timeout 4 -sf "api.openweathermap.org/data/2.5/weather?q=$WEATHER_API_CITY&appid=$WEATHER_API_KEY&units=imperial")
         if ! [ -z $res ];then
             touch "$CACHE_DIR/weather"
             echo $res > "$CACHE_DIR/weather"
