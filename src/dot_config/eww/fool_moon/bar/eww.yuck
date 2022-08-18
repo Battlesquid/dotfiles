@@ -45,7 +45,7 @@
             :valign "center"
     (label :class "notifs-label" :text "  ${notif-count}")))
 
-(deflisten notif-count :initial "0" "../common/scripts/notifs count")
+(deflisten notif-count :initial "0" "~/.scripts/notifs count")
 
 (defwidget sys[]
   (box :spacing 10
