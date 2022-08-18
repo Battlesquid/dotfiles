@@ -30,7 +30,10 @@ F7
 	$HOME/.config/eww/fool_moon/common/scripts/bright change up
 
 Print
-	flameshot gui
+	flameshot full --clipboard --path $HOME/Pictures/captures
+
+ctrl + Print
+	flameshot gui --clipboard --path $HOME/Pictures/captures
 
 #
 # bspwm hotkeys
