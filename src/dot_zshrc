@@ -115,16 +115,10 @@ source $ZSH/oh-my-zsh.sh
 
 source /usr/share/nvm/init-nvm.sh
 
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-
 alias chezit='chezmoi edit'
 
 path+=$HOME/bin
-path+=$HOME/bin/gradle-6.6.1/bin/
-path+=$HOME/bin/gradle-2.6/gradle-2.6/bin/
 path+=$HOME/.cargo/bin
-path+=/root/.local/share/gem/ruby/3.0.0/bin
-path+=$GEM_HOME/bin
 PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
 
 export PATH
