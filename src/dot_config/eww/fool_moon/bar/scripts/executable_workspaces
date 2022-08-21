@@ -1,41 +1,40 @@
 #!/bin/sh
 
 function subscribe() {
-    function yuck() {
-        local focus_icon=$1
-        local unfoc_icon=$2
-        local un="0"
-        local workspaces=($(bspc query -D -m --names))
-        local ws_len=${#workspaces[@]}
-        local btns=()
+	function yuck() {
+		local focus_icon=$1
+		local unfoc_icon=$2
+		local un="0"
+		local workspaces=($(bspc query -D -m --names))
+		local ws_len=${#workspaces[@]}
+		local btns=()
 
-        for ws in "${workspaces[@]}"; do
-            local occ=$(bspc query -D -d .occupied --names | grep "$ws" > /dev/null && echo "$ws" || echo "")
+		for ws in "${workspaces[@]}"; do
+			local occ=$(bspc query -D -d .occupied --names | grep "$ws" > /dev/null && echo "$ws" || echo "")
 			local focus=$(bspc query -D -d focused --names | grep "$ws" > /dev/null && echo "$ws" || echo "")
-            [[ "$focus" ]] && icon=$focus_icon || icon=$unfoc_icon
+			[[ "$focus" ]] && icon=$focus_icon || icon=$unfoc_icon
 			local btn="(button :onclick \"bspc desktop -f $ws\" :class \"$un$occ$focus\" \"$icon\")"
-            btns+="$btn"
-        done
+			btns+="$btn"
+		done
 
-        echo "(box :class \"workspaces\" :vexpand true :spacing $ws_len :space-evenly \"false\" ${btns[*]})"
+		echo "(box :class \"workspaces\" :vexpand true :spacing $ws_len :space-evenly \"false\" ${btns[*]})"
 
-    }
+	}
 
-    yuck "$1" "$2"
-    bspc subscribe desktop node_transfer | 
-        while read -r _ ;do
-            yuck "$1" "$2"
-        done
-    }
+	yuck "$1" "$2"
+	bspc subscribe desktop report | while read -r _ ;do
+	yuck "$1" "$2"
+done
+}
 
 
-    function scroll() {
-        [ "$1" = "up" ] && bspc desktop -f prev || bspc desktop -f next
-    }
+function scroll() {
+	[ "$1" = "up" ] && bspc desktop -f prev || bspc desktop -f next
+}
 
-    case "$1" in
-        "subscribe") subscribe "$2" "$3";;
-        "scroll") scroll "$2";;
-        *) "Unrecognized command '$1'";;
-    esac
+case "$1" in
+	"subscribe") subscribe "$2" "$3";;
+	"scroll") scroll "$2";;
+	*) "Unrecognized command '$1'";;
+esac
 

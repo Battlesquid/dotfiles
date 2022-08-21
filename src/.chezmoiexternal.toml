@@ -15,4 +15,8 @@
     url = "https://github.com/romkatv/powerlevel10k/archive/v1.16.1.tar.gz"
     exact = true
     stripComponents = 1
-
+[".local/share/icons/TokyoNight-SE"]
+	type = "archive"
+	url = "https://github.com/ljmill/tokyo-night-icons/releases/download/v0.1.0/TokyoNight-SE.tar.bz2"
+	exact = true
+	stripComponents = 1

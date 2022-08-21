@@ -12,8 +12,8 @@
 (defwidget user[] 
   (box :class "user"
        :space-evenly false
-        :orientation "v"
-        :halign "center"
+       :orientation "v"
+       :halign "center"
     (box :class "user-pfp" :halign "center" :valign "center" :style "background-image: url('assets/pfp.png');") 
     (box :class "user-details"
          :orientation "v"
@@ -55,19 +55,16 @@
        :spacing 15
     (box :class "row"
          :spacing 15
-      (button :class "wifi ${wifi-class}" :timeout "5s" :onclick "scripts/sys toggle-wifi" "")
-      (button :class "air" :timeout "5s" :onclick "scripts/sys toggle-air" air-icon)
-      (button :class "dnd" :timeout "5s" :onclick "scripts/sys toggle-dnd" dnd-icon))
+      (button :class "wifi ${sys.wifi_class}" :tooltip "wifi" :timeout "5s" :onclick "scripts/sys toggle-wifi" "")
+      (button :class "air ${sys.air_class}" :timeout "5s" :tooltip "airplane mode" :onclick "scripts/sys toggle-air" {sys.air_icon})
+      (button :class "dnd ${sys.dnd_class}" :timeout "5s" :tooltip "do not disturb" :onclick "scripts/sys toggle-dnd" {sys.dnd_icon}))
     (box :class "row"
          :spacing 15
-      (button :class "night" :onclick "scripts/sys toggle-night" "${night-icon}")
-      (button :class "scr" :onclick "scripts/sys screenshot" "")
-      (button :class "blue" :onclick "scripts/sys blue" ""))))
+      (button :class "night ${sys.night_class}" :tooltip "night light" :onclick "scripts/sys toggle-night" {sys.night_icon})
+      (button :class "scr" :tooltip "take screenshot" :onclick "scripts/sys screenshot" "")
+      (button :class "blue" :tooltip "bluetooth" :onclick "scripts/sys blue" ""))))
 
-(defpoll wifi-class :interval "1s" "scripts/sys wifi-class")
-(defpoll air-icon :interval "1s" "scripts/sys air-icon")
-(defpoll dnd-icon :interval "1s" "scripts/sys dnd-icon")
-(defpoll night-icon :interval "1s" "scripts/sys night-icon")
+(deflisten sys "scripts/sys follow")
 
 (defwidget media[]
   (box :class "media"
@@ -117,10 +114,10 @@
 
 (defwidget powermenu[]
   (box :class "powermenu"
-    (button :class "power-lock" :onclick "slock" :tooltip "Lock" "")
-    (button :class "power-exit" :onclick "bspc quit" :tooltip "Exit BSPWM" "")
-    (button :class "power-reboot" :onclick "reboot" :tooltip "Restart" "")
-    (button :class "power-shutdown" :onclick "shutdown" :tooltip "Shutdown" "")))
+    (button :class "power-lock" :onclick "scripts/power lock" :tooltip "Lock" "")
+    (button :class "power-exit" :onclick "scripts/power logoutt" :tooltip "Exit BSPWM" "")
+    (button :class "power-reboot" :onclick "scripts/power reboot" :tooltip "Restart" "")
+    (button :class "power-shutdown" :onclick "scripts/power shutdown" :tooltip "Shutdown" "")))
 
 (defwindow sys-menu 
   :monitor 0

@@ -1,0 +1,34 @@
+#!/bin/bash
+
+function close() {
+	eww -c "$HOME/.config/eww/fool_moon/menu close sys-menu time-menu notif-menu"
+}
+
+function lock() {
+	close
+	slock
+}
+
+function llogout() {
+	close
+	bspc quit
+}
+
+function rrestart() {
+	close
+	reboot
+}
+
+function sshutdown() {
+	close
+	shutdown
+}
+
+case "$1" in
+	lock) lock;;
+	logout) llogout;;
+	restart) rrestart;;
+	shutdown) sshutdown;;
+	*) echo "unrecognized command" && exit 1;;
+esac
+

@@ -1,1 +1,2 @@
-.oh-my-zsh/
+.oh-my-zsh/**
+.local/share/icons/TokyoNight-SE/**

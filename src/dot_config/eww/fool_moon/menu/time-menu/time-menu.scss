@@ -5,6 +5,7 @@
 
 .time-box {
 	background-color: $bg;
+	color: #B8BDC9;
 	border-radius: 8px;
 	padding: 0.5rem;
 
@@ -43,6 +44,7 @@
 .weather-name {
 	font-size: 22px;
 	font-weight: bold;
+	color: #B8BDC9;
 }
 
 .weather-temp {
@@ -65,7 +67,7 @@
 
 calendar {
 	font-weight: bold;
-	color: $light-gray;
+	color: #B8BDC9;
 	background-color: $bg;
 	border-radius: 0 0 8px 8px;
 	padding: 1rem 0.3rem 0.2rem 0.3rem;

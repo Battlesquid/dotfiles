@@ -8,6 +8,7 @@
 tooltip {
 	color: #B8BDC9;
 	background-color: $bg;
+	border: 1px solid $gray;
 }
 
 .bar {
@@ -62,6 +63,13 @@ tooltip {
 	}
 }
 
+.updates {
+	font-weight: bold;
+	color: $bg;
+	background-color: $mint;
+	border-radius: 8px;
+	padding: 0.1rem 0.6rem;
+}
 
 .sys {
 	background-color: $blue;
@@ -109,7 +117,7 @@ tooltip {
 	}
 
 	.bat-icon.high {
-		background-color: $blue;
+		background-color: #6ca38b;
 	}
 
 	.bat-icon.med {
@@ -134,7 +142,7 @@ tooltip {
 	}
 
 	.bat-scale.high trough highlight {
-		background-color: $blue;
+		background-color: #6ca38b;
 		border-radius: 0 8px 8px 0;
 	}
 

@@ -1,50 +1,45 @@
 #!/bin/bash
 
 CACHE_DIR="$HOME/.cache/eww"
+JSON_DIR="$CACHE_DIR/sys.json"
 
 function toggle_wifi() {
-	if [ -f "$CACHE_DIR/wifi.lock" ];then
+	local state=$(jq -r '.wifi_class' "$JSON_DIR")
+	if [ "$state" = "wifi-on" ];then
+		jq -c '.wifi_class = "wifi-off"' "$JSON_DIR" | sponge "$JSON_DIR"
 		nmcli radio wifi on 
-		rm "$CACHE_DIR/wifi.lock"
 	else
+		jq -c '.wifi_class = "wifi-on"' "$JSON_DIR" | sponge "$JSON_DIR"
 		nmcli radio wifi off
-		touch "$CACHE_DIR/wifi.lock"
 	fi
 }
 
-function wifi_icon() {
-	local status=$(nmcli | grep "^wlan0" | cut -d ":" -d " " -f 2)
-	[ "$status" = "connected" ] && echo "" || echo ""
-}
-
 function toggle_air() {
-	if [ -f "$CACHE_DIR/air.lock" ];then
-		rm "$CACHE_DIR/air.lock"
+	local state=$(jq -r '.air_class' "$JSON_DIR")
+	if [ "$state" = "air-on" ];then
+		jq -c '.air_class = "air-off"' "$JSON_DIR" | sponge "$JSON_DIR"
+		jq -c '.air_icon = ""' "$JSON_DIR" | sponge "$JSON_DIR"
 		rfkill unblock wlan
 		rfkill unblock bluetooth
 	else
-		touch "$CACHE_DIR/air.lock"
+		jq -c '.air_class = "air-on"' "$JSON_DIR" | sponge "$JSON_DIR"
+		jq -c '.air_icon = ""' "$JSON_DIR" | sponge "$JSON_DIR"
 		rfkill block wlan
 		rfkill block bluetooth
 	fi
 }
 
-function air_icon() {
-	[ -f "$CACHE_DIR/air.lock" ] && echo "" || echo ""
-}
-
 function toggle_dnd() {
-	if [ -f "$CACHE_DIR/dnd.lock" ]; then
+	local state=$(jq -r '.dnd_class' "$JSON_DIR")
+	if [ "$state" = "dnd-on" ];then
+		jq -c '.dnd_class = "dnd-off"' "$JSON_DIR" | sponge "$JSON_DIR"
+		jq -c '.dnd_icon = ""' "$JSON_DIR" | sponge "$JSON_DIR"
 		dunstctl set-paused false
-		rm "$CACHE_DIR/dnd.lock"
 	else
+		jq -c '.dnd_class = "dnd-on"' "$JSON_DIR" | sponge "$JSON_DIR"
+		jq -c '.dnd_icon = ""' "$JSON_DIR" | sponge "$JSON_DIR"
 		dunstctl set-paused true
-		touch "$CACHE_DIR/dnd.lock"
 	fi
-}
-
-function dnd_icon() {
-	[ -f "$CACHE_DIR/dnd.lock" ] && echo "" || echo ""
 }
 
 function screenshot() {
@@ -53,30 +48,36 @@ function screenshot() {
 }
 
 function toggle_night() {
-	if [ -f "$CACHE_DIR/night.lock" ];then
-		rm "$CACHE_DIR/night.lock"
+	local state=$(jq -r '.night_class' "$JSON_DIR")
+	if [ "$state" = "night-on" ];then
+		jq -c '.night_class = "night-off"' "$JSON_DIR" | sponge "$JSON_DIR"
+		jq -c '.night_icon = ""' "$JSON_DIR" | sponge "$JSON_DIR"
 		redshift -x
 	else
-		touch "$CACHE_DIR/night.lock"
+		jq -c '.night_class = "night-on"' "$JSON_DIR" | sponge "$JSON_DIR"
+		jq -c '.night_icon = ""' "$JSON_DIR" | sponge "$JSON_DIR"
 		redshift -P -O 5000
 	fi
 }
 
-function night_icon() {
-	[ -f "$CACHE_DIR/night.lock" ] && echo "" || echo ""
+function follow() {
+	tail -F "$JSON_DIR" 2> /dev/null
 }
+
+if ! [ -f "$JSON_DIR" ];then
+	mkdir -p "$CACHE_DIR"
+	touch "$JSON_DIR"
+	echo '{"wifi_class":"wifi-on","air_icon":"","air_class":"air-off","dnd_icon":"","dnd_class":"dnd-off","night_icon":"","night_class":"night-off"}' > "$JSON_DIR"
+fi
 
 case "$1" in
 	"toggle-wifi") toggle_wifi;;
-	"wifi-icon") wifi_icon;;
 	"toggle-blue") toggle_blue;;
-	"blue-icon") blue_icon;;
 	"toggle-air") toggle_air;;
-	"air-icon") air_icon;;
 	"toggle-dnd") toggle_dnd;;
-	"dnd-icon") dnd_icon;;
-	"screenshot") screenshot;;
 	"toggle-night") toggle_night;;
-	"night-icon") night_icon;;
+	"screenshot") screenshot;;
+	"follow") follow;;
 	*) echo "unknown command";;
 esac
+

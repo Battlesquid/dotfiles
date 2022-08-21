@@ -38,34 +38,36 @@
 		padding: 1rem;
 	}
 
-	.wifi:hover {
+	.wifi-on {
 		background-color: $blue;
 		color: $bg;
 	}
 
-	.air:hover {
+	.air-on {
 		background-color: $mint;
 		color: $bg;
 	}
 
-	.dnd:hover {
+	.dnd-on {
 		background-color: $red;
 		color: $bg;
 	}
 
-	.scr:hover {
-		background-color: $purple;
-		color: $bg;
+	.dnd-off {	
+		font-family: "Font Awesome 6 Free";
 	}
 
-	.blue:hover {
-		background-color: #2ac3de;
-		color: $bg;
-	}
-
-	.night:hover {
+	.night-on {
 		background-color: $orange;
 		color: $bg;
+	}
+
+	.night-off {
+		font-family: "Font Awesome 6 Free";
+	}
+
+	.blue {
+		font-family: "Font Awesome 6 Free";
 	}
 }
 
