@@ -1,22 +1,22 @@
-[".oh-my-zsh"]
-    type = "archive"
-    url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-[".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
-    type = "archive"
-    url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-[".oh-my-zsh/custom/themes/powerlevel10k"]
-    type = "archive"
-    url = "https://github.com/romkatv/powerlevel10k/archive/v1.16.1.tar.gz"
-    exact = true
-    stripComponents = 1
-[".local/share/icons/TokyoNight-SE"]
-	type = "archive"
-	url = "https://github.com/ljmill/tokyo-night-icons/releases/download/v0.1.0/TokyoNight-SE.tar.bz2"
-	exact = true
-	stripComponents = 1
+# [".oh-my-zsh"]
+#     type = "archive"
+#     url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
+#     exact = true
+#     stripComponents = 1
+#     refreshPeriod = "168h"
+# [".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+#     type = "archive"
+#     url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/master.tar.gz"
+#     exact = true
+#     stripComponents = 1
+#     refreshPeriod = "168h"
+# [".oh-my-zsh/custom/themes/powerlevel10k"]
+#     type = "archive"
+#     url = "https://github.com/romkatv/powerlevel10k/archive/v1.16.1.tar.gz"
+#     exact = true
+#     stripComponents = 1
+# [".local/share/icons/TokyoNight-SE"]
+# 	type = "archive"
+# 	url = "https://github.com/ljmill/tokyo-night-icons/releases/download/v0.1.0/TokyoNight-SE.tar.bz2"
+# 	exact = true
+# 	stripComponents = 1
