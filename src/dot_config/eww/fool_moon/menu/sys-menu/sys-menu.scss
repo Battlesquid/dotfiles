@@ -32,6 +32,14 @@
 	color: #B8BDC9;
 	margin-bottom: 1rem;
 
+	button {
+		border: 1px solid $bg;
+	}
+	
+	button:hover {
+		border: 1px solid $gray;
+	}
+
 	.wifi, .air, .dnd, .scr, .blue, .night {
 		background-color: $bg;
 		border-radius: 8px;

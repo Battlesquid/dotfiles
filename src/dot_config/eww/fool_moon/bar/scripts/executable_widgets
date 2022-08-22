@@ -3,18 +3,6 @@
 eww_menu="eww -c $HOME/.config/eww/fool_moon/menu"
 CACHE_DIR="$HOME/.cache/eww"
 
-function toggle_notifs() {
-	# $eww_menu close sys-menu time-menu
-	if [ -f "$CACHE_DIR/notif-menu.lock" ];then
-		rm "$CACHE_DIR/notif-menu.lock"
-		$eww_menu close unfocus
-		$eww_menu close notif-menu
-	else
-		touch "$CACHE_DIR/notif-menu.lock"
-		$eww_menu open notif-menu
-	fi
-}
-
 function toggle_sys() {
 	# $eww_menu close time-menu notif-menu
 	if [ -f "$CACHE_DIR/sys-menu.lock" ];then
@@ -32,10 +20,10 @@ function toggle_time() {
 	if [ -f "$CACHE_DIR/time-menu.lock" ];then
 		rm "$CACHE_DIR/time-menu.lock"
 		$eww_menu close unfocus
-		$eww_menu close time-menu notif-menu
+		$eww_menu close time-menu 
 	else
 		touch "$CACHE_DIR/time-menu.lock"
-		$eww_menu open-many time-menu notif-menu
+		$eww_menu open-many time-menu 
 	fi
 }
 

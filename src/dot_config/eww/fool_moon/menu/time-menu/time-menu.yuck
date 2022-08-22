@@ -4,7 +4,8 @@
        :space-evenly false
     (time)
     (cal)
-    (weather)))
+    (weather)
+    (notif-menu-main)))
 
 (defwidget time[]
   (box :class "time-box"
@@ -47,7 +48,7 @@
 
 (defwindow time-menu 
   :monitor 0
-  :geometry (geometry :x "-10px" :y "60px" :width "384px" :anchor "top right")
+  :geometry (geometry :x "-10px" :y "60px" :width "384px" :height "94%" :anchor "top right")
   :windowtype "dock"
   :wm-ignore false
   (time-menu-main))

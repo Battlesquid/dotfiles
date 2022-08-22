@@ -11,7 +11,6 @@
 tooltip {
 	color: #B8BDC9;
 	background-color: $bg;
-	border: 1px solid $gray;
 }
 
 .menu {
@@ -19,6 +18,10 @@ tooltip {
     background-color: #181821;
     border: 1px solid $gray;
     border-radius: 15px;
+}
+
+.sys-menu, .time-menu {
+	border: 1px solid $gray;
 }
 
 .menu-main, .sys-menu, .time-menu, .notif-menu {
