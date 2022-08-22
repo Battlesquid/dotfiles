@@ -23,9 +23,7 @@ These dotfiles and the instructions on how to set them up are still under constr
 
 <br>
 
-# Setup
-
-## **Full Installation**
+# **Full Installation**
 ### **WARNING**
 
 Be sure to back up any relevant files before continuing. Chezmoi will ask what you should do if a conflict occurs, but back up your files just in case. You can see what will be applied at a glance with `chezmoi status` and `chezmoi diff`.
@@ -61,9 +59,7 @@ If you are running this on a clean system or you want to run everything with a s
 chezmoi init --apply https://github.com/Battlesquid/dotfiles.git
 ```
 
-<br>
-
-## **Partial Installation**
+# **Partial Installation**
 
 ### **WARNING** - needs more testing
 
