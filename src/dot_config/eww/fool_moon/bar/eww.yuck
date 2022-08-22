@@ -40,6 +40,13 @@
 
 (deflisten workspace 'scripts/workspaces subscribe "" ""')
 
+; (defwidget cava[]
+;   (box :class "cava"
+;         :valign "center"
+;     (label :class "cava-label" :width 100 :text cava-bars)))
+; 
+; (deflisten cava-bars "scripts/cavabars")
+
 (defwidget updates[]
   (box :class "updates"
         :valign "center"
@@ -75,7 +82,7 @@
       (scale :class "bat-scale ${bat-class}" :active false :min 0 :max 101 :value bat-val)
       (label :class "bat-label" :halign "start" :text "${bat-val}%"))))
 
-(defpoll bat-val :interval "1s" "scripts/bat level")
+(defpoll bat-val :initial 0 :interval "1s" "scripts/bat level")
 (defpoll bat-class :interval "1s" "scripts/bat class")
 
 (defwidget time[]

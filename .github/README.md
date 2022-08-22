@@ -21,7 +21,6 @@ These dotfiles and the instructions on how to set them up are still under constr
 - **Launcher** - [rofi](https://github.com/davatorium/rofi)
 - **Notification Daemon** - [dunst](https://github.com/dunst-project/dunst)
 
-<br>
 
 # **Full Installation**
 ### **WARNING**

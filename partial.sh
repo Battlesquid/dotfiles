@@ -8,7 +8,7 @@ function p_eww() {
     paru -S eww-git dunst redshift pamixer slock noto-fonts ttf-font-awesome brightnessctl playerctl jq recode moreutils
     mkdir -p ~/.config/eww/fool_moon
     mkdir -p ~.scripts
-    chezmoi apply ~/.config/eww/
+    chezmoi apply ~/.config/eww/fool_moon
     chezmoi apply ~/.scripts
 }
 
