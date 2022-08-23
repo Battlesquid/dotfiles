@@ -2,6 +2,7 @@
   (box :class "menu sys-menu"
        :orientation "v"
        :space-evenly false
+        :spacing 15
     (user)
     (sep)
     (panel)

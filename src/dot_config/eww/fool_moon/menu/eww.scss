@@ -4,24 +4,23 @@
 }
 
 @import "../common/scss/colors.scss";
-@import "./notif-menu/notif-menu.scss";
 @import "./time-menu/time-menu.scss";
 @import "./sys-menu/sys-menu.scss";
 
 tooltip {
 	color: #B8BDC9;
 	background-color: $bg;
+	border: 1px solid $gray;
 }
 
 .menu {
     font-family: Noto Sans, "Font Awesome 6 Free Solid";
     background-color: #181821;
-    border: 1px solid $gray;
-    border-radius: 15px;
 }
 
 .sys-menu, .time-menu {
 	border: 1px solid $gray;
+    border-radius: 15px;
 }
 
 .menu-main, .sys-menu, .time-menu, .notif-menu {
@@ -29,6 +28,5 @@ tooltip {
 
 .sep {
     border-top: 1px solid $raisin-black;
-	margin-bottom: 1rem;
 }
 

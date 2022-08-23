@@ -7,10 +7,10 @@ function toggle_wifi() {
 	local state=$(jq -r '.wifi_class' "$JSON_DIR")
 	if [ "$state" = "wifi-on" ];then
 		jq -c '.wifi_class = "wifi-off"' "$JSON_DIR" | sponge "$JSON_DIR"
-		nmcli radio wifi on 
+		nmcli radio wifi off
 	else
 		jq -c '.wifi_class = "wifi-on"' "$JSON_DIR" | sponge "$JSON_DIR"
-		nmcli radio wifi off
+		nmcli radio wifi on 
 	fi
 }
 

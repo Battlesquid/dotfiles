@@ -15,7 +15,6 @@
         :space-evenly false
         :spacing 7 
         :halign "end"
-    (updates)
     (notifs)
     (sys)
     (bat)
@@ -47,13 +46,13 @@
 ; 
 ; (deflisten cava-bars "scripts/cavabars")
 
-(defwidget updates[]
-  (box :class "updates"
-        :valign "center"
-        :tooltip "Updates: ${update-count}"
-    (label :class "updates-label" :text " ${update-count ?: '--'}")))
-
-(defpoll update-count :interval "30m" "checkupdates | wc -l")
+; (defwidget updates[]
+;   (box :class "updates"
+;         :valign "center"
+;         :tooltip "Updates: ${update-count}"
+;     (label :class "updates-label" :text " ${update-count ?: '--'}")))
+; 
+; (defpoll update-count :interval "30m" "checkupdates | wc -l")
 
 (defwidget notifs[]
   (eventbox :class "notifs-eventbox"

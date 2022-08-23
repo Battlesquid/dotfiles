@@ -1,7 +1,6 @@
 (include "../common/yuck/h-iconmeter.yuck")
 (include "../common/yuck/v-iconmeter.yuck")
 (include "./unfocus/unfocus.yuck")
-(include "./notif-menu/notif-menu.yuck")
 (include "./time-menu/time-menu.yuck")
 (include "./sys-menu/sys-menu.yuck")
 

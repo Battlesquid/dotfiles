@@ -21,8 +21,14 @@ These dotfiles and the instructions on how to set them up are still under constr
 - **Launcher** - [rofi](https://github.com/davatorium/rofi)
 - **Notification Daemon** - [dunst](https://github.com/dunst-project/dunst)
 
+# **Setup**
 
-# **Full Installation**
+Fetch the dotfiles using:
+```
+chezmoi init https://github.com/Battlesquid/dotfiles.git
+```
+
+## **Full Installation**
 ### **WARNING**
 
 Be sure to back up any relevant files before continuing. Chezmoi will ask what you should do if a conflict occurs, but back up your files just in case. You can see what will be applied at a glance with `chezmoi status` and `chezmoi diff`.
@@ -32,12 +38,7 @@ Be sure to back up any relevant files before continuing. Chezmoi will ask what y
 
 Assuming you have [paru](https://github.com/Morganamilo/paru) installed:
 ```
-paru -S bspwm picom-animations-git kitty eww-git rofi dunst chezmoi redshift pamixer xorg-xinit networkmanager noto-fonts ttf-font-awesome brightnessctl cava neofetch neovim sxhkd slock flameshot lxappearance-gtk3 feh playerctl jq recode moreutils
-```
-
-Fetch the dotfiles using:
-```
-chezmoi init https://github.com/Battlesquid/dotfiles.git
+paru -S xorg bspwm picom-animations-git kitty eww-git rofi dunst chezmoi redshift pamixer xorg-xinit networkmanager noto-fonts ttf-font-awesome brightnessctl cava neofetch neovim sxhkd slock flameshot lxappearance-gtk3 feh playerctl jq recode moreutils
 ```
 
 ### **Installation**
@@ -58,7 +59,12 @@ If you are running this on a clean system or you want to run everything with a s
 chezmoi init --apply https://github.com/Battlesquid/dotfiles.git
 ```
 
-# **Partial Installation**
+Logout of your session and then start with:
+```
+startx
+```
+
+## **Partial Installation**
 
 ### **WARNING** - needs more testing
 
@@ -71,4 +77,32 @@ You can install the dotfiles partially if you wish using the `partial.sh` helper
 ```
 
 See `./partial usage` for a full list of partial options.
+
+## **Manual Installation**
+
+If you wish to manually move/symlink/view the dotfiles source, you can generate an archive of the source. For example:
+
+```
+chezmoi cd
+chezmoi --source-path archive src/**/* --output=~/dotconfig.tar.gz
+```
+
+The archive will be in your home directory. This can be done with any folder/file in the source directory, so you can choose how to build out your archive.
+
+## **Miscellaneous**
+
+### **eww weather widget**
+
+1. [Grab an OpenWeather API key](https://openweathermap.org/api). Also determine the [city](https://openweathermap.org/current#name) you would like to use.
+2. Create the following file:
+```
+touch ~/.config/eww/fool_moon/common/scripts/secrets
+```
+3. Copy the contents below into the secrets file, substituting in the API key and city.
+```
+#!/bin/sh
+
+WEATHER_API_KEY="<YOUR_API_KEY_HERE>"
+WEATHER_API_CITY="<YOUR_CITY_HERE>"
+```
 

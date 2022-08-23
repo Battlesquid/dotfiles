@@ -4,9 +4,7 @@
 }
 
 .time-box {
-	background-color: $bg;
 	color: #B8BDC9;
-	border-radius: 8px;
 	padding: 0.5rem;
 
 	.time {
@@ -24,7 +22,6 @@
 .weather {
 	background-color: $bg;
 	border-radius: 8px;
-	margin-bottom: 1rem;
 }
 
 .weather-icon {
@@ -53,7 +50,6 @@
 }
 
 .cal-box {
-	margin: 1rem 0;
 }
 
 .cal-header {
@@ -81,5 +77,124 @@ calendar {
 	&:indeterminate {
 		color: $gray;
 	}
+}
+
+.notif-menu {
+	border-width: 0;
+}
+
+.notifications-box {
+    border-radius: 8px;
+}
+
+.notification-headers {
+    background-color: $bg;
+	padding: 0.5rem 0.5rem;
+}
+
+.notification-headers-label {
+    font-size: 16px;
+    font-weight: bold;
+	color: $bg;
+	background-image: linear-gradient(to right, $blue, #678ac2);
+	border-radius: 8px 8px 0 0;
+	padding: 0.4rem 0;
+}
+
+.notification-card-eventbox {
+    border-radius: 8px;
+}
+
+.notification-card {
+	border-bottom: 1px solid $raisin-black;
+    background-color: $bg;
+    padding: 1rem 1rem 0.5rem 0rem;
+}
+
+.notification-content {
+    border-radius: 8px;
+}
+
+.notification-headers-clear {
+    font-size: 16px;
+    background-color: $raisin-black;
+    border-radius: 0 0 8px 8px;
+    color: $gray;
+    padding: 5px 22px;
+	margin-bottom: 1rem;
+}
+
+.notification-headers-clear:hover {
+    background-color: $red;
+    color: $bg;
+}
+
+.notifications-empty-icon {
+    font-size: 18px;
+}
+
+.notifications-empty-label {
+    font-family: Noto Sans Mono;
+    padding-top: 10px;
+    color: $gray;
+}
+
+.notification-card-LOW {
+    background-color: $gray;
+}
+
+.notification-card-NORMAL {
+    background-color: $blue;
+}
+
+.notification-card-CRITICAL {
+    background-color: $red;
+}
+
+.notification-card-OTHER {
+    border-left: 2px solid $blue;
+}
+
+.notification-wrapper {
+    border-radius: 8px;
+}
+
+.notification-card-notify-close {
+    color: $red;
+    font-size: 14px;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin: 0;
+}
+
+.notification-card-notify-close:hover {
+    color: $bg;
+    background-color: $red;
+}
+
+.notification-summary {
+    font-size: 16px;
+	font-weight: bold;
+	color: #B8BDC9;
+}
+
+.notification-body {
+    color: $light-gray;
+    font-size: 13px;
+}
+
+.notification-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-width: 48px;
+    min-height: 48px;
+    border-radius: 24px;
+    margin: 0 6px;
+}
+
+.notification-card-header-box {
+    background-color: $bg;
+    border-radius: 0 0 18px 8px;
 }
 

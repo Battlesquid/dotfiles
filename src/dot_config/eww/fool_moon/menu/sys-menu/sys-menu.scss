@@ -5,7 +5,6 @@
 .user {
     border-radius: 8px;
     padding: 0.5rem;
-	margin-bottom: 1rem;
 }
 
 .user-pfp {
@@ -30,7 +29,6 @@
 
 .sys-btns {
 	color: #B8BDC9;
-	margin-bottom: 1rem;
 
 	button {
 		border: 1px solid $bg;
@@ -73,17 +71,12 @@
 	.night-off {
 		font-family: "Font Awesome 6 Free";
 	}
-
-	.blue {
-		font-family: "Font Awesome 6 Free";
-	}
 }
 
 .stats {
 	background-color: $bg;
 	border-radius: 8px;
 	padding: 1rem;
-	margin-bottom: 1rem;
 }
 
 scale.ram-scale trough, scale.cpu-scale trough, scale.dsk-scale trough {
@@ -185,7 +178,6 @@ scale.ram-scale trough, scale.cpu-scale trough, scale.dsk-scale trough {
 .sliders {
 	font-size: 16px;
 	border-radius: 1rem;
-	margin: 1rem 0;
 }
 
 .vol, .bright, .mic {
