@@ -87,7 +87,7 @@ chezmoi cd
 chezmoi --source-path archive src/**/* --output=~/dotconfig.tar.gz
 ```
 
-The archive will be in your home directory. This can be done with any folder/file in the source directory, so you can choose how to build out your archive.
+The archive will be in your home directory. This can be done with any folder/file in the source directory, so you can choose how to build out your archive. You can see a full list of potential archive targets with `chezmoi managed`.
 
 ## **Miscellaneous**
 
@@ -105,4 +105,17 @@ touch ~/.config/eww/fool_moon/common/scripts/secrets
 WEATHER_API_KEY="<YOUR_API_KEY_HERE>"
 WEATHER_API_CITY="<YOUR_CITY_HERE>"
 ```
+
+# **Credits**
+
+Feel free to use anything in this repo, just be sure to provide proper credit.
+
+Some scripts/config files were borrowed/adapted from the following repos:
+- [adi1090x/widgets](https://github.com/adi1090x/widgets)
+- [Syndrizzle/hotfiles](https://github.com/Syndrizzle/hotfiles)
+- [mmsaeed509/bspwm-dots](https://github.com/mmsaeed509/bspwm-dots)
+
+# **Contributing**
+
+Since these are my dotfiles, I will not review/implement changes that fundamentally change how the configuration is set up. However, if you find a problem/inconsistency that can be improved without fundamentally changing the configuration (i.e., fixing a script to handle an edge-case), feel free to open an issue or PR.
 
