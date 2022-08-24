@@ -23,6 +23,13 @@ These dotfiles and the instructions on how to set them up are still under constr
 
 # **Setup**
 
+Grab chezmoi using a package manager of your choice. Assuming you have [paru](https://github.com/Morganamilo/paru):
+
+```
+paru -S chezmoi
+```
+
+
 Fetch the dotfiles using:
 ```
 chezmoi init https://github.com/Battlesquid/dotfiles.git
@@ -38,7 +45,7 @@ Be sure to back up any relevant files before continuing. Chezmoi will ask what y
 
 Assuming you have [paru](https://github.com/Morganamilo/paru) installed:
 ```
-paru -S xorg bspwm picom-animations-git kitty eww-git rofi dunst chezmoi redshift pamixer xorg-xinit networkmanager noto-fonts ttf-font-awesome brightnessctl cava neofetch neovim sxhkd slock flameshot lxappearance-gtk3 feh playerctl jq recode moreutils
+paru -S xorg bspwm picom-animations-git kitty eww-git rofi dunst redshift pamixer xorg-xinit networkmanager noto-fonts ttf-font-awesome brightnessctl cava neofetch neovim sxhkd slock flameshot lxappearance-gtk3 feh playerctl jq recode moreutils
 ```
 
 ### **Installation**
