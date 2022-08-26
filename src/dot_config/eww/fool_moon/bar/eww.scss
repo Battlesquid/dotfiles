@@ -122,10 +122,7 @@ tooltip {
 }
 
 .bat-box {
-	.bat-icon {
-		color: $bg;
-		border-radius: 8px 0 0 8px;
-	}
+	color: $bg;
 
 	.bat-icon.high {
 		background-color: #6ca38b;
@@ -141,30 +138,51 @@ tooltip {
 
 	.bat-label {
 		font-weight: bold;
+	}
+
+	.bat-dark {
 		color: $bg;
+	}
+
+	.bat-light {
+		color: $light-gray;
 	}
 
 	scale.bat-scale trough {
 		all: unset;
 		background-color: $gray;
-		border-radius: 0 8px 8px 0;
+		border-radius: 8px;
 		min-height: 25px;
 		min-width: 60px;
 	}
+	
+	
+	scale.bat-scale.high trough {
+		background-color: #52846E;
+	}
+	
+	scale.bat-scale.med trough {
+		background-color: #D1AA61;
+	}
+	
+	scale.bat-scale.low trough {
+		background-color: #E48B9C;
+	}
+	
 
 	.bat-scale.high trough highlight {
 		background-color: #6ca38b;
-		border-radius: 0 8px 8px 0;
+		border-radius: 8px;
 	}
 
 	.bat-scale.med trough highlight {
 		background-color: $yellow;
-		border-radius: 0 8px 8px 0;
+		border-radius: 8px;
 	}
 
 	.bat-scale.low trough highlight {
 		background-color: $red;
-		border-radius: 0 8px 8px 0;
+		border-radius: 8px;
 	}
 }
 

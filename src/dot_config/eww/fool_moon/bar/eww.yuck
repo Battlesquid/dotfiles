@@ -1,3 +1,5 @@
+(defvar eww "eww -c ~/.config/eww/fool_moon/bar")
+
 (defwidget main []
   (box :class "bar"
     (left)
@@ -29,9 +31,12 @@
     (right)))
 
 (defwidget start[]
-  (box :class "start"
-       :valign "center"
-    (button :onclick "scripts/widgets toggle-sys" :class "start-btn" "")))
+  (eventbox :class "start-eventbox"
+            :onclick "scripts/widgets toggle-sys"
+            :cursor "pointer"
+    (box :class "start"
+         :valign "center"
+      (label :class "start-btn" :text ""))))
 
 (defwidget workspaces []
   (eventbox :onscroll "scripts/workspaces scroll {}"
@@ -74,15 +79,29 @@
 (defpoll bat-icon :interval "1s" "scripts/bat icon")
 
 (defwidget bat[]
-  (box :class "bat-box"
-       :space-evenly false
-    (label :class "bat-icon ${bat-class}" :valign "center" :height 25 :width 25 :text bat-icon)
-    (overlay
-      (scale :class "bat-scale ${bat-class}" :active false :min 0 :max 101 :value bat-val)
-      (label :class "bat-label" :halign "start" :text "${bat-val}%"))))
+  (eventbox :class "bat-eventbox"
+            :onhover "${eww} update bat-vis=true"
+            :onhoverlost "${eww} update bat-vis=false"
+    (box :class "bat-box ${bat-class}"
+         :orientation "v"
+         :valign "center"
+      (overlay
+        (scale :class "bat-scale ${bat-class}" :active false :min 0 :max 101 :value bat-val)
+        (box :orientation "v"
+             :space-evenly false
+             :valign "center"
+          (revealer :class "bat-reveal" :reveal bat-vis
+                    :transition "slideup"
+                    :duration "550ms"
+            (label :class "bat-label" :halign "center" :valign "center" :text "${bat-val}%"))
+          (revealer :class "bat-reveal" :reveal {!bat-vis}
+                    :transition "slideup"
+                    :duration "550ms"
+            (label :class "bat-icon" :halign "center" :valign "center" :height 25 :width 25 :text bat-icon)))))))
 
 (defpoll bat-val :initial 0 :interval "1s" "scripts/bat level")
 (defpoll bat-class :interval "1s" "scripts/bat class")
+(defvar bat-vis false)
 
 (defwidget time[]
   (box :class "time-box"

@@ -61,12 +61,14 @@ function follow() {
 		*) echo "unknown stat" && exit 1
 	esac
 
-	if ! [ -f "$CACHE_DIR/$1.value" ];then
-		mkdir -p "$CACHE_DIR"
-		touch "$CACHE_DIR/$1.value"
-	fi
-
-	tail -F "$CACHE_DIR/$1.value" 2> /dev/null
+	while true; do
+		sleep 5 
+		case  "$1" in
+			"ram") ram;;
+			"cpu") cpu;;
+			"dsk") dsk;;
+		esac
+	done
 }
 
 

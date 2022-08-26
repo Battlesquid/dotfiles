@@ -40,13 +40,8 @@
     (v-iconmeter :name "cpu" :active false :min 0 :max 101 :val cpu-val :icon "")
     (v-iconmeter :name "dsk" :active false :min 0 :max 101 :val dsk-val :icon "")))
 
-(defpoll ram-poll :interval "1s" "scripts/stats ram")
 (deflisten ram-val "scripts/stats follow ram")
-
-(defpoll cpu-poll :interval "1s" "scripts/stats cpu")
 (deflisten cpu-val "scripts/stats follow cpu")
-
-(defpoll dsk-poll :interval "1s" "scripts/stats dsk")
 (deflisten dsk-val "scripts/stats follow dsk")
 
 (defwidget sys-btns[]
@@ -56,16 +51,19 @@
        :spacing 15
     (box :class "row"
          :spacing 15
-      (button :class "wifi ${sys.wifi_class}" :tooltip "wifi" :timeout "5s" :onclick "scripts/sys toggle-wifi" "")
-      (button :class "air ${sys.air_class}" :timeout "5s" :tooltip "airplane mode" :onclick "scripts/sys toggle-air" {sys.air_icon})
-      (button :class "dnd ${sys.dnd_class}" :timeout "5s" :tooltip "do not disturb" :onclick "scripts/sys toggle-dnd" {sys.dnd_icon}))
+      (button :class "wifi wifi-${wifi.state}" :timeout "5s" :tooltip "wifi" :onclick "scripts/sys toggle-wifi" {wifi.icon})
+      (button :class "air air-${air.state}" :timeout "5s" :tooltip "airplane mode" :onclick "scripts/sys toggle-air" {air.icon})
+      (button :class "dnd dnd-${dnd.state}" :timeout "5s" :tooltip "do not disturb" :onclick "scripts/sys toggle-dnd" {dnd.icon}))
     (box :class "row"
          :spacing 15
-      (button :class "night ${sys.night_class}" :tooltip "night light" :onclick "scripts/sys toggle-night" {sys.night_icon})
+      (button :class "night night-${night.state}" :tooltip "night light" :onclick "scripts/sys toggle-night" {night.icon})
       (button :class "scr" :tooltip "take screenshot" :onclick "scripts/sys screenshot" "")
       (button :class "blue" :tooltip "bluetooth" :onclick "scripts/sys blue" ""))))
 
-(deflisten sys "scripts/sys follow")
+(deflisten wifi "scripts/sys wifi")
+(deflisten air "scripts/sys air")
+(deflisten dnd "scripts/sys dnd")
+(deflisten night "scripts/sys night")
 
 (defwidget media[]
   (box :class "media"
@@ -73,6 +71,7 @@
     (box :class "media-controls"
          :orientation "h"
          :space-evenly false
+          :spacing 15
       (box :class "media-overview"
            :orientation "v"
            :hexpand true
