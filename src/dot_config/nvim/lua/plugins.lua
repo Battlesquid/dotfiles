@@ -59,6 +59,7 @@ return require('packer').startup(function(use)
 		config = setup("telescope"),
 		requires = { 'nvim-lua/plenary.nvim' }
 	}
+
 	use 'airblade/vim-gitgutter'
 
 	use {
@@ -66,7 +67,25 @@ return require('packer').startup(function(use)
 		config = setup("indent-blankline")
 	}
 
-	use 'neovim/nvim-lspconfig'
+	use {
+		'neovim/nvim-lspconfig',
+		config = setup("lspconfig")
+	}
+
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
+	use {
+		'hrsh7th/nvim-cmp',
+		config = setup("nvim-cmp")
+	}
+
+	use {
+		'L3MON4D3/LuaSnip',
+		config = setup("luasnip")
+	}
+	use "rafamadriz/friendly-snippets"
 
 	use { 
 		'nvim-treesitter/nvim-treesitter', 

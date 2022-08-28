@@ -69,11 +69,42 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    config = { 'require("setup.luasnip")' },
+    loaded = true,
+    path = "/home/battlesqui_d/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["barbar.nvim"] = {
     config = { 'require("setup.barbar")' },
     loaded = true,
     path = "/home/battlesqui_d/.local/share/nvim/site/pack/packer/start/barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
+  },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/home/battlesqui_d/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "/home/battlesqui_d/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/battlesqui_d/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/home/battlesqui_d/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/battlesqui_d/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["indent-blankline.nvim"] = {
     config = { 'require("setup.indent-blankline")' },
@@ -86,7 +117,14 @@ _G.packer_plugins = {
     path = "/home/battlesqui_d/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["nvim-cmp"] = {
+    config = { 'require("setup.nvim-cmp")' },
+    loaded = true,
+    path = "/home/battlesqui_d/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
+  },
   ["nvim-lspconfig"] = {
+    config = { 'require("setup.lspconfig")' },
     loaded = true,
     path = "/home/battlesqui_d/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
@@ -174,18 +212,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-require("setup.indent-blankline")
-time([[Config for indent-blankline.nvim]], false)
--- Config for: barbar.nvim
-time([[Config for barbar.nvim]], true)
-require("setup.barbar")
-time([[Config for barbar.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require("setup.treesitter")
-time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 require("setup.nvimtree")
@@ -194,14 +220,38 @@ time([[Config for nvim-tree.lua]], false)
 time([[Config for telescope.nvim]], true)
 require("setup.telescope")
 time([[Config for telescope.nvim]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-require("setup.toggleterm")
-time([[Config for toggleterm.nvim]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require("setup.indent-blankline")
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require("setup.treesitter")
+time([[Config for nvim-treesitter]], false)
 -- Config for: presence.nvim
 time([[Config for presence.nvim]], true)
 require("setup.discord_presence")
 time([[Config for presence.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require("setup.luasnip")
+time([[Config for LuaSnip]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require("setup.lspconfig")
+time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require("setup.nvim-cmp")
+time([[Config for nvim-cmp]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+require("setup.toggleterm")
+time([[Config for toggleterm.nvim]], false)
+-- Config for: barbar.nvim
+time([[Config for barbar.nvim]], true)
+require("setup.barbar")
+time([[Config for barbar.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
