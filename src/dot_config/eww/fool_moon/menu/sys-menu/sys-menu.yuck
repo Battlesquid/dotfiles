@@ -121,7 +121,7 @@
 
 (defwindow sys-menu 
   :monitor 0
-  :geometry (geometry :x "10px" :y "60px" :width "384px" :anchor "top left")
+  :geometry (geometry :x "10px" :y "62px" :width "384px" :anchor "top left")
   :windowtype "dock"
   :wm-ignore false
   (sys-menu-main))

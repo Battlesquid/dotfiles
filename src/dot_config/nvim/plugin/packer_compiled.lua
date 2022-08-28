@@ -117,6 +117,11 @@ _G.packer_plugins = {
     path = "/home/battlesqui_d/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  nerdcommenter = {
+    loaded = true,
+    path = "/home/battlesqui_d/.local/share/nvim/site/pack/packer/start/nerdcommenter",
+    url = "https://github.com/preservim/nerdcommenter"
+  },
   ["nvim-cmp"] = {
     config = { 'require("setup.nvim-cmp")' },
     loaded = true,
@@ -216,34 +221,26 @@ time([[Defining packer_plugins]], false)
 time([[Config for nvim-tree.lua]], true)
 require("setup.nvimtree")
 time([[Config for nvim-tree.lua]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require("setup.telescope")
-time([[Config for telescope.nvim]], false)
 -- Config for: indent-blankline.nvim
 time([[Config for indent-blankline.nvim]], true)
 require("setup.indent-blankline")
 time([[Config for indent-blankline.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require("setup.treesitter")
-time([[Config for nvim-treesitter]], false)
 -- Config for: presence.nvim
 time([[Config for presence.nvim]], true)
 require("setup.discord_presence")
 time([[Config for presence.nvim]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-require("setup.luasnip")
-time([[Config for LuaSnip]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require("setup.lspconfig")
-time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require("setup.treesitter")
+time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require("setup.nvim-cmp")
 time([[Config for nvim-cmp]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require("setup.lspconfig")
+time([[Config for nvim-lspconfig]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
 require("setup.toggleterm")
@@ -252,6 +249,14 @@ time([[Config for toggleterm.nvim]], false)
 time([[Config for barbar.nvim]], true)
 require("setup.barbar")
 time([[Config for barbar.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require("setup.luasnip")
+time([[Config for LuaSnip]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require("setup.telescope")
+time([[Config for telescope.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

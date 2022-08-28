@@ -24,7 +24,9 @@ return require('packer').startup(function(use)
 	use 'famiu/nvim-reload' 
 
 	use 'tpope/vim-surround'
-	
+
+	use 'preservim/nerdcommenter'
+
 	use {
 		"akinsho/toggleterm.nvim", 
 		tag = 'v2.*', 

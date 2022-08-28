@@ -20,4 +20,6 @@ lsp_defaults
 
 lspconfig.sumneko_lua.setup({})
 lspconfig.pyright.setup{}
+lspconfig.cssls.setup{}
+
 require("setup.lspconfig-keybinds")

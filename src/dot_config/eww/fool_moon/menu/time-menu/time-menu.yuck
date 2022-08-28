@@ -2,21 +2,30 @@
   (box :class "menu time-menu"
        :orientation "v"
        :space-evenly false
-        :spacing 15
-    (time)
+       :spacing 15
+    (header)
     (cal)
-    (weather)
     (notif-menu-main)))
+
+(defwidget header[]
+  (box :class "header"
+       :spacing 15
+    (time)
+    (weather)))
 
 (defwidget time[]
   (box :class "time-box"
        :orientation "v"
-       :space-evenly false  
-    (label :class "time" :text time)
-    (label :class "date" :text "${date}")))
+    (box 
+      :orientation "v"
+      :space-evenly false
+      :valign "center" 
+      :vexpand true
+      (label :class "time" :halign "start" :text time)
+      (label :class "date" :halign "start" :text "${date}"))))
 
-(defpoll time :interval "1s" "date +'%I:%M' ")
-(defpoll date :interval "5s" "date +'%A, %B %d' | tr '[:upper:]' '[:lower:]'")
+(defpoll time :interval "1s" "date +'%I:%M'")
+(defpoll date :interval "5s" "date +'%A %B %d'")
 
 (defwidget cal[]
   (box :class "cal-box"
@@ -31,21 +40,19 @@
 
 (defwidget weather[]
   (box :class "weather"
-       :orientation "h"
+       :orientation "v"
        :hexpand true
-       :space-evenly false
-    (label :class "weather-icon" :text weather-icon)
+    (label :class "weather-icon" :text {weather.icon})
     (box :class "weather-details"
          :orientation "v"
          :space-evenly false
          :hexpand true
          :valign "center"
-      (label :class "weather-name" :halign "start" :text weather-name)
-      (label :class "weather-temp" :halign "start" :text "${weather-temp}° F"))))
+      (label :class "weather-name" :halign "center" :text {weather.name})
+      (label :class "weather-temp" :text "${weather.temp}° F"))))
 
-(defpoll weather-icon :interval "30m" :timeout "1s" "scripts/weather icon") 
-(defpoll weather-name :interval "30m" :timeout "1s" "scripts/weather name")
-(defpoll weather-temp :interval "30m" :timeout "1s" "scripts/weather temp")
+
+(defpoll weather :interval "30m" :timeout "5s" "scripts/weather") 
 
 (defwidget notif-menu-main[]
   (box :class "menu notif-menu"
@@ -81,7 +88,7 @@
 
 (defwindow time-menu 
   :monitor 0
-  :geometry (geometry :x "-10px" :y "60px" :width "384px" :height "94%" :anchor "top right")
+  :geometry (geometry :x "-10px" :y "62px" :width "384px" :height "94%" :anchor "top right")
   :windowtype "dock"
   :wm-ignore false
   (time-menu-main))
