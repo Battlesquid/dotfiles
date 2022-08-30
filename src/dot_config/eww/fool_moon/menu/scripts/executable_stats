@@ -61,8 +61,7 @@ function follow() {
 		*) echo "unknown stat" && exit 1
 	esac
 
-	while true; do
-		sleep 5 
+	while sleep 5; do
 		case  "$1" in
 			"ram") ram;;
 			"cpu") cpu;;

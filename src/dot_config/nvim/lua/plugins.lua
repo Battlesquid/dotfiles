@@ -42,6 +42,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'nvim-lualine/lualine.nvim',
+		config = setup("lualine"),
 		requires = {
 			'kyazdani42/nvim-web-devicons',
 			{

@@ -6,7 +6,7 @@
 .time-box {
 	color: #B8BDC9;
 	background-color: $raisin-black;
-	border-radius: 8px;
+	border-radius: 8px 8px 0 0;
 
 	padding: 1rem;
 
@@ -15,23 +15,33 @@
 		font-weight: bold;
 	}
 
+	.month {
+		font-size: 32px;
+		font-weight: bold;
+	}
+
 	.date {
 		font-size: 14px;
+		font-weight: bold;
 		color: $light-gray;
 	}
 }
 
 .weather {
-	background-color: $bg;
+	background-color: $raisin-black;
 	border-radius: 8px;
 }
 
 .weather-icon {
 	font-family: NotoEmoji Nerd Font Mono;
-	font-size: 50px;
-	color: #B8BDC9;
-	background-color: $bg;
-	border-radius: 8px 8px 0 0;
+	font-size: 48px;
+	//color: #B8BDC9;
+	color: $bg;
+	//background-color: $bg;
+	background-image: linear-gradient(to right, $blue, #678ac2);
+	border-radius: 8px;
+	padding: 0.5rem;
+	margin: 1rem;
 }
 
 .weather-details {
@@ -39,15 +49,14 @@
 }
 
 .weather-name {
-	font-size: 22px;
-	font-weight: bold;
-	color: #B8BDC9;
+	font-size: 14px;
+	color: $light-gray;
 }
 
 .weather-temp {
 	font-weight: bold;
-	color: $light-gray;
-	font-size: 16px;
+	color: #B8BDC9;
+	font-size: 28px;
 }
 
 .cal-box {
@@ -55,24 +64,22 @@
 
 .cal-header {
 	font-weight: bold;
+	font-size: 18px;
 	color: $bg;
-	background-color: $blue;
 	background-image: linear-gradient(to right, $blue, #678ac2);
-	border-radius: 8px 8px 0 0;
-	padding: 0.5rem 1rem;
+	padding: 0.5rem 1.1rem;
 }
 
 calendar {
-	font-weight: bold;
 	color: #B8BDC9;
 	background-color: $bg;
 	border-radius: 0 0 8px 8px;
-	padding: 1rem 0.3rem 0.2rem 0.3rem;
+	padding: 1em .75em 0em;
 
 	&:selected {
 		color: $blue;
 		border-radius: 8px;
-		padding-top: 0.5rem;
+		padding-top: 0.5rem
 	}
 
 	&:indeterminate {
@@ -122,7 +129,7 @@ calendar {
 	font-size: 16px;
 	background-color: $raisin-black;
 	border-radius: 0 0 8px 8px;
-	color: #B8BDC9;
+	color: $light-gray;
 	padding: 5px 22px;
 	margin-bottom: 1rem;
 }

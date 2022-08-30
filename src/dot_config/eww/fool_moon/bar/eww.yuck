@@ -35,8 +35,7 @@
             :onclick "scripts/widgets toggle-sys"
             :cursor "pointer"
     (box :class "start"
-         :valign "center"
-      (label :class "start-btn" :text ""))))
+      (label :class "start-btn" :text ""))))
 
 (defwidget workspaces []
   (eventbox :onscroll "scripts/workspaces scroll {}"

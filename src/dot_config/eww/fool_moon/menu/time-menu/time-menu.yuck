@@ -3,53 +3,47 @@
        :orientation "v"
        :space-evenly false
        :spacing 15
-    (header)
     (cal)
+    (weather)
     (notif-menu-main)))
-
-(defwidget header[]
-  (box :class "header"
-       :spacing 15
-    (time)
-    (weather)))
 
 (defwidget time[]
   (box :class "time-box"
        :orientation "v"
-    (box 
-      :orientation "v"
-      :space-evenly false
-      :valign "center" 
-      :vexpand true
-      (label :class "time" :halign "start" :text time)
-      (label :class "date" :halign "start" :text "${date}"))))
+    (box :orientation "v"
+         :space-evenly false
+         :valign "center" 
+         :vexpand true
+      (label :class "month" :halign "center" :text month)
+      (label :class "date" :halign "center" :text date))))
 
-(defpoll time :interval "1s" "date +'%I:%M'")
-(defpoll date :interval "5s" "date +'%A %B %d'")
+(defpoll month :interval "1s" "date +'%I:%M'")
+(defpoll date :interval "1s" "date +'%A %B %d'")
 
 (defwidget cal[]
   (box :class "cal-box"
        :orientation "v"
        :space-evenly false
-    (box :class "cal-header" "sun" "mon" "tue" "wed" "thu" "fri" "sat")
+    (time)
+    (box :class "cal-header" "S" "M" "T" "W" "T" "F" "S")
     (calendar :class "cal"
               :valign "center"
+              :vexpand true
               :active false
               :show-heading false
               :show-day-names false)))
 
 (defwidget weather[]
   (box :class "weather"
-       :orientation "v"
-       :hexpand true
+       :orientation "h"
+       :spacing 15
     (label :class "weather-icon" :text {weather.icon})
     (box :class "weather-details"
          :orientation "v"
          :space-evenly false
-         :hexpand true
          :valign "center"
-      (label :class "weather-name" :halign "center" :text {weather.name})
-      (label :class "weather-temp" :text "${weather.temp}° F"))))
+      (label :class "weather-temp" :halign "start" :text "${weather.temp}°")
+      (label :class "weather-name" :halign "start" :text {weather.name}))))
 
 
 (defpoll weather :interval "30m" :timeout "5s" "scripts/weather") 
@@ -76,7 +70,7 @@
 
 (defwidget notifs-box[]
   (box :class "notifications-box" :orientation "v" :hexpand true :vexpand true :space-evenly false
-    (label :class "notification-headers-label" :hexpand true :text "notifications")
+    (label :class "notification-headers-label" :hexpand true :text "Notifications")
     (box :class "notification-headers"
          :orientation "v"
          :space-evenly false

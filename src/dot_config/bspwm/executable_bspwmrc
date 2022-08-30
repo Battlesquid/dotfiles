@@ -11,6 +11,7 @@ killall eww
 
 sxhkd &
 dunst &
+xsetroot -cursor_name left_ptr &
 picom --config $HOME/.config/picom/picom.ini --experimental-backends &
 feh --bg-fill ~/.config/wallpapers/fool_moon.jpg
 eww -c $EWW_DIR/bar open bar
@@ -50,3 +51,14 @@ else
 	eww -c $EWW_DIR/bar open bar
 fi
 done &
+
+while read -r line; do
+	case "$line" in
+		*'marked on')
+			bspc config -n "$(bspc query -N -n .marked)" border_width 10
+			;;
+		*'marked off')
+			bspc config border_width 1
+			;;
+	esac
+done < <(bspc subscribe report node_flag) &

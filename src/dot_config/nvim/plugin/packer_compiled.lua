@@ -113,6 +113,7 @@ _G.packer_plugins = {
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lualine.nvim"] = {
+    config = { 'require("setup.lualine")' },
     loaded = true,
     path = "/home/battlesqui_d/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
@@ -217,14 +218,22 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require("setup.nvimtree")
-time([[Config for nvim-tree.lua]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+require("setup.toggleterm")
+time([[Config for toggleterm.nvim]], false)
 -- Config for: indent-blankline.nvim
 time([[Config for indent-blankline.nvim]], true)
 require("setup.indent-blankline")
 time([[Config for indent-blankline.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require("setup.nvimtree")
+time([[Config for nvim-tree.lua]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require("setup.telescope")
+time([[Config for telescope.nvim]], false)
 -- Config for: presence.nvim
 time([[Config for presence.nvim]], true)
 require("setup.discord_presence")
@@ -237,26 +246,22 @@ time([[Config for nvim-treesitter]], false)
 time([[Config for nvim-cmp]], true)
 require("setup.nvim-cmp")
 time([[Config for nvim-cmp]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require("setup.lspconfig")
-time([[Config for nvim-lspconfig]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-require("setup.toggleterm")
-time([[Config for toggleterm.nvim]], false)
--- Config for: barbar.nvim
-time([[Config for barbar.nvim]], true)
-require("setup.barbar")
-time([[Config for barbar.nvim]], false)
 -- Config for: LuaSnip
 time([[Config for LuaSnip]], true)
 require("setup.luasnip")
 time([[Config for LuaSnip]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require("setup.telescope")
-time([[Config for telescope.nvim]], false)
+-- Config for: barbar.nvim
+time([[Config for barbar.nvim]], true)
+require("setup.barbar")
+time([[Config for barbar.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require("setup.lspconfig")
+time([[Config for nvim-lspconfig]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require("setup.lualine")
+time([[Config for lualine.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

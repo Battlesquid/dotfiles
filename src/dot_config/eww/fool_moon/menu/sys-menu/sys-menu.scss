@@ -3,28 +3,28 @@
 }
 
 .user {
-    border-radius: 8px;
-    padding: 0.5rem;
+	border-radius: 8px;
+	padding: 0.5rem;
 }
 
 .user-pfp {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    min-width: 80px;
-    min-height: 80px;
-    border-radius: 40px;
-    border: 1px solid $light-gray;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	min-width: 80px;
+	min-height: 80px;
+	border-radius: 40px;
+	border: 1px solid $light-gray;
 }
 
 .user-name {
-    font-size: 18px;
-    font-weight: bold;
+	font-size: 18px;
+	font-weight: bold;
 }
 
 .user-uptime {
-    font-size: 14px;
-    color: $light-gray;
+	font-size: 14px;
+	color: $light-gray;
 }
 
 .sys-btns {
@@ -33,7 +33,7 @@
 	button {
 		border: 1px solid $bg;
 	}
-	
+
 	button:hover {
 		border: 1px solid $gray;
 	}
@@ -198,63 +198,64 @@ scale.ram-scale trough, scale.cpu-scale trough, scale.dsk-scale trough {
 scale.vol-scale trough, scale.mic-scale trough, scale.bright-scale trough {
 	all: unset;
 	background-color: $gray;
-	border-radius: 0 15px 15px 0;
+	//border-radius: 0 15px 15px 0;
+	border-radius: 0 0 100px 0;
 	min-height: 15px;
 	min-width: 300px;
 }
 
 .vol-scale trough highlight {
 	background-color: $blue;
-	border-radius: 0 15px 15px 0;
+	border-radius: 0 0 100px 0;
 }
 
 .mic-scale trough highlight {
 	background-color: $purple;
-	border-radius: 0 15px 15px 0;
+	border-radius: 0 0 100px 0;
 }
 
 .bright-scale trough highlight {
 	background-color: $light-blue;
-	border-radius: 0 15px 15px 0;
+	border-radius: 0 0 100px 0;
 }
 
 .powermenu {
-    font-size: 16px;
+	font-size: 16px;
 	color: #B8BDC9;
-    background-color: $bg;
-    border-radius: 8px;
+	background-color: $bg;
+	border-radius: 8px;
 	margin-bottom: 1rem;
 }
 
 .powermenu > button {
-    padding: 1rem;
+	padding: 1rem;
 }
 
 .powermenu button:first-child {
-    border-radius: 8px 0 0 8px;
+	border-radius: 8px 0 0 8px;
 }
 
 .powermenu button:last-child {
-    border-radius: 0 8px 8px 0;
+	border-radius: 0 8px 8px 0;
 }
 
 .power-lock:hover {
-    background-color: $blue;
-    color: $bg;
+	background-color: $blue;
+	color: $bg;
 }
 
 .power-exit:hover {
-    background-color: $purple;
-    color: $bg;
+	background-color: $purple;
+	color: $bg;
 }
 
 .power-reboot:hover {
-    background-color: $mint;
-    color: $bg;
+	background-color: $mint;
+	color: $bg;
 }
 
 .power-shutdown:hover {
-    background-color: $red;
-    color: $bg;
+	background-color: $red;
+	color: $bg;
 }
 

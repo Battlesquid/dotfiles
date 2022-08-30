@@ -88,7 +88,7 @@ function create_cache() {
       local caches="$(compile_caches)"
       [[ "$caches" == "" ]] \
           && print '(box :class "notifications-empty-box" :orientation "vertical" :valign "center" :vexpand true (label :class "notifications-empty-icon" :text "All caught up") )' \
-          || print "(scroll :class 'notifications-scrollbox' :height 515 :vscroll true (box :orientation 'vertical' :class 'notification-scroll-box' :spacing 15 :space-evenly 'false' $caches))"
+          || print "(scroll :class 'notifications-scrollbox' :height 499 :vscroll true (box :orientation 'vertical' :class 'notification-scroll-box' :spacing 15 :space-evenly 'false' $caches))"
       }
 
       function clear_logs() {
