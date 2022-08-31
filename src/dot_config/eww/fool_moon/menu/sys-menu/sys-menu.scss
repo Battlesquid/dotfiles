@@ -179,19 +179,22 @@ scale.ram-scale trough, scale.cpu-scale trough, scale.dsk-scale trough {
 	border-radius: 1rem;
 }
 
-.vol, .bright, .mic {
+.vol-box, .bright-box, .mic-box {
+	margin-right: 0.4rem;
 }
 
-.vol-icon, .mic-icon, .bright-icon {
+.vol-eventbox, .mic-eventbox, .bright-eventbox {
 	font-size: 14px;
 	color: #B8BDC9;
 	background-color: $raisin-black;
 	border-radius: 8px;
-	padding: 0.5rem;
-	margin-right: 0.5rem;
 }
 
-.vol-icon:hover, .mic-icon:hover, .bright-icon:hover {
+.vol-icon, .mic-icon, .bright-icon {
+	padding: 0.5rem 0;
+}
+
+.vol-eventbox:hover, .mic-eventbox:hover {
 	background-color: $gray;
 }
 

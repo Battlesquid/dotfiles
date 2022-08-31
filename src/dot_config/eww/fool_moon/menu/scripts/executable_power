@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function close() {
-	eww -c "$HOME/.config/eww/fool_moon/menu close sys-menu time-menu notif-menu"
+	eww -c "$HOME/.config/eww/fool_moon/menu close sys-menu time-menu"
 }
 
 function lock() {
@@ -27,7 +27,7 @@ function sshutdown() {
 case "$1" in
 	lock) lock;;
 	logout) llogout;;
-	restart) rrestart;;
+	reboot) rrestart;;
 	shutdown) sshutdown;;
 	*) echo "unrecognized command" && exit 1;;
 esac

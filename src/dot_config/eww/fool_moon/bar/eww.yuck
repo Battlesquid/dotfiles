@@ -8,6 +8,7 @@
 (defwidget left[]
   (box :class "left"
        :space-evenly false
+       :spacing 7 
        :halign "start"
     (start)
     (workspaces)))
@@ -31,11 +32,13 @@
     (right)))
 
 (defwidget start[]
-  (eventbox :class "start-eventbox"
-            :onclick "scripts/widgets toggle-sys"
-            :cursor "pointer"
-    (box :class "start"
-      (label :class "start-btn" :text ""))))
+  (box :class "start-box" 
+    (eventbox :class "start-eventbox"
+              :onclick "scripts/widgets toggle-sys"
+              :cursor "pointer"
+              :valign "center"
+      (box :class "start"
+        (label :class "start-btn" :text "")))))
 
 (defwidget workspaces []
   (eventbox :onscroll "scripts/workspaces scroll {}"

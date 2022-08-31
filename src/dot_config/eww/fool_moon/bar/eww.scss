@@ -20,22 +20,29 @@ tooltip {
 .left-bar, .right-bar {
 }
 
-.start-btn {
+.start-box {
+	margin-left: 0.5rem;
+}
+
+.start-eventbox {
 	font-size: 16px;
 	color: $bg;
 	background-color: $blue;
-	padding: 0.5rem 1.1rem;
+	border-radius: 8px;
 }
 
-.start-btn:hover {
+.start-eventbox:hover {
 	color: $bg;
 	background-color: #679df5;
+}
+
+.start-btn {
+	padding: 0.5rem 1.1rem;
 }
 
 .workspaces {	
 	font-size: 20px;
 	border-radius: 8px;
-	margin: 0 1rem;
 
 	button:hover {
 		color: #679df5;
