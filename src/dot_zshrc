@@ -118,7 +118,9 @@ source /usr/share/nvm/init-nvm.sh
 alias chezit='chezmoi edit'
 
 path+=$HOME/bin
+path+=$HOME/bin/eww/target/release/
 path+=$HOME/.cargo/bin
+path+=$HOME/IHMC_CmapTools/
 PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
 
 export PATH
