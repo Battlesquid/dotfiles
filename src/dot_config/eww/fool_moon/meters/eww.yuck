@@ -3,10 +3,12 @@
 (defwidget main[]
   (box :class "meters"
        :orientation "v"
-       :valign "center"
+    :space-evenly false
     (mic)
-    (vol)
-    (bright)))
+    (box
+      :space-evenly false
+      (bright)
+      (vol))))
 
 (defwidget mic[]
   (box :class "mic-box"
@@ -16,10 +18,10 @@
     (box :class "mic-wrapper"
          :halign "end"
       (circlemeter :name "mic"
-                   :thickness 6 
+                   :thickness 6
                    :val mic-val
                    :onscroll "../common/scripts/mic change {}"
-                   :icon "${round(mic-val, 0)}")))) 
+                   :icon "${round(mic-val, 0)}%")))) 
 
 (deflisten mic-val :initial 0 "../common/scripts/mic follow")
 
@@ -33,7 +35,7 @@
       (circlemeter :name "vol"
                    :thickness 6
                    :val vol-val
-                   :icon "${round(vol-val, 0)}"
+                   :icon "${round(vol-val, 0)}%"
                    :onscroll "../common/scripts/vol change {}"
                    :onclick "../common/scripts/vol toggle-mute"))))
 
@@ -47,16 +49,16 @@
     (box :class "bright-wrapper"
          :halign "end"
       (circlemeter :name "bright"
-                   :thickness 6 
+                   :thickness 6
                    :val bright-val
-                   :icon "${round(bright-val, 0)}"
+                   :icon "${round(bright-val, 0)}%"
                    :onscroll "../common/scripts/bright change {}"))))
 
 (deflisten bright-val :initial 0 "../common/scripts/bright follow")
 
 (defwindow meters 
   :monitor 0
-  :geometry (geometry :x "0px" :y "0px" :width "384px" :height "50%" :anchor "center right")
+  :geometry (geometry :x "0px" :y "0px" :anchor "bottom right")
   :windowtype "dock"
   :wm-ignore false
   (main))

@@ -14,10 +14,10 @@
          :space-evenly false
          :valign "center" 
          :vexpand true
-      (label :class "month" :halign "center" :text month)
+      (label :class "time" :halign "center" :text time)
       (label :class "date" :halign "center" :text date))))
 
-(defpoll month :interval "1s" "date +'%I:%M'")
+(defpoll time :interval "1s" "date +'%I:%M'")
 (defpoll date :interval "1s" "date +'%A %B %d'")
 
 (defwidget cal[]

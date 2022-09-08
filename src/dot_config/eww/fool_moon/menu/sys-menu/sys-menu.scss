@@ -4,17 +4,20 @@
 
 .user {
 	border-radius: 8px;
-	padding: 0.5rem;
+	background-color: $raisin-black;
+	padding: 0.8rem;
 }
 
 .user-pfp {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+	border: 1px solid $gray;
+	padding: 0.5rem;
+	border-radius: 50%;
 	min-width: 80px;
 	min-height: 80px;
-	border-radius: 40px;
-	border: 1px solid $light-gray;
+	//border: 1px solid $light-gray;
 }
 
 .user-name {
@@ -22,7 +25,7 @@
 	font-weight: bold;
 }
 
-.user-uptime {
+.user-uptime, .user-pkgs {
 	font-size: 14px;
 	color: $light-gray;
 }
@@ -87,6 +90,7 @@ scale.ram-scale trough, scale.cpu-scale trough, scale.dsk-scale trough {
 	min-width: 15px;
 }
 
+
 .ram-scale trough highlight {
 	background-color: $blue;
 	border-radius: 8px;
@@ -144,6 +148,7 @@ scale.ram-scale trough, scale.cpu-scale trough, scale.dsk-scale trough {
 }
 
 .media-prev, .media-toggle, .media-next {
+	font-size: 15px;
 	background-color: $bg;
 	padding: 0.5rem 1rem;
 }
@@ -174,6 +179,16 @@ scale.ram-scale trough, scale.cpu-scale trough, scale.dsk-scale trough {
 	color: #B8BDC9;
 }
 
+scale.media-track trough {
+	all: unset;
+	background-color: $gray;
+	min-height: 7px;
+}
+
+scale.media-track trough highlight {
+	background: $light-gray;
+}
+
 .sliders {
 	font-size: 16px;
 	border-radius: 1rem;
@@ -187,11 +202,11 @@ scale.ram-scale trough, scale.cpu-scale trough, scale.dsk-scale trough {
 	font-size: 14px;
 	color: #B8BDC9;
 	background-color: $raisin-black;
-	border-radius: 8px;
+	border-radius: 9px;
 }
 
 .vol-icon, .mic-icon, .bright-icon {
-	padding: 0.5rem 0;
+	padding: 0.7rem 0;
 }
 
 .vol-eventbox:hover, .mic-eventbox:hover {
@@ -202,24 +217,50 @@ scale.vol-scale trough, scale.mic-scale trough, scale.bright-scale trough {
 	all: unset;
 	background-color: $gray;
 	//border-radius: 0 15px 15px 0;
-	border-radius: 0 0 100px 0;
+	border-radius: 8px;
 	min-height: 15px;
 	min-width: 300px;
 }
 
+/*
+scale.vol-scale trough slider, 
+scale.mic-scale trough slider, 
+scale.bright-scale trough slider {
+	padding: 5px;
+	margin: -5px;
+	border-radius: 45px;
+}
+
+scale.vol-scale trough slider {	
+	background: $bg;
+	border: 2px solid $blue;
+}
+
+scale.mic-scale trough slider {	
+	//background: lighten($purple, 5%);
+	background: $bg;
+	border: 2px solid $purple;
+}
+
+scale.bright-scale trough slider {	
+	//background: lighten($light-blue, 5%);
+	background: $bg;
+	border: 2px solid $light-blue;
+}
+*/
 .vol-scale trough highlight {
 	background-color: $blue;
-	border-radius: 0 0 100px 0;
+	border-radius: 8px;
 }
 
 .mic-scale trough highlight {
 	background-color: $purple;
-	border-radius: 0 0 100px 0;
+	border-radius: 8px;
 }
 
 .bright-scale trough highlight {
 	background-color: $light-blue;
-	border-radius: 0 0 100px 0;
+	border-radius: 8px;
 }
 
 .powermenu {

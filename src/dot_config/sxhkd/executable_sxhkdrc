@@ -35,6 +35,9 @@ Print
 ctrl + Print
 	flameshot gui --clipboard --path $HOME/Pictures/captures
 
+super + d
+	~/.scripts/dashboard
+
 #
 # bspwm hotkeys
 #

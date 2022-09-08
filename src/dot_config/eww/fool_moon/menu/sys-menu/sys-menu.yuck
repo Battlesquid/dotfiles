@@ -2,9 +2,8 @@
   (box :class "menu sys-menu"
        :orientation "v"
        :space-evenly false
-        :spacing 15
+       :spacing 15
     (user)
-    (sep)
     (panel)
     (media)
     (sliders)
@@ -13,15 +12,16 @@
 (defwidget user[] 
   (box :class "user"
        :space-evenly false
-       :orientation "v"
-       :halign "center"
-    (box :class "user-pfp" :halign "center" :valign "center" :style "background-image: url('assets/pfp.png');") 
+       :orientation "h"
+       :hexpand true
+       :spacing 15
+    (box :class "user-pfp" :halign "start" :valign "center" :style "background-image: url('/home/battlesqui_d/assets/pfp.png');") 
     (box :class "user-details"
          :orientation "v"
          :space-evenly false
          :valign "center"
-      (label :class "user-name" :halign "center" :text uname)
-      (label :class "user-uptime" :halign "center" :text uptime-val)))) 
+      (label :class "user-name" :halign "start" :text uname)
+      (label :class "user-uptime" :halign "start" :text uptime-val)))) 
 
 (defpoll uname :interval "1h" "echo $USER")
 (defpoll uptime-val :interval "30s" "uptime -p")
@@ -71,13 +71,13 @@
     (box :class "media-controls"
          :orientation "h"
          :space-evenly false
-          :spacing 15
+         :spacing 15
       (box :class "media-overview"
            :orientation "v"
            :hexpand true
         (label :class "media-title" :halign "start" :limit-width 15 :text media-title)
         (label :class "media-artist" :halign "start" :text media-artist)
-        (label :class "media-time" :halign "start" :valign "end" :text media-time))
+        (scale :class "media-track" :min 0 :max 101 :value media-track :active false))
       (box :class "media-playback"
            :orientation "v"
            :halign "end"
@@ -85,11 +85,12 @@
         (button :class "media-toggle ${media-toggle-class}" :onclick "scripts/media toggle" media-toggle-icon)
         (button :class "media-next" :onclick "scripts/media next" "")))))
 
-(defpoll media-title :interval "1s" "scripts/media title")
-(defpoll media-artist :interval "1s" "scripts/media artist")
-(defpoll media-time :interval "1s" "scripts/media time")
-(deflisten media-toggle-icon "scripts/media icon")
-(deflisten media-toggle-class "scripts/media class")
+(defpoll media-title :interval "1s" "~/.scripts/media title")
+(defpoll media-artist :interval "1s" "~/.scripts/media artist")
+(defpoll media-time :interval "1s" "~/.scripts/media time")
+(defpoll media-track :interval "1s" "~/.scripts/media percent")
+(deflisten media-toggle-icon "~/.scripts/media icon")
+(deflisten media-toggle-class "~/.scripts/media class")
 
 (defwidget sliders[]
   (box :class "sliders"

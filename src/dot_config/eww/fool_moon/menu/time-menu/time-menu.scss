@@ -17,12 +17,11 @@
 
 	.month {
 		font-size: 32px;
-		font-weight: bold;
 	}
 
 	.date {
 		font-size: 14px;
-		font-weight: bold;
+		//font-weight: bold;
 		color: $light-gray;
 	}
 }
@@ -103,9 +102,7 @@ calendar {
 .notification-headers-label {
 	font-size: 16px;
 	font-weight: bold;
-	//color: $bg;
 	color: #B8BDC9;
-	//background-image: linear-gradient(to right, $blue, #678ac2);
 	background-color: $bg;
 	border-radius: 8px 8px 0 0;
 	padding: 0.6rem 0;
