@@ -20,9 +20,8 @@
 	}
 
 	.date {
-		font-size: 14px;
-		//font-weight: bold;
-		color: $light-gray;
+		font-size: 22px;
+		font-weight: bold;
 	}
 }
 
@@ -66,7 +65,7 @@
 	font-size: 18px;
 	color: $bg;
 	background-image: linear-gradient(to right, $blue, #678ac2);
-	padding: 0.5rem 1.1rem;
+	padding: 0.3rem 1.1rem;
 }
 
 calendar {

@@ -58,12 +58,13 @@
          :spacing 15
       (button :class "night night-${night.state}" :tooltip "night light" :onclick "scripts/sys toggle-night" {night.icon})
       (button :class "scr" :tooltip "take screenshot" :onclick "scripts/sys screenshot" "")
-      (button :class "blue" :tooltip "bluetooth" :onclick "scripts/sys blue" ""))))
+      (button :class "blue blue-${blue.state}" :tooltip "bluetooth" :onclick "scripts/sys blue" ""))))
 
 (deflisten wifi "scripts/sys wifi")
 (deflisten air "scripts/sys air")
 (deflisten dnd "scripts/sys dnd")
 (deflisten night "scripts/sys night")
+(deflisten blue "scripts/sys blue")
 
 (defwidget media[]
   (box :class "media"
@@ -77,7 +78,9 @@
            :hexpand true
         (label :class "media-title" :halign "start" :limit-width 15 :text media-title)
         (label :class "media-artist" :halign "start" :text media-artist)
-        (scale :class "media-track" :min 0 :max 101 :value media-track :active false))
+        (box 
+          (scale :class "media-track" :min 0 :max 101 :value media-track :active false)
+          (label :class "media-time" :halign "end" :text media-time)))
       (box :class "media-playback"
            :orientation "v"
            :halign "end"

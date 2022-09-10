@@ -1,0 +1,34 @@
+Terminal,kitty,utilities-terminal
+Browser,firefox,applications-internet
+File Manager, thunar,folder
+
+^sep()
+
+Development,^checkout(dev),utilities-terminal
+Tools,^checkout(tools),applications-utilities
+Applications,^checkout(apps),applications-other
+
+^sep()
+
+Edit Config,^checkout(cfg),text-x-preview
+
+^tag(dev)
+Kitty,kitty,kitty
+Neovim,kitty nvim,nvim
+Code,code,code
+
+^tag(tools)
+Xcolor,xcolor,xcolor
+Flameshot,flameshot gui,flameshot
+Noisetorch,noisetorch,noisetorch
+
+^tag(apps)
+Firefox,firefox,firefox
+Discord,discord,discord
+Spotify,spotify,spotify
+OBS,obs,obs
+
+^tag(cfg)
+eww,kitty nvim ~/.config/eww/fool_moon/bar/eww.yuck ~/.config/eww/fool_moon/bar/eww.scss,preferences-desktop
+rofi,kitty nvim ~/.config/rofi/fool_moon/fool_moon.rasi,preferences-desktop-display
+bspwm,kitty nvim ~/.config/bspwm/bspwmrc,preferences-system-windows

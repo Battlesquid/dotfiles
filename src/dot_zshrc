@@ -121,6 +121,7 @@ path+=$HOME/bin
 path+=$HOME/bin/eww/target/release/
 path+=$HOME/.cargo/bin
 path+=$HOME/IHMC_CmapTools/
+path+=$HOME/.local/bin/
 PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
 
 export PATH

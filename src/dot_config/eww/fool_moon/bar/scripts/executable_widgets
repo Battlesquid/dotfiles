@@ -19,9 +19,11 @@ function toggle_time() {
 		rm "$CACHE_DIR/time-menu.lock"
 		$eww_menu close unfocus
 		$eww_menu close time-menu 
+		$eww_menu update time-vis=false
 	else
 		touch "$CACHE_DIR/time-menu.lock"
 		$eww_menu open time-menu 
+		$eww_menu update time-vis=true
 	fi
 }
 

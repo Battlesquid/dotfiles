@@ -37,7 +37,12 @@ function name() {
 }
 
 function temp() {
-	weather_get ".main.temp" "--";
+	local tmp=$(weather_get ".main.temp" "--")
+	if [ $tmp != "--" ];then
+		echo "$tmp" | awk '{printf("%d\n",$1 + 0.5)}'
+	else
+		echo $tmp
+	fi
 }
 
 function icon() {

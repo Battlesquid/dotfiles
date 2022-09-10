@@ -14,20 +14,14 @@ super + space
 super + Escape
 	pkill -USR1 -x sxhkd
 
-F1
+XF86AudioMute
 	$HOME/.config/eww/fool_moon/common/scripts/vol toggle-mute
 
-F2
-	$HOME/.config/eww/fool_moon/common/scripts/vol change down
+XF86Audio{Raise,Lower}Volume
+	$HOME/.config/eww/fool_moon/common/scripts/vol change {up,down}
 
-F3
-	$HOME/.config/eww/fool_moon/common/scripts/vol change up
-
-F6
-	$HOME/.config/eww/fool_moon/common/scripts/bright change down
-
-F7
-	$HOME/.config/eww/fool_moon/common/scripts/bright change up
+XF86MonBrightness{Up,Down}
+	$HOME/.config/eww/fool_moon/common/scripts/bright change {up,down}
 
 Print
 	flameshot full --clipboard --path $HOME/Pictures/captures
@@ -41,6 +35,10 @@ super + d
 #
 # bspwm hotkeys
 #
+
+# jgmenu
+~button3
+	xqp 0 $(xdo id -N Bspwm -n root) && jgmenu --simple --csv-file="~/.config/jgmenu/config.csv"
 
 # quit/restart bspwm
 super + alt + {q,r}

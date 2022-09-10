@@ -82,6 +82,25 @@ function follow_night() {
 	done
 }
 
+function toggle_blue() {
+	[ -f "$CACHE_DIR/blue.lock" ] && rm "$CACHE_DIR/blue.lock" || touch "$CACHE_DIR/blue.lock"
+	[ -f "$CACHE_DIR/blue.lock" ] && bluetoothctl power off || bluetoothctl power on
+}
+
+function follow_blue() {
+	[ -f "$CACHE_DIR/blue.lock" ] && local status="on" || local status="off"
+	[ $status = "on" ] && local ico="" || local ico=""
+	echo "{\"state\":\"$status\",\"icon\":\"$ico\"}"
+	while sleep 0.1; do
+		[ -f "$CACHE_DIR/blue.lock" ] && local ns="on" || local ns="off"
+		if [ $status != $ns ];then
+			status=$ns
+			[ $status = "on" ] && local ico="" || local ico=""
+			echo "{\"state\":\"$status\",\"icon\":\"$ico\"}"
+		fi
+	done
+}
+
 function screenshot() {
 	eww -c "$HOME/.config/eww/fool_moon/menu" close sys-menu
 	flameshot gui
@@ -94,10 +113,12 @@ case "$1" in
 	"toggle-dnd") toggle_dnd;;
 	"toggle-night") toggle_night;;
 	"screenshot") screenshot;;
+	"toggle-blue") toggle_blue;;
 	"wifi") follow_wifi;;
 	"air") follow_air;;
 	"dnd") follow_dnd;;
 	"night") follow_night;;
+	"blue") follow_blue;;
 	*) echo "unknown command";;
 esac
 

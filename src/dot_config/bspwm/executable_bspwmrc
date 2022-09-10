@@ -3,19 +3,7 @@
 # wm parenting issue fix, see: https://www.reddit.com/r/bspwm/comments/267srd/comment/chotpgf/?utm_source=share&utm_medium=web2x&context=3
 # wmname LG3D
 
-EWW_DIR=$HOME/.config/eww/fool_moon
-
-killall picom
-killall dunst
-killall eww
-
-sxhkd &
-dunst &
-xsetroot -cursor_name left_ptr &
-picom --config $HOME/.config/picom/picom.ini --experimental-backends &
-feh --bg-fill ~/.config/wallpapers/fool_moon.jpg
-eww -c $EWW_DIR/bar open bar
-eww -c $EWW_DIR/menu daemon
+source ~/.config/bspwm/startup
 
 bspc config normal_border_color "#1a1b26"
 bspc config active_border_color "#364A73"
@@ -34,7 +22,6 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true	
 
-bspc rule -a Google-chrome desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a GLava border=off state=floating sticky=on
 
@@ -49,13 +36,13 @@ else
 fi
 done &
 
-while read -r line; do
-	case "$line" in
-		*'marked on')
-			bspc config -n "$(bspc query -N -n .marked)" border_width 10
-			;;
-		*'marked off')
-			bspc config border_width 1
-			;;
-	esac
-done < <(bspc subscribe report node_flag) &
+#while read -r line; do
+	#case "$line" in
+		#*'marked on')
+			#bspc config -n "$(bspc query -N -n .marked)" border_width 10
+			#;;
+		#*'marked off')
+			#bspc config border_width 1
+			#;;
+	#esac
+#done < <(bspc subscribe report node_flag) &

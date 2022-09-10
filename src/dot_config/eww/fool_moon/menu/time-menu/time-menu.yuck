@@ -1,11 +1,16 @@
+(defvar eww "eww -c ~/.config/eww/fool_moon/menu")
+
 (defwidget time-menu-main[]
-  (box :class "menu time-menu"
-       :orientation "v"
-       :space-evenly false
-       :spacing 15
-    (cal)
-    (weather)
-    (notif-menu-main)))
+    (box :class "menu time-menu"
+         :orientation "v"
+         :space-evenly false
+         :spacing 15
+          :hexpand true
+      (cal)
+      (weather)
+      (notif-menu-main)))
+
+(defvar time-vis false)
 
 (defwidget time[]
   (box :class "time-box"
@@ -14,11 +19,11 @@
          :space-evenly false
          :valign "center" 
          :vexpand true
-      (label :class "time" :halign "center" :text time)
-      (label :class "date" :halign "center" :text date))))
+      ;(label :class "time" :halign "center" :text time)
+      (label :class "date" :halign "start" :text date))))
 
 (defpoll time :interval "1s" "date +'%I:%M'")
-(defpoll date :interval "1s" "date +'%A %B %d'")
+(defpoll date :interval "1s" "date +'%B'")
 
 (defwidget cal[]
   (box :class "cal-box"
@@ -42,7 +47,7 @@
          :orientation "v"
          :space-evenly false
          :valign "center"
-      (label :class "weather-temp" :halign "start" :text "${weather.temp}°")
+      (label :class "weather-temp" :halign "start" :text "${weather.temp}°F")
       (label :class "weather-name" :halign "start" :text {weather.name}))))
 
 
