@@ -63,8 +63,10 @@
 .cal-header {
 	font-weight: bold;
 	font-size: 18px;
-	color: $bg;
-	background-image: linear-gradient(to right, $blue, #678ac2);
+	color: #B8BDC9;
+	//color: $bg;
+	//background-image: linear-gradient(to right, $blue, #678ac2);
+	background-color: $raisin-black;
 	padding: 0.3rem 1.1rem;
 }
 
@@ -204,3 +206,15 @@ calendar {
 	border-radius: 0 0 18px 8px;
 }
 
+scrollbar {
+  -GtkScrollbar-has-backward-stepper: false;
+  -GtkScrollbar-has-forward-stepper: false;
+
+  slider {
+    padding: 0.2em;
+    border-radius: 1em;
+    background: $gray;
+    &:hover { background: $light-gray;}
+    &:active { background: $blue; }
+  }
+}

@@ -1,12 +1,12 @@
 #!/bin/bash
 
 function close() {
-	eww -c "$HOME/.config/eww/fool_moon/menu close sys-menu time-menu"
+	eww -c "$HOME/.config/eww/fool_moon/menu" close sys-menu time-menu
 }
 
 function lock() {
 	close
-	slock
+	betterlockscreen -l dim
 }
 
 function llogout() {

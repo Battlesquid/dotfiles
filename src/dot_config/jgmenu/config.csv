@@ -18,7 +18,7 @@ Neovim,kitty nvim,nvim
 Code,code,code
 
 ^tag(tools)
-Xcolor,xcolor,xcolor
+Xcolor,xcolor -s clipboard,xcolor
 Flameshot,flameshot gui,flameshot
 Noisetorch,noisetorch,noisetorch
 

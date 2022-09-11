@@ -35,7 +35,7 @@ Fetch the dotfiles using:
 chezmoi init https://github.com/Battlesquid/dotfiles.git
 ```
 
-## **Full Installation**
+## **Installation**
 ### **WARNING**
 
 Be sure to back up any relevant files before continuing. Chezmoi will ask what you should do if a conflict occurs, but back up your files just in case. You can see what will be applied at a glance with `chezmoi status` and `chezmoi diff`.
@@ -45,7 +45,7 @@ Be sure to back up any relevant files before continuing. Chezmoi will ask what y
 
 Assuming you have [paru](https://github.com/Morganamilo/paru) installed:
 ```
-paru -S xorg bspwm picom-animations-git kitty eww-git rofi dunst redshift pamixer xorg-xinit networkmanager noto-fonts ttf-font-awesome brightnessctl cava neofetch neovim sxhkd slock flameshot lxappearance-gtk3 feh playerctl jq recode moreutils jgmenu xcolor
+paru -S xorg bspwm picom-animations-git kitty eww-git rofi dunst redshift pamixer xorg-xinit networkmanager noto-fonts ttf-font-awesome brightnessctl cava neofetch neovim sxhkd betterlockscreen flameshot lxappearance-gtk3 feh playerctl jq recode moreutils jgmenu xcolor
 ```
 
 ### **Installation**
@@ -70,20 +70,6 @@ Logout of your session and then start with:
 ```
 startx
 ```
-
-## **Partial Installation**
-
-### **WARNING** - needs more testing
-
-You can install the dotfiles partially if you wish using the `partial.sh` helper script in this repo. 
-
-`cd` into `~/.local/share/chezmoi` or use `chezmoi cd` to use the script. If, for example, you wanted to only install the relevant dotfiles for the eww configuration you would do:
-
-```
-./partial.sh eww
-```
-
-See `./partial usage` for a full list of partial options.
 
 ## **Manual Installation**
 
@@ -121,6 +107,7 @@ Some scripts/config files were borrowed/adapted from the following repos:
 - [adi1090x/widgets](https://github.com/adi1090x/widgets)
 - [Syndrizzle/hotfiles](https://github.com/Syndrizzle/hotfiles)
 - [mmsaeed509/bspwm-dots](https://github.com/mmsaeed509/bspwm-dots)
+- [saimoomedits/eww-widgets](https://github.com/saimoomedits/eww-widgets)
 
 # **Contributing**
 

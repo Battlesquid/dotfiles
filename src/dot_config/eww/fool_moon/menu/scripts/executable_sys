@@ -2,6 +2,11 @@
 
 CACHE_DIR="$HOME/.cache/eww"
 
+function restore() {
+	[ -f "$CACHE_DIR/night.lock" ] && redshift -P -O 5000 || redshift -x
+	[ $(dunstctl is-paused) = "true" ] && dunstctl set-paused true || dunstctl set-paused false
+}
+
 function toggle_wifi() {
 	[ $(nmcli r wifi) = "enabled" ] && nmcli r wifi off || nmcli r wifi on
 }
@@ -119,6 +124,7 @@ case "$1" in
 	"dnd") follow_dnd;;
 	"night") follow_night;;
 	"blue") follow_blue;;
+	"restore") restore;;
 	*) echo "unknown command";;
 esac
 

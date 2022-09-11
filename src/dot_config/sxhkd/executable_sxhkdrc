@@ -32,6 +32,10 @@ ctrl + Print
 super + d
 	~/.scripts/dashboard
 
+# lockscreen
+alt + shift + x
+    betterlockscreen -l dim
+
 #
 # bspwm hotkeys
 #
