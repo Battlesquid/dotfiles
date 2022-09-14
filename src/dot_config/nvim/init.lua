@@ -9,5 +9,4 @@ vim.cmd [[
 	set mouse+=a
 	set ts=2 sw=2
 ]]
-
 -- require'lspconfig'.pyright.setup{}

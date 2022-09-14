@@ -36,12 +36,13 @@
     (eventbox :class "start-eventbox"
               :onclick "scripts/widgets toggle-sys"
               :cursor "pointer"
-              ;:valign "center"
+              :valign "center"
       (box :class "start"
         (label :class "start-btn" :text "")))))
 
 (defwidget workspaces []
   (eventbox :onscroll "scripts/workspaces scroll {}"
+            :valign "center"
     (literal :content workspace)))
 
 (deflisten workspace 'scripts/workspaces subscribe "" ""')

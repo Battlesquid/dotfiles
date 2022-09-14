@@ -11,6 +11,7 @@ require("nvim-tree").setup({
 			},
 		},
 	},
+	respect_buf_cwd = true,
 	renderer = {
 		group_empty = true,
 	},

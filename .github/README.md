@@ -45,7 +45,7 @@ Be sure to back up any relevant files before continuing. Chezmoi will ask what y
 
 Assuming you have [paru](https://github.com/Morganamilo/paru) installed:
 ```
-paru -S xorg bspwm picom-animations-git kitty eww-git rofi dunst redshift pamixer xorg-xinit networkmanager noto-fonts ttf-font-awesome brightnessctl cava neofetch neovim sxhkd betterlockscreen flameshot lxappearance-gtk3 feh playerctl jq recode moreutils jgmenu xcolor
+paru -S xorg bspwm picom-animations-git kitty eww-git rofi dunst redshift pamixer xorg-xinit networkmanager noto-fonts nerd-fonts-noto-sans-mono ttf-font-awesome brightnessctl cava neofetch neovim sxhkd betterlockscreen flameshot lxappearance-gtk3 feh playerctl jq recode moreutils jgmenu xcolor
 ```
 
 ### **Installation**

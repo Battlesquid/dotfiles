@@ -22,14 +22,16 @@ tooltip {
 }
 
 .start-box {
-	//margin-left: 0.5rem;
+	margin-left: 0.5rem;
 }
 
 .start-eventbox {
 	font-size: 16px;
 	color: $bg;
-	background-color: $blue;
-	//border-radius: 8px;
+	//color: #B8BDC9;
+	//background-color: $mint;
+	background-color: #F2D492;
+	border-radius: 8px;
 }
 
 .start-eventbox:hover {
@@ -42,7 +44,7 @@ tooltip {
 }
 
 .workspaces {	
-	font-size: 20px;
+	font-size: 18px;
 	border-radius: 8px;
 
 	button:hover {
@@ -55,7 +57,7 @@ tooltip {
 
 	/* Unoccupied */
 	.0 {
-		color: $gray;
+		color: #313547;
 	}
 
 	/* Occupied */
@@ -161,19 +163,19 @@ tooltip {
 		min-height: 25px;
 		min-width: 60px;
 	}
-	
+
 	scale.bat-scale.high trough {
 		background-color: #52846E;
 	}
-	
+
 	scale.bat-scale.med trough {
 		background-color: #9A7D47;
 	}
-	
+
 	scale.bat-scale.low trough {
 		background-color: #77404A;
 	}
-	
+
 
 	.bat-scale.high trough highlight {
 		background-color: #6ca38b;

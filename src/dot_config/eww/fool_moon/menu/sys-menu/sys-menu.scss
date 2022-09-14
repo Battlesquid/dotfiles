@@ -3,21 +3,20 @@
 }
 
 .user {
-	border-radius: 8px;
+	border-radius: 16px;
 	background-color: $raisin-black;
-	padding: 0.8rem;
+	border: 1px solid $gray;
 }
 
 .user-pfp {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-	border: 1px solid $gray;
 	padding: 0.5rem;
-	border-radius: 50%;
+	//margin: 0.5rem;
+	border-radius: 16px;
 	min-width: 80px;
 	min-height: 80px;
-	//border: 1px solid $light-gray;
 }
 
 .user-name {
