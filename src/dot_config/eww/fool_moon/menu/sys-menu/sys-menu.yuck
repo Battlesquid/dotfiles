@@ -57,8 +57,8 @@
     (box :class "row"
          :spacing 15
       (button :class "night night-${night.state}" :tooltip "night light" :onclick "scripts/sys toggle-night" {night.icon})
-      (button :class "scr" :tooltip "take screenshot" :onclick "scripts/sys screenshot" "")
-      (button :class "blue blue-${blue.state}" :tooltip "bluetooth" :onclick "scripts/sys blue" ""))))
+      (button :class "blue blue-${blue.state}" :tooltip "bluetooth" :onclick "scripts/sys blue" "")
+      (button :class "scr" :tooltip "take screenshot" :onclick "scripts/sys screenshot" ""))))
 
 (deflisten wifi "scripts/sys wifi")
 (deflisten air "scripts/sys air")

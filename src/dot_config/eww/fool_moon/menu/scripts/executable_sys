@@ -93,11 +93,11 @@ function toggle_blue() {
 }
 
 function follow_blue() {
-	[ -f "$CACHE_DIR/blue.lock" ] && local status="on" || local status="off"
+	[ -f "$CACHE_DIR/blue.lock" ] && local status="off" || local status="on"
 	[ $status = "on" ] && local ico="" || local ico=""
 	echo "{\"state\":\"$status\",\"icon\":\"$ico\"}"
 	while sleep 0.1; do
-		[ -f "$CACHE_DIR/blue.lock" ] && local ns="on" || local ns="off"
+		[ -f "$CACHE_DIR/blue.lock" ] && local ns="off" || local ns="on"
 		if [ $status != $ns ];then
 			status=$ns
 			[ $status = "on" ] && local ico="" || local ico=""

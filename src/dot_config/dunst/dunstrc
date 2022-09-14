@@ -49,7 +49,7 @@
 
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
-    progress_bar_height = 10
+    progress_bar_height = 18
 
     # Set the frame width of the progress bar
     progress_bar_frame_width = 1
@@ -60,6 +60,7 @@
     # Set the maximum width for the progress bar
     progress_bar_max_width = 300
 
+		highlight = 
 
     # Show how many messages are currently hidden (because of
     # notification_limit).
