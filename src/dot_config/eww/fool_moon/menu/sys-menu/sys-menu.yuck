@@ -15,7 +15,7 @@
        :orientation "h"
        :hexpand true
        :spacing 15
-    (box :class "user-pfp" :halign "start" :valign "center" :style "background-image: url('/home/battlesqui_d/assets/pfp.png');") 
+    (box :class "user-pfp" :halign "start" :valign "center" :style "background-image: url('assets/pfp.png');") 
     (box :class "user-details"
          :orientation "v"
          :space-evenly false
