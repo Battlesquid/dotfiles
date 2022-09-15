@@ -39,22 +39,16 @@ function follow() {
     local scalar=$(percent)
     $animate run -i "vol" -s $scalar -e "ease_out_expo"
 
-    if ! [ -f "$CACHE_DIR/vol.value" ];then
-        mkdir -p "$CACHE_DIR"
-        touch "$CACHE_DIR/vol.value"
-    fi
-
-    echo $(percent) > "$CACHE_DIR/vol.value"
-
-    tail -F "$CACHE_DIR/vol.value" 2> /dev/null
+		local v=$(percent)
+		echo $v
+		while sleep 0.1; do
+			local nv=$(percent)
+			[[ $v -ne $nv ]] && v=$nv && echo $nv
+		done
 }
 
 function change() {
     [ "$1" = "up" ] && pamixer --increase $delta || pamixer --decrease $delta
-
-    if [ -f "$CACHE_DIR/vol.value" ] && ! $animate is_locked "vol";then
-        echo $(percent) > "$CACHE_DIR/vol.value"
-	fi
 }
 
 

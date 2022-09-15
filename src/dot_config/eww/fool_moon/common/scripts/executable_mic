@@ -28,22 +28,16 @@ function follow() {
     local scalar=$(percent)
     $animate run -i "mic" -s $scalar -e "ease_out_expo"
 
-    if ! [ -f "$CACHE_DIR/mic.value" ];then
-        mkdir -p "$CACHE_DIR"
-        touch "$CACHE_DIR/mic.value"
-    fi
-
-    echo $(percent) > "$CACHE_DIR/mic.value"
-
-    tail -F "$CACHE_DIR/mic.value" 2> /dev/null
+		local m=$(percent)
+		echo $m
+		while sleep 0.1; do
+			local nm=$(percent)
+			[[ $m -ne $nm ]] && m=$nm && echo $nm
+		done
 }
 
 function change() {
     [ "$1" = "up" ] && pamixer --default-source --increase 1 || pamixer --default-source --decrease 1 
-
-    if [ -f "$CACHE_DIR/mic.value" ] && ! $animate is_locked "mic";then
-        echo $(percent) > "$CACHE_DIR/mic.value"
-    fi
 }
 
 

@@ -26,14 +26,12 @@ function follow() {
     local scalar=$(percent)
     $animate run -i "bright" -s $scalar -e "ease_out_expo"
 
-    if ! [ -f "$CACHE_DIR/bright.value" ];then
-        mkdir -p "$CACHE_DIR"
-        touch "$CACHE_DIR/bright.value"
-    fi
-
-    echo $(percent) > "$CACHE_DIR/bright.value"
-
-    tail -F "$CACHE_DIR/bright.value" 2> /dev/null
+		local b=$(percent)
+		echo $b
+		while sleep 0.1; do
+			local nb=$(percent)
+			[[ $b -ne $nb ]] && b=$nb && echo $nb
+		done
 }
 
 
