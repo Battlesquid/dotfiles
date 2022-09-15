@@ -74,10 +74,10 @@ The archive will be in your home directory. This can be done with any folder/fil
 
 ## **Miscellaneous**
 
-### **eww weather widget**
+### **Weather widget**
 
 1. [Grab an OpenWeather API key](https://openweathermap.org/api). Also determine the [city](https://openweathermap.org/current#name) you would like to use.
-2. Create the following file:
+2. Create a `secrets` file with:
 ```
 touch ~/.config/eww/fool_moon/common/scripts/secrets
 ```
@@ -88,6 +88,10 @@ touch ~/.config/eww/fool_moon/common/scripts/secrets
 WEATHER_API_KEY="<YOUR_API_KEY_HERE>"
 WEATHER_API_CITY="<YOUR_CITY_HERE>"
 ```
+
+### **GTK theme and icons**
+
+You can acess the GTK theme I made for this rice [here](https://github.com/Battlesquid/gtk). I use the [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icon theme.
 
 # **Credits**
 
