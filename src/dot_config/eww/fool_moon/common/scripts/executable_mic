@@ -16,7 +16,6 @@ function set_val() {
     if [ -f "$CACHE_DIR/mic.value" ] && ! $animate is_locked "mic";then
         local val=$(printf "%.0f\n" "$1")
         pamixer --default-source --set-volume $val 
-        echo $val > "$CACHE_DIR/mic.value"
     fi
 }
 

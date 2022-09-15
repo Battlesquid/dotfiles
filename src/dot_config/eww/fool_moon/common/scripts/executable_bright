@@ -10,15 +10,11 @@ function percent() {
 
 function change() {
     [ "$1" = "up" ] && brightnessctl set "+$delta%" 1> /dev/null || brightnessctl set "$delta%-" 1> /dev/null
-    if [ -f "$CACHE_DIR/bright.value" ] && ! $animate is_locked "bright";then
-        echo $(percent) > "$CACHE_DIR/bright.value"
-    fi
 }
 
 function set_value() { 
     if [ -f "$CACHE_DIR/bright.value" ] && ! $animate is_locked "bright";then
         brightnessctl set "$1%" > /dev/null
-        echo $(percent) > "$CACHE_DIR/bright.value"
     fi
 }
 

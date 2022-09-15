@@ -27,7 +27,6 @@ function set_vol() {
     if [ -f "$CACHE_DIR/vol.value" ] && ! $animate is_locked "vol";then
         local val=$(printf "%.0f\n" "$1")
         pamixer --set-volume $val
-        echo $val > "$CACHE_DIR/vol.value"
     fi
 }
 

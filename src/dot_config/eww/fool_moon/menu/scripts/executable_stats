@@ -4,7 +4,7 @@ animate="$HOME/.config/eww/fool_moon/common/scripts/animations"
 CACHE_DIR="$HOME/.cache/eww"
 
 function ram() {
-	printf "%.0f\n" $(free -m | grep Mem | awk '{print ($3/$2)*100}') | tee "$CACHE_DIR/ram.value"
+	printf "%.0f\n" $(free -m | grep Mem | awk '{print ($3/$2)*100}')
 }
 
 function cpu() {
@@ -35,7 +35,7 @@ function cpu() {
 		let "DIFF_IDLE=$IDLE-$PREV_IDLE"
 		let "DIFF_TOTAL=$TOTAL-$PREV_TOTAL"
 		let "DIFF_USAGE=(1000*($DIFF_TOTAL-$DIFF_IDLE)/$DIFF_TOTAL+5)/10"
-		echo "${DIFF_USAGE}" | tee "$CACHE_DIR/cpu.value"
+		echo "${DIFF_USAGE}" 
 	else
 		echo "?"
 	fi
@@ -46,7 +46,7 @@ function cpu() {
 }
 
 function dsk() {
-	df -h / | awk '{ print $5 }' | tail -1 | sed 's/%//' | tee "$CACHE_DIR/dsk.value"
+	df -h / | awk '{ print $5 }' | tail -1 | sed 's/%//' 
 }
 
 function dsk_total() {
