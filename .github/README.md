@@ -23,59 +23,49 @@ These dotfiles and the instructions on how to set them up are still under constr
 
 # **Setup**
 
-Grab chezmoi using a package manager of your choice. Assuming you have [paru](https://github.com/Morganamilo/paru):
+These setup steps use [paru](https://github.com/Morganamilo/paru), but feel free to use your AUR helper of choice.
 
-```
-paru -S chezmoi
-```
-
-
-Fetch the dotfiles using:
-```
-chezmoi init https://github.com/Battlesquid/dotfiles.git
-```
-
-## **Installation**
-### **WARNING**
+### **WARNING:**
 
 Be sure to back up any relevant files before continuing. Chezmoi will ask what you should do if a conflict occurs, but back up your files just in case. You can see what will be applied at a glance with `chezmoi status` and `chezmoi diff`.
 
-
-### **Dependencies**
-
-Assuming you have [paru](https://github.com/Morganamilo/paru) installed:
-```
-paru -S xorg bspwm picom-animations-git kitty eww rofi dunst redshift pamixer xorg-xinit networkmanager noto-fonts nerd-fonts-noto-sans-mono ttf-font-awesome brightnessctl cava glava neofetch neovim sxhkd betterlockscreen flameshot feh playerctl jq recode moreutils jgmenu xcolor
-```
-
-### **Installation**
-
-Confirm the changes that will be made.
-```
-chezmoi diff
-```
-
-Install with:
-```
-chezmoi apply -v
-```
-
-If you are running this on a clean system or you want to run everything with a single command, you can run condense this into one command:
-
-```
-chezmoi init --apply https://github.com/Battlesquid/dotfiles.git
-```
-
-Logout of your session and then start with:
-```
-startx
+## **Single Line Installation**
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Battlesquid/dotfiles/main/install.sh)"
 ```
 
 ## **Manual Installation**
 
+Install dependencies:
+```bash
+paru -S chezmoi xorg bspwm picom-animations-git kitty eww rofi dunst redshift pamixer xorg-xinit networkmanager noto-fonts nerd-fonts-noto-sans-mono ttf-font-awesome brightnessctl cava glava neofetch neovim sxhkd betterlockscreen flameshot feh playerctl jq recode moreutils jgmenu xcolor
+```
+
+Fetch the dotfiles using:
+```bash
+chezmoi init https://github.com/Battlesquid/dotfiles.git
+```
+
+Confirm the changes that will be made.
+```bash
+chezmoi diff
+```
+
+Install with:
+```bash
+chezmoi apply -v
+```
+
+Logout of your session and then start with:
+```bash
+startx
+```
+
+## **Custom Installation**
+
 If you wish to manually move/symlink/view the dotfiles source, you can generate an archive of the source. For example:
 
-```
+```bash
 chezmoi cd
 chezmoi --source-path archive src/**/* --output=~/dotconfig.tar.gz
 ```
@@ -92,7 +82,7 @@ The archive will be in your home directory. This can be done with any folder/fil
 touch ~/.config/eww/fool_moon/common/scripts/secrets
 ```
 3. Copy the contents below into the secrets file, substituting in the API key and city.
-```
+```bash
 #!/bin/sh
 
 WEATHER_API_KEY="<YOUR_API_KEY_HERE>"
