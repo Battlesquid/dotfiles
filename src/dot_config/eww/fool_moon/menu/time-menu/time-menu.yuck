@@ -19,7 +19,6 @@
          :space-evenly false
          :valign "center" 
          :vexpand true
-      ;(label :class "time" :halign "center" :text time)
       (label :class "date" :halign "center" :text date))))
 
 (defpoll time :interval "1s" "date +'%I:%M'")
