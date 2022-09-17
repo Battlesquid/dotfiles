@@ -189,6 +189,12 @@ _G.packer_plugins = {
     path = "/home/battlesqui_d/.local/share/nvim/site/pack/packer/start/presence.nvim",
     url = "https://github.com/andweeb/presence.nvim"
   },
+  ["project.nvim"] = {
+    config = { 'require("setup.projectnvim")' },
+    loaded = true,
+    path = "/home/battlesqui_d/.local/share/nvim/site/pack/packer/start/project.nvim",
+    url = "https://github.com/ahmedkhalf/project.nvim"
+  },
   ["telescope.nvim"] = {
     config = { 'require("setup.telescope")' },
     loaded = true,
@@ -229,10 +235,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-require("setup.indent-blankline")
-time([[Config for indent-blankline.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require("setup.luasnip")
+time([[Config for LuaSnip]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 require("setup.lualine")
@@ -245,18 +251,18 @@ time([[Config for nvim-tree.lua]], false)
 time([[Config for telescope.nvim]], true)
 require("setup.telescope")
 time([[Config for telescope.nvim]], false)
--- Config for: barbar.nvim
-time([[Config for barbar.nvim]], true)
-require("setup.barbar")
-time([[Config for barbar.nvim]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require("setup.indent-blankline")
+time([[Config for indent-blankline.nvim]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
 require("setup.toggleterm")
 time([[Config for toggleterm.nvim]], false)
--- Config for: presence.nvim
-time([[Config for presence.nvim]], true)
-require("setup.discord_presence")
-time([[Config for presence.nvim]], false)
+-- Config for: project.nvim
+time([[Config for project.nvim]], true)
+require("setup.projectnvim")
+time([[Config for project.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require("setup.treesitter")
@@ -265,10 +271,10 @@ time([[Config for nvim-treesitter]], false)
 time([[Config for nvim-colorizer.lua]], true)
 require("setup.colorizer")
 time([[Config for nvim-colorizer.lua]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-require("setup.luasnip")
-time([[Config for LuaSnip]], false)
+-- Config for: barbar.nvim
+time([[Config for barbar.nvim]], true)
+require("setup.barbar")
+time([[Config for barbar.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require("setup.nvim-cmp")
@@ -277,6 +283,10 @@ time([[Config for nvim-cmp]], false)
 time([[Config for nvim-lspconfig]], true)
 require("setup.lspconfig")
 time([[Config for nvim-lspconfig]], false)
+-- Config for: presence.nvim
+time([[Config for presence.nvim]], true)
+require("setup.discord_presence")
+time([[Config for presence.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

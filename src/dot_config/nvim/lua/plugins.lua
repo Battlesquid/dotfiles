@@ -116,4 +116,9 @@ return require('packer').startup(function(use)
 		config = setup("colorizer")
 	}
 
+	use {
+		'ahmedkhalf/project.nvim',
+		config = setup("projectnvim")
+	}
+
 end)
