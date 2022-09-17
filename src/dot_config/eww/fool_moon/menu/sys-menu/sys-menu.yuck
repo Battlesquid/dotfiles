@@ -118,10 +118,10 @@
 
 (defwidget powermenu[]
   (box :class "powermenu"
-    (button :class "power-lock" :onclick "scripts/power lock" :tooltip "Lock" "")
-    (button :class "power-exit" :onclick "scripts/power logout" :tooltip "Exit BSPWM" "")
-    (button :class "power-reboot" :onclick "scripts/power reboot" :tooltip "Restart" "")
-    (button :class "power-shutdown" :onclick "scripts/power shutdown" :tooltip "Shutdown" "")))
+    (button :class "power-lock" :onclick "../common/scripts/power lock" :tooltip "Lock" "")
+    (button :class "power-exit" :onclick "../common/scripts/power logout" :tooltip "Exit BSPWM" "")
+    (button :class "power-reboot" :onclick "../common/scripts/power reboot" :tooltip "Restart" "")
+    (button :class "power-shutdown" :onclick "../common/scripts/power shutdown" :tooltip "Shutdown" "")))
 
 (defwindow sys-menu 
   :monitor 0

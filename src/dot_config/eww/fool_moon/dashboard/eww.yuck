@@ -20,10 +20,10 @@
 (defwidget power-main[]
   (box :class "dashboard power-main"
        :spacing 15
-    (button :class "power-btn lock" :onclick "scripts/power lock" :tooltip "Lock" "")
-    (button :class "power-btn logout" :onclick "scripts/power logout" :tooltip "Exit BSPWM" "")
-    (button :class "power-btn reboot" :onclick "scripts/power reboot" :tooltip "Restart" "")
-    (button :class "power-btn shutdown" :onclick "scripts/power shutdown" :tooltip "Shutdown" "")))
+    (button :class "power-btn lock" :onclick "../common/scripts/power lock" :tooltip "Lock" "")
+    (button :class "power-btn logout" :onclick "../common/scripts/power logout" :tooltip "Exit BSPWM" "")
+    (button :class "power-btn reboot" :onclick "../common/scripts/power reboot" :tooltip "Restart" "")
+    (button :class "power-btn shutdown" :onclick "../common/scripts/power shutdown" :tooltip "Shutdown" "")))
 
 (defwidget media-main[]
   (box :class "dashboard media-main"

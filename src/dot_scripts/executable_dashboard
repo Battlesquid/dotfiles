@@ -2,8 +2,17 @@
 
 CACHE_DIR="$HOME/.cache/eww/"
 
-if [ -f "$CACHE_DIR/dashboard.lock" ]; then
-	rm "$CACHE_DIR/dashboard.lock"
+function toggle() {
+	if [ -f "$CACHE_DIR/dashboard.lock" ]; then
+		rm "$CACHE_DIR/dashboard.lock"
+		close
+	else
+		touch "$CACHE_DIR/dashboard.lock"
+		open
+	fi
+}
+
+function close() {
 	eww -c "$HOME/.config/eww/fool_moon/dashboard" close darken clock power media
 	eww -c "$HOME/.config/eww/fool_moon/meters" close meters
 	eww -c "$HOME/.config/eww/fool_moon/bar" open bar
@@ -11,8 +20,9 @@ if [ -f "$CACHE_DIR/dashboard.lock" ]; then
 		bspc node $i -g hidden=off
 	done
 	pkill glava
-else
-	touch "$CACHE_DIR/dashboard.lock"
+}
+
+function open() {
 	eww -c "$HOME/.config/eww/fool_moon/dashboard" open-many darken clock power media 
 	eww -c "$HOME/.config/eww/fool_moon/meters" open meters
 	eww -c "$HOME/.config/eww/fool_moon/bar" close bar
@@ -20,5 +30,11 @@ else
 		bspc node $i -g hidden=on
 	done
 	glava 1> /dev/null &
-fi
+}
+
+case "$1" in
+	"open") open;;
+	"close") close;;
+	*) toggle;;
+esac
 

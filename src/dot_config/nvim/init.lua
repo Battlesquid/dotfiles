@@ -4,7 +4,7 @@ vim.g.tokyonight_style = "night"
 
 vim.opt.cursorline = true
 vim.cmd [[
-	colorscheme tokyonight
+	colorscheme tokyonight-night
 	set number
 	set mouse+=a
 	set ts=2 sw=2

@@ -111,4 +111,9 @@ return require('packer').startup(function(use)
 		config = setup("discord_presence")
 	}
 
+	use {
+		'NvChad/nvim-colorizer.lua',
+		config = setup("colorizer")
+	}
+
 end)
