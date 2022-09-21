@@ -1,15 +1,27 @@
 <div style="text-align: center;">
     <img src="./assets/dotfiles.png">
+    <hr>
+    <p> My personal dotfiles managed with <a href="https://www.chezmoi.io/">chezmoi</a>.
+    </p>
+    <a href="https://github.com/Battlesquid/dotfiles/stargazers">
+        <img src="https://img.shields.io/github/stars/Battlesquid/dotfiles?color=577BB5&labelColor=1A1B26&style=for-the-badge">
+    </a>
+    <a href="../LICENSE.md">
+        <img src="https://img.shields.io/github/license/Battlesquid/dotfiles?color=C0CAF5&labelColor=1A1B26&style=for-the-badge">
+    </a>
 </div>
 
-<hr>
 
-My personal dotfiles managed with [chezmoi](https://www.chezmoi.io/).
+
+<div style="text-align: center;">
+</div>
 
 ### **NOTICE**
 These dotfiles and the instructions on how to set them up are still under construction, and testing is still being done. Proceed with caution.
 
 <br>
+
+<img style="float: right;" width="400px" src="./assets/output_dash.png">
 
 # **Details**
 
@@ -102,6 +114,7 @@ Some scripts/config files were borrowed/adapted from the following repos:
 - [Syndrizzle/hotfiles](https://github.com/Syndrizzle/hotfiles)
 - [mmsaeed509/bspwm-dots](https://github.com/mmsaeed509/bspwm-dots)
 - [saimoomedits/eww-widgets](https://github.com/saimoomedits/eww-widgets)
+- [janleigh/dotfiles](https://github.com/janleigh/dotfiles)
 
 # **Contributing**
 
