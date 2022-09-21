@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+<div align="center">
     <img src="./assets/dotfiles.png">
     <hr>
     <p> My personal dotfiles managed with <a href="https://www.chezmoi.io/">chezmoi</a>.
@@ -11,17 +11,12 @@
     </a>
 </div>
 
-
-
-<div style="text-align: center;">
-</div>
-
 ### **NOTICE**
 These dotfiles and the instructions on how to set them up are still under construction, and testing is still being done. Proceed with caution.
 
 <br>
 
-<img style="float: right;" width="400px" src="./assets/output_dash.png">
+<img align="right" width="500px" src="./assets/output_dash.png">
 
 # **Details**
 
