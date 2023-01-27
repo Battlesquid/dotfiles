@@ -123,7 +123,5 @@ Since these are my dotfiles, I will not review/implement changes that fundamenta
 
 <hr>
 <div align="center">
-    <img src="./assets/umi1.png">
-    <img src="./assets/umi2.png">
-    <img src="./assets/umi3.png">
+    <img src="./assets/montage.png">
 </div>
