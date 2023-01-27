@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="./assets/dotfiles.png">
+    <img src="./assets/banner.png">
     <hr>
     <p> My personal dotfiles managed with <a href="https://www.chezmoi.io/">chezmoi</a>.
     </p>
@@ -38,14 +38,14 @@ Be sure to back up any relevant files before continuing. Chezmoi will ask what y
 
 ## **Single Line Installation**
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Battlesquid/dotfiles/main/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Battlesquid/dotfiles/umi/install.sh)"
 ```
 
 ## **Manual Installation**
 
 Install dependencies:
 ```bash
-paru -S chezmoi xorg bspwm picom-animations-git kitty eww rofi dunst redshift pamixer xorg-xinit networkmanager noto-fonts nerd-fonts-noto-sans-mono ttf-font-awesome brightnessctl cava glava neofetch neovim sxhkd betterlockscreen flameshot feh playerctl jq recode moreutils jgmenu xcolor bluez-utils xqp xdo zsh
+paru -S chezmoi xorg bspwm picom-animations-git eww rofi dunst pamixer xorg-xinit networkmanager brightnessctl cava neofetch sxhkd betterlockscreen flameshot feh playerctl jq recode moreutils xqp xdo zsh
 ```
 
 Fetch the dotfiles using:
