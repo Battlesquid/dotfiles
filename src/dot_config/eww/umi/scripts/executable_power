@@ -1,0 +1,26 @@
+#!/bin/bash
+
+function lock() {
+	betterlockscreen -l dim
+}
+
+function _logout() {
+	bspc quit
+}
+
+function _restart() {
+	reboot
+}
+
+function _shutdown() {
+	shutdown now
+}
+
+case "$1" in
+	lock) lock;;
+	logout) _logout;;
+	reboot) _restart;;
+	shutdown) _shutdown;;
+	*) echo "Unrecognized command" && exit 1;;
+esac
+

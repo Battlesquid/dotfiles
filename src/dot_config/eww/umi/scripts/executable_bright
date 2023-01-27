@@ -1,0 +1,38 @@
+#!/bin/bash
+
+delta=5
+
+function percent() {
+	brightnessctl -m | cut -d "," -f 4 | sed 's/%//'u
+}
+
+function change() {
+	if [ "$1" = "up" ]; then
+		brightnessctl set "+$delta%" 1>/dev/null
+	else
+		brightnessctl set "$delta%-" 1>/dev/null
+	fi
+}
+
+function set_value() {
+	brightnessctl set "$1%" >/dev/null
+}
+
+function follow() {
+	local b
+	b=$(percent)
+	echo "$b"
+	while sleep 0.1; do
+		local nb
+		nb=$(percent)
+		[[ $b -ne $nb ]] && b=$nb && echo "$nb"
+	done
+}
+
+case "$1" in
+"percent") percent ;;
+"change") change "$2" ;;
+"set") set_value "$2" ;;
+"follow") follow ;;
+*) echo "Unknown command" ;;
+esac
