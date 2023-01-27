@@ -45,7 +45,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Battlesquid/dotfiles/umi/i
 
 Install dependencies:
 ```bash
-paru -S chezmoi xorg bspwm picom-animations-git eww rofi dunst pamixer xorg-xinit inter-font networkmanager brightnessctl cava neofetch sxhkd betterlockscreen flameshot feh playerctl jq recode moreutils xqp xdo zsh
+paru -S chezmoi xorg bspwm picom-animations-git eww rofi dunst pamixer xorg-xinit inter-font networkmanager kitty brightnessctl cava neofetch sxhkd betterlockscreen flameshot feh playerctl jq recode moreutils xqp xdo zsh
 ```
 
 Fetch the dotfiles using:
@@ -61,6 +61,11 @@ chezmoi diff
 Install with:
 ```bash
 chezmoi apply -v
+```
+
+Install the icon font:
+```bash
+mv ~/.config/fonts/Material_Symbols_Rounded_Filled_20pt_Bold.ttf ~/.local/share/fonts/
 ```
 
 Logout of your session and then start with:
