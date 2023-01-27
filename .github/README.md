@@ -115,3 +115,9 @@ Some scripts/config files were borrowed/adapted from the following repos:
 
 Since these are my dotfiles, I will not review/implement changes that fundamentally change how the configuration is set up. However, if you find a problem/inconsistency that can be improved without fundamentally changing the configuration (i.e., fixing a script to handle an edge-case), feel free to open an issue or PR.
 
+<hr>
+<div align="center">
+    <img src="./assets/umi1.png">
+    <img src="./assets/umi2.png">
+    <img src="./assets/umi3.png">
+</div>
