@@ -389,7 +389,7 @@
 
 [eww]
 summary = "*"
-script = "~/.config/eww/spaceone/scripts/notifications"
+script = "~/.config/eww/umi/scripts/notifications"
 
 [spotify]
 summary = "*"
