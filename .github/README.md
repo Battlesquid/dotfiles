@@ -4,10 +4,10 @@
     <p> My personal dotfiles managed with <a href="https://www.chezmoi.io/">chezmoi</a>.
     </p>
     <a href="https://github.com/Battlesquid/dotfiles/stargazers">
-        <img src="https://img.shields.io/github/stars/Battlesquid/dotfiles?color=577BB5&labelColor=1A1B26&style=for-the-badge">
+        <img src="https://img.shields.io/github/stars/Battlesquid/dotfiles?color=3C5574&labelColor=1A1B26&style=for-the-badge">
     </a>
     <a href="../LICENSE.md">
-        <img src="https://img.shields.io/github/license/Battlesquid/dotfiles?color=C0CAF5&labelColor=1A1B26&style=for-the-badge">
+        <img src="https://img.shields.io/github/license/Battlesquid/dotfiles?color=4D5963&labelColor=1A1B26&style=for-the-badge">
     </a>
 </div>
 
