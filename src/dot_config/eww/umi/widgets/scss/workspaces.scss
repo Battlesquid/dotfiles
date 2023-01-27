@@ -1,0 +1,29 @@
+.workspaces {
+    font-size: 24px;
+    border-radius: 8px;
+    padding: 5px;
+
+    .unoccupied {
+        color: $bg-alt;
+    }
+
+    .unoccupied:hover {
+        color: $bg-light;
+    }
+
+    .occupied {
+        color: $bg-light;
+    }
+
+    .occupied:hover {
+        color: $accent;
+    }
+
+    .focused {
+        color: $accent;
+    }
+
+    .focused:hover  {
+        color: $accent;
+    }
+}

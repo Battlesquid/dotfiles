@@ -1,0 +1,37 @@
+#!/bin/bash
+
+SCRIPTS_DIR="$HOME/.config/eww/umi/scripts"
+
+function toggle_menus() {
+    eww -c "$HOME"/.config/eww/umi/windows/system open --toggle system
+}
+
+function follow() {
+    local notif_icon
+    local vol_icon
+    local net_icon
+    
+    notif_icon=$("$SCRIPTS_DIR"/notifications icon)
+    vol_icon=$("$SCRIPTS_DIR"/volume icon)
+    net_icon=$("$SCRIPTS_DIR"/network icon)
+
+    echo '{"notifications":"'"$notif_icon"'","volume":"'"$vol_icon"'","network":"'"$net_icon"'"}'
+
+    while sleep 0.1; do
+        new_notif=$("$SCRIPTS_DIR"/notifications icon)
+        new_vol=$("$SCRIPTS_DIR"/volume icon)
+        new_net=$("$SCRIPTS_DIR"/network icon)
+        if [[ $notif_icon != "$new_notif" || $new_vol != "$vol_icon" || $new_net != "$net_icon" ]]; then
+            notif_icon=$new_notif
+            vol_icon=$new_vol
+            net_icon=$new_net
+            echo '{"notifications":"'"$notif_icon"'","volume":"'"$vol_icon"'","network":"'"$net_icon"'"}'
+        fi
+    done
+}
+
+case "$1" in
+"follow") follow ;;
+"toggle-menus") toggle_menus ;;
+*) echo "Unrecognized option $1" && exit 1 ;;
+esac

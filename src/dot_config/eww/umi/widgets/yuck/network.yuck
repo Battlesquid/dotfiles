@@ -1,0 +1,7 @@
+(defwidget network[]
+  (section
+    :title "Network"
+    :icon {network.icon}
+    (label :class "name" :halign "start" :text {network.name})))
+
+(deflisten network :initial "{}" "../../scripts/network follow")

@@ -1,0 +1,14 @@
+(defwidget power[layout]
+  (box
+    :class "power"
+    :spacing 10
+    :orientation {layout == "box" ? "v": "h"}
+    :hexpand true
+    (box
+      :spacing 10
+      (button :class "lock" :onclick "../../scripts/power lock" "")
+      (button :class "logout" :onclick "../../scripts/power logout" ""))
+    (box
+      :spacing 10
+      (button :class "reboot" :onclick "../../scripts/power reboot" "")
+      (button :class "shutdown" :onclick "../../scripts/power shutdown" ""))))

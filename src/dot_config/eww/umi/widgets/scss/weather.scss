@@ -1,0 +1,23 @@
+.Weather-section {
+    background-color: $bg-alt;
+    border-radius: 15px;
+
+    .weather {
+        .icon {
+            font-family: "Material Symbols Rounded Filled 20pt";
+            font-size: 72px;
+            color: $fg-primary;
+        }
+
+        .type {
+            font-weight: bold;
+            font-size: 36px;
+        }
+
+        .temp {
+            font-size: 36px;
+            font-weight: 200;
+            margin-top: -20px;
+        }
+    }
+}

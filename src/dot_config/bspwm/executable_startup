@@ -1,0 +1,16 @@
+#!/bin/sh
+
+EWW_DIR=$HOME/.config/eww/umi/windows
+
+killall picom
+killall dunst
+killall eww
+
+sxhkd &
+dunst &
+xsetroot -cursor_name left_ptr &
+picom --config $HOME/.config/picom/picom.ini --experimental-backends &
+feh --bg-fill ~/.config/wallpapers/wave.png
+
+eww -c $EWW_DIR/bar open bar
+

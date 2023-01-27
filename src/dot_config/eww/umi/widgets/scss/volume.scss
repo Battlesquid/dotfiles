@@ -1,0 +1,21 @@
+scale.vol trough {
+	background-color: $bg-light;
+	min-width: 40px;
+    border-radius: 15px;
+}
+
+scale.vol trough highlight {
+	background: $accent;
+    border-radius: 15px;
+}
+
+.vol-lbl {
+    font-weight: bold;
+    color: $bg-primary;
+    padding: 5px;
+}
+
+.vol-icon {
+    font-family: "Material Symbols Rounded Filled 20pt";
+    font-size: 18px;
+}

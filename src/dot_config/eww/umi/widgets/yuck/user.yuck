@@ -1,0 +1,12 @@
+(defwidget user[]
+  (box :class "user"
+    :orientation "vertical"
+    :space-evenly false
+    (image :image-width 96 :image-height 96 :path "../../assets/rainy.png")
+    (label :class "username" :text uname)
+    (label :class "uptime" :text uptime)))
+
+
+
+(defpoll uname :interval "1h" "echo $USER")
+(defpoll uptime :interval "30s" :initial "--" "../../scripts/system uptime")

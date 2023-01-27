@@ -1,0 +1,14 @@
+.user {
+    background-color: $bg-alt;
+    padding: 16px;
+    border-radius: 15px;
+
+    .username {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .uptime {
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,39 @@
+.System-section {
+    background-color: $bg-alt;
+    border-radius: 15px;
+
+    .bat-meter {
+        background-color: $green-alt;
+        color: $green-primary;
+    }
+
+    .ram-meter,
+    .cpu-meter,
+    .dsk-meter {
+        background-color: $bg-light;
+        color: $accent;
+    }
+
+    .bat-icon {
+        font-size: 36px;
+        font-weight: bold;
+        color: $fg-primary;
+        padding: 50px;
+    }
+
+    .ram-icon,
+    .cpu-icon,
+    .dsk-icon {
+        padding: 20px;
+        font-size: 12px;
+        color: $fg-primary;
+        font-weight: bold;
+    }
+
+    .bat-lbl,
+    .ram-lbl,
+    .cpu-lbl,
+    .dsk-lbl {
+        font-size: 14px;
+    }
+}

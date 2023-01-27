@@ -1,0 +1,8 @@
+(defwidget battery[]
+  (box
+    :class "battery ${bat.status}"
+    :valign "center"
+    (label :class "icon" :text {bat.icon})
+    (label :class "percent" :text "${bat.level}%")))
+
+(defpoll bat :interval "1s" :initial '{"icon":"","level":"--"}' "../../scripts/battery")

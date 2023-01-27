@@ -1,0 +1,18 @@
+(defwidget circlemeter [name val ?thickness ?active ?icon ?onscroll ?onclick ?styles]
+  (eventbox
+    :class "${name}-eventbox"
+    :onscroll "${onscroll ?: 'true'}"
+    :timeout "3s"
+    :onclick "${onclick ?: 'true'}"
+    (box
+      :class name
+      :halign "center"
+      :valign "center"
+      :style styles
+      (circular-progress
+        :class "${name}-meter"
+        :value "${val ?: 0}"
+        :thickness "${thickness ?: 2}"
+        :active "${active ?: false}"
+        (label :class "${name}-icon" :text icon)))))
+

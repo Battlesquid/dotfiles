@@ -1,0 +1,26 @@
+(include "../../widgets/yuck/section.yuck")
+(include "../../widgets/yuck/time-large.yuck")
+(include "../../widgets/yuck/weather.yuck")
+(include "../../widgets/yuck/user.yuck")
+(include "../../widgets/yuck/power.yuck")
+
+(defwidget start-main[]
+  (box
+    :class "start-main"
+    :orientation "v"
+    :spacing 10
+    :space-evenly false
+    (time-large)
+    (weather)
+    (box
+      :spacing 10
+      (user)
+      (power :layout "box"))
+  ))
+
+(defwindow start
+  :monitor 0
+  :geometry (geometry :x "10px" :y "70px" :width "20%" :height "44%" :anchor "top left")
+  :windowtype "dock"
+  :wm-ignore false
+  (start-main))

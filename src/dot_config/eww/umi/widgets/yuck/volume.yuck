@@ -1,0 +1,20 @@
+(defwidget volume[]
+  (overlay
+    (scale
+      :class "vol"
+      :orientation "vertical"
+      :flipped true
+      :onchange "../../scripts/volume set {}"
+      :min 0
+      :max 101
+      :value {vol.percent}
+    )
+    (box
+      :class "vol-lbl"
+      :space-evenly false
+      :orientation "vertical"
+      :valign "end"
+      (label :class "vol-icon" :text {vol.icon})
+      (label :class "vol-percent" :text "${vol.percent}%"))))
+
+(deflisten vol :initial '{"percent":"--","icon":""}' "../../scripts/volume follow")

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+CACHE_DIR="$HOME/.cache/eww/tabs.json"
+
+function change() {
+    
+}
+
+function build_cache() {
+
+}
+
+build_cache "$1"
+
+case "$1" in
+change) change "$1" "$2" ;;
+esac

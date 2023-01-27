@@ -1,0 +1,32 @@
+(defwidget media[]
+  (section
+    :title "Media"
+    :icon ""
+    :hexpand true
+    (box
+      :space-evenly false
+      :orientation "vertical"
+      :spacing 10
+      (box
+        :orientation "vertical"
+        :space-evenly false
+        (label :class "media-title" :halign "start" :limit-width 12 :text {media.title})
+        (label :class "media-artist" :halign "start" :text {media.artist}))
+      (box
+        (box
+          :class "media-controls"
+          :spacing 10
+          :halign "center"
+          (button :onclick "../../scripts/media back" "")
+          (button :onclick "../../scripts/media play-pause" {media.icon})
+          (button :onclick "../../scripts/media next" ""))
+        (scale
+          :class "media-track"
+          :min 0
+          :max 101
+          :value {media.percent}
+          :active false
+          :visible {media.can_seek}
+        )))))
+
+(deflisten media :initial '{"icon":"","title":"---","artist":"---"}' "../../scripts/media follow")

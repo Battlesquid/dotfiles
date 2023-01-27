@@ -1,0 +1,22 @@
+@import "../../widgets/scss/colors.scss";
+@import "../../widgets/scss/time-large.scss";
+@import "../../widgets/scss/section.scss";
+@import "../../widgets/scss/weather.scss";
+@import "../../widgets/scss/user.scss";
+@import "../../widgets/scss/power.scss";
+
+* {
+    all: unset;
+    transition: 100ms ease-in;
+}
+
+.start-main {
+    font-family: Inter, "Material Symbols Rounded Filled 20pt";
+    background-color: $bg-primary;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+tooltip {
+    background-color: $bg-primary;
+}

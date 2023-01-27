@@ -1,0 +1,20 @@
+(defwidget time-large[]
+  (box
+    :class "time-large"
+    :spacing 30
+    :space-evenly false
+    (box
+      :orientation "v"
+      :space-evenly false
+      (label :class "month" :text {time.month})
+      (label :class "day" :text {time.day})
+    )
+    (box
+      :class "datetime"
+      :orientation "v"
+      :space-evenly false
+      (label :class "weekday" :halign "start" :text {time.weekday})
+      (label :class "time" :halign "start" :xalign 0 :text {time.time})
+    )))
+
+(deflisten time :initial '{"month":"--","day":"--","weekday":"--","time":"--"}' "../../scripts/time follow")

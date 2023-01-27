@@ -1,0 +1,28 @@
+#!/bin/bash
+
+function _month() {
+    date +%b
+}
+
+function _day() {
+    date +%e
+}
+
+function _weekday() {
+    date +%A
+}
+
+function _time() {
+    date +%l:%M%p
+}
+
+function follow() {
+    while sleep 1; do
+        echo "{\"month\":\"$(_month)\",\"day\":\"$(_day)\",\"weekday\":\"$(_weekday)\",\"time\":\"$(_time)\"}"
+    done
+}
+
+case "$1" in
+"follow") follow ;;
+*) echo "Unrecognized command" && exit 1 ;;
+esac

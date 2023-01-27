@@ -1,0 +1,34 @@
+(defwidget section[
+  title
+  icon
+  ?space-evenly
+  ?header-spacing
+  ?vexpand
+  ?hexpand
+  ?valign
+  ?halign
+  ?c_vexpand
+  ?c_hexpand
+  ?c_valign
+  ?c_halign]
+  (box
+    :class "section ${title}-section"
+    :orientation "vertical"
+    :space-evenly {space-evenly ?: false}
+    :spacing {header-spacing ?: 0}
+    :hexpand {hexpand ?: false}
+    :vexpand {vexpand ?: false}
+    :valign {valign ?: "fill"}
+    :halign {halign ?: "fill"}
+    (box
+      :space-evenly false
+      :spacing 5
+      (label :class "icon" :halign "start" :text icon)
+      (label :class "title" :halign "start" :text title))
+    (box
+      :class "${title}-children-box"
+      :hexpand {c_hexpand ?: false}
+      :vexpand {c_vexpand ?: false}
+      :valign {c_valign ?: "fill"}
+      :halign {c_halign ?: "fill"}
+      (children))))

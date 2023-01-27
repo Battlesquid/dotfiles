@@ -1,0 +1,12 @@
+.statustray-eventbox:hover .statustray {
+    background-color: $accent;
+}
+
+.statustray {
+    font-family: "Material Symbols Rounded Filled 20pt";
+    font-size: 13pt;
+    background-color: $bg-light;
+    color: $fg-primary;
+    border-radius: 8px;
+    padding: 6px 10px;
+}

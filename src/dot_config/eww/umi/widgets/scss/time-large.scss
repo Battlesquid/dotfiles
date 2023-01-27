@@ -1,0 +1,23 @@
+.time-large {
+    background-color: $bg-alt;
+    border-radius: 15px;
+    padding: 10px 18px;
+
+    .month {
+        font-size: 20px;
+    }
+
+    .day {
+        font-weight: bold;
+        font-size: 36px;
+    }
+
+    .weekday {
+        font-size: 20px;
+    }
+
+    .time {
+        font-weight: bold;
+        font-size: 36px;
+    }
+}

@@ -1,0 +1,54 @@
+.Notifications-section {
+    padding: 5px 0;
+
+    .Notifications-children-box {
+        padding-top: 8px;
+    }
+
+    .notif-card {
+        background-color: $bg-alt;
+        border-radius: 15px;
+        padding: 10px;
+
+        .notif-app {
+            font-weight: bold;
+            font-size: 16px;
+            color: $fg-muted;
+        }
+
+        .notif-close {
+            color: $red-primary;
+            font-size: 18px;
+        }
+
+        .notif-close:hover {
+            color: $red-light;
+        }
+
+        .notif-summary {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .notif-body {
+            font-size: 14px;
+        }
+    }
+
+    .notif-clear {
+        font-weight: bold;
+        font-size: 14px;
+        color: $fg-primary;
+        background-color: $red-primary;
+        border-radius: 15px;
+        padding: 12px 38px;
+    }
+
+    .notif-clear:hover {
+        background-color: $red-light;
+    }
+
+    .notif-empty-lbl {
+        font-size: 16px;
+    }
+}

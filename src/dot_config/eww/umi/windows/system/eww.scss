@@ -1,0 +1,19 @@
+@import "../../widgets/scss/colors.scss";
+@import "../../widgets/scss/section.scss"; 
+@import "../../widgets/scss/network.scss";
+@import "../../widgets/scss/system-stats.scss";
+@import "../../widgets/scss/media.scss";
+@import "../../widgets/scss/volume.scss";
+@import "../../widgets/scss/notifications.scss";
+
+* {
+    all: unset;
+    transition: 100ms ease-in;
+}
+
+.system-main, .notifications-main {
+    font-family: Inter, "Material Symbols Rounded Filled 20pt";
+    background-color: $bg-primary;
+    border-radius: 20px;
+    padding: 8px;
+} 

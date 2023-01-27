@@ -1,0 +1,36 @@
+(include "../../widgets/yuck/section.yuck")
+(include "../../widgets/yuck/network.yuck")
+(include "../../widgets/yuck/system-stats.yuck")
+(include "../../widgets/yuck/circlemeter.yuck")
+(include "../../widgets/yuck/media.yuck")
+(include "../../widgets/yuck/volume.yuck")
+(include "../../widgets/yuck/notifications.yuck")
+
+(defwidget system-main[]
+  (box
+    :orientation "vertical"
+    :space-evenly false
+    :spacing 13
+    (box
+      :class "system-main"
+      :orientation "vertical"
+      :space-evenly false
+      :spacing 10
+      (network)
+      (system-stats)
+      (box
+        :space-evenly false
+        :spacing 10
+        (media)
+        (volume))
+    )
+    (box
+      :class "notifications-main"
+      (notifications))))
+
+(defwindow system
+  :monitor 0
+  :geometry (geometry :x "-10px" :y "70px" :width "20%" :anchor "right top")
+  :windowtype "dock"
+  :wm-ignore false
+  (system-main))

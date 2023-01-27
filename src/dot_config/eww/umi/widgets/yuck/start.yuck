@@ -1,0 +1,8 @@
+(defwidget start[]
+  (button
+    :class "start"
+    :tooltip "Start"
+    :valign "center"
+    :onclick "eww -c ~/.config/eww/umi/windows/start open --toggle start"
+    :timeout "5s"
+  ""))

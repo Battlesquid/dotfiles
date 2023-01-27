@@ -1,0 +1,31 @@
+(include "../../widgets/yuck/workspaces.yuck")
+(include "../../widgets/yuck/battery.yuck")
+(include "../../widgets/yuck/time-small.yuck")
+(include "../../widgets/yuck/statustray.yuck")
+(include "../../widgets/yuck/start.yuck")
+
+(defwidget bar-main[]
+  (box
+    :class "bar-main"
+    (box
+      :halign "start"
+      :spacing 5
+      :space-evenly false
+      (start)
+      (workspaces))
+    (box
+      :halign "end"
+      :spacing 5
+      :space-evenly false
+      (statustray)
+      (battery)
+      (time-small)
+    )))
+
+(defwindow bar 
+  :monitor 0
+  :geometry (geometry :x "0px" :y "10px" :width "99%" :height "48px" :anchor "top center")
+  :reserve (struts :distance "60px" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  (bar-main))

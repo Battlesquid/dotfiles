@@ -1,0 +1,14 @@
+(defwidget statustray[]
+  (eventbox
+    :class "statustray-eventbox"
+    :onclick "../../scripts/statustray toggle-menus"
+    :cursor "pointer"
+    (box
+      :class "statustray"
+      :valign "center"
+      :spacing 18
+      (label :class "notifications-icon" :text {tray.notifications})
+      (label :class "volume-icon" :text {tray.volume})
+      (label :class "network-icon" :text {tray.network}))))
+
+(deflisten tray :initial '{"notifications":"","volume":"","network":""}' :interval "1s" "../../scripts/statustray follow")

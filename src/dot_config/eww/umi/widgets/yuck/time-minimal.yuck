@@ -1,0 +1,6 @@
+(defwidget time-minimal[]
+  (box
+    :class "time-minimal"
+    :orientation "vertical"
+  :space-evenly false
+(label :class "time" :text {})))

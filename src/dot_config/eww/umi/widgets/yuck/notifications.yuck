@@ -1,0 +1,46 @@
+(defwidget notifications[]
+  (section
+    :title "Notifications"
+    :icon ""
+    :spacing 10
+    (box
+      :orientation "vertical"
+      :spacing 10
+      :space-evenly false
+      (scroll
+        :vscroll true
+        :hscroll false
+        :height 530
+        (box
+          :orientation "vertical"
+          :space-evenly false
+          :spacing 10
+          (for notif in {notifs.items}
+            (box
+              :class "notif-card"
+              :orientation "vertical"
+              :space-evenly false
+              :vexpand false
+              (box
+                (label :class "notif-app" :halign "start" :text {notif.app})
+                (button :class "notif-close" :halign "end" :onclick "../../scripts/notifications remove ${notif.id}" ""))
+              (box
+                :space-evenly false
+                :spacing 10
+                (image :class "notif-icon" :image-width 64 :image-height 64 :path {notif.icon})
+                (box
+                  :space-evenly false
+                  :orientation "vertical"
+                  :valign "center"
+                  :halign "start"
+                  (label :class "notif-summary" :halign "start" :text {notif.summary})
+                  (label :class "notif-body" :halign "start" :xalign 0 :wrap true :text {notif.body})))))
+          (box
+            :class "notif-empty"
+            :visible {arraylength(notifs.items) == 0}
+            :hexpand true
+            :vexpand true
+            (label :class "notif-empty-lbl" :text "No Notifications"))))
+      (button :class "notif-clear" :halign "end" :onclick "../../scripts/notifications clear" "Clear"))))
+
+(deflisten notifs :initial "{}" "../../scripts/notifications subscribe")

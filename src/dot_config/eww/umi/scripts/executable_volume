@@ -1,0 +1,66 @@
+#!/bin/bash
+
+delta=2
+
+function percent() {
+	pamixer --get-volume
+}
+
+function icon() {
+	local per
+	local muted
+	per=$(percent)
+	muted=$(pamixer --get-mute)
+
+	if [ "$muted" = "true" ]; then
+		echo ""
+	elif ((per >= 60)); then
+		echo ""
+	elif ((per >= 20)); then
+		echo ""
+	elif ((per <= 20)); then
+		echo ""
+	fi
+}
+
+function set_vol() {
+	local val
+	val=$(printf "%.0f\n" "$1")
+	pamixer --set-volume "$val"
+}
+
+function toggle_mute() {
+	pamixer --toggle-mute
+}
+
+function json() {
+	echo "{\"percent\":$(percent),\"icon\":\"$(icon)\"}"
+}
+
+function follow() {
+	local v
+	v=$(json)
+	echo "$v"
+	while sleep 0.1; do
+		local nv
+		nv=$(json)
+		[[ $v != "$nv" ]] && v=$nv && echo "$nv"
+	done
+}
+
+function change() {
+	if [ "$1" = "up" ]; then
+		pamixer --increase $delta
+	else
+		pamixer --decrease $delta
+	fi
+}
+
+case "$1" in
+"set") set_vol "$2" ;;
+"change") change "$2" ;;
+"toggle-mute") toggle_mute ;;
+"icon") icon ;;
+"follow") follow ;;
+*) echo "Unrecognized command" && exit 1 ;;
+esac

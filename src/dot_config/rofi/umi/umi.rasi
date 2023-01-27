@@ -1,0 +1,154 @@
+configuration {
+    sidebar-mode: 					true;
+    drun-display-format:            "{name}";
+    display-window: 				"";
+    display-run: 					"";
+    display-drun: 					"";
+}
+
+@import "colors.rasi"
+window {
+    font: "Inter 14";
+    background-color: @bg-primary;
+    border: 1;
+    border-color: @bg-light;
+    border-radius: 20px;
+    width: 30%;
+    padding: 10px;
+    children: [ mainbox ];
+}
+
+mainbox {
+    border: 0;
+    background-color: @bg-primary;
+    spacing: 10;
+    children: [ inputbar, message, body ];
+}
+
+
+inputbar {
+    background-color: @bg-alt;
+    border-radius: 15px;
+    padding: 10px;
+    children: [ textbox-prompt-colon, entry ];
+}
+
+prompt {
+    content: "";
+	font: "Material Symbols Rounded Filled 20pt 18";
+    padding: 10px 20px;
+    background-color: @accent;
+    color: @fg-primary;
+    vertical-align: 0.5;
+}
+
+textbox-prompt-colon {
+	font: "Material Symbols Rounded Filled 20pt 18";
+    content: "";
+    background-color: @bg-alt;
+    expand: false;
+    padding: 10px;
+    text-color: @fg-primary;
+}
+
+entry {
+    placeholder: "Search...";
+    background-color: @bg-alt;
+    border-radius: 8px;
+    color: @fg-primary;
+    padding: 15px;
+    cursor: pointer;
+    vertical-align: 0.5;
+}
+
+textbox {
+    background-color: #181821;
+    color: @fg-primary;
+}
+
+body {
+    background-color: @bg-primary;
+    orientation: vertical;
+	spacing: 10;
+    children: [ listview, mode-switcher ];
+}
+
+listview {
+    columns: 3;
+    lines: 3;
+    spacing: 10px;
+    background-color: @bg-primary;
+}
+
+element {
+    orientation: vertical;
+    children: [element-icon, element-text ];
+    border-radius: 15px;
+    padding: 10px;
+}
+
+element.normal.normal, element.alternate.normal {
+    background-color: @bg-primary;
+    color: @fg-primary;
+}
+
+element.selected.normal, element-icon.selected.normal, element-text.selected.normal {
+    background-color: @accent;
+    color: @bg-primary;
+}
+
+element.normal.active, element-icon.normal.active, element-text.normal.active {
+    background-color: @bg-primary;
+    color: @green-primary;
+}
+
+element.selected.active, element-icon.selected.active, element-text.selected.active {
+    background-color: @green-primary;
+    color: @bg-primary;
+}
+
+element-icon, element-text {
+    background-color: @bg-primary;
+    color: @fg-primary;
+}
+
+element-icon {
+    size: 1.5em;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+mode-switcher {
+    background-color: @bg-alt;
+    orientation: horizontal;
+    border-radius: 15px;
+    expand: false;
+    border: 0px;
+    spacing: 0;
+    horizontal-align: 0.5;
+}
+
+button {
+	font: "Material Symbols Rounded Filled 20pt 16";
+    expand: true;
+    padding: 20px 50px;
+    border-radius: 15px;
+    background-color: @bg-alt;
+}
+
+button.normal.active {
+    color: @bg-primary;
+}
+
+button.selected.normal {
+    color: @accent;
+    background-color: @bg-light;
+}
+
+button.normal.normal {
+    color: @fg-primary;
+}

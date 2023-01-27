@@ -1,0 +1,56 @@
+(defwidget system-stats[]
+  (section
+    :title "System"
+    :icon ""
+    :header-spacing 10
+    (box
+      :orientation "vertical"
+      :space-evenly false
+      :valign "center"
+      :halign "end"
+      :spacing 10
+      (circlemeter
+        :name "bat"
+        :thickness 16
+        :val {bat.level ?: "--"}
+      :icon "${bat.level}%")
+      (label :class "bat-lbl" :text "${bat.icon} Battery")
+    )
+    (box
+      :orientation "vertical"
+      :spacing 15
+      :halign "end"
+      (box
+        :space-evenly false
+        :spacing 10
+        (label :class "ram-lbl" :text " RAM")
+        (circlemeter
+          :name "ram"
+          :thickness 6
+          :val {system.ram}
+        :icon "${system.ram}%")
+      )
+      (box
+        :space-evenly false
+        :spacing 10
+        (label :class "cpu-lbl" :text " CPU")
+        (circlemeter
+          :name "cpu"
+          :thickness 6
+          :val {system.cpu}
+        :icon "${system.cpu}%")
+      )
+      (box
+        :space-evenly false
+        :spacing 10
+        (label :class "dsk-lbl" :text " DSK")
+        (circlemeter
+          :name "dsk"
+          :thickness 6
+          :val {system.dsk}
+        :icon "${system.dsk}%")
+      )))
+)
+
+(deflisten system :initial '{"ram":0,"cpu":0,"dsk":0}' :timeout "5s" "../../scripts/system follow")
+(defpoll bat :initial "{}" :interval "5s" "../../scripts/battery")

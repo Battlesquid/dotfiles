@@ -1,0 +1,35 @@
+@import "../../widgets/scss/colors.scss";
+@import "../../widgets/scss/workspaces.scss";
+@import "../../widgets/scss/battery.scss";
+@import "../../widgets/scss/time-small.scss";
+@import "../../widgets/scss/statustray.scss";
+
+* {
+    all: unset;
+    transition: 100ms ease-in;
+}
+
+.bar-main {
+    font-family: Inter, "Material Symbols Rounded Filled 20pt";
+    background-color: $bg-primary;
+    border-radius: 15px;
+    padding: 0 6px;
+
+    .start {
+        font-size: 22px;
+        background-color: $bg-alt;
+        color: $fg-primary;
+        border-radius: 8px;
+        padding: 3px 8px;
+        border: 1px solid rgba(0, 0, 0, 0);
+    }
+
+    .start:hover {
+        border: 1px solid $fg-primary;
+        background-color: $bg-primary;
+    }
+}
+
+tooltip {
+    background-color: $bg-primary;
+}

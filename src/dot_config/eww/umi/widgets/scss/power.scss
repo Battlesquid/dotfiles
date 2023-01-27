@@ -1,0 +1,12 @@
+.power {
+    button {
+        font-size: 30px;
+        padding: 10px;
+        border-radius: 15px;
+        background-color: $bg-alt;
+    }
+
+    button:hover {
+        background-color: $bg-light;
+    }
+}

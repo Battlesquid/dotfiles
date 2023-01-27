@@ -1,0 +1,20 @@
+(defwidget time-small[]
+  (eventbox :class "time-small-eventbox"
+    :onhover "${EWW_CMD} update time-toggle=true"
+    :onhoverlost "${EWW_CMD} update time-toggle=false"
+    (box :class "time-small"
+      :orientation "v"
+      :space-evenly false
+      :valign "center"
+      (revealer :reveal {!time-toggle}
+        :transition "slideup"
+        :duration "550ms"
+        (label :halign "center" :valign "center" :text time-normal))
+      (revealer  :reveal time-toggle
+        :transition "slideup"
+        :duration "550ms"
+        (label :halign "center" :valign "center" :text time-date)))))
+
+(defvar time-toggle false)
+(defpoll time-normal :interval "1s" "date +'%I:%M%p'")
+(defpoll time-date :interval "1m" "date +'%m/%d/%y'")

@@ -1,0 +1,22 @@
+(defwidget weather[]
+  (section
+    :title "Weather"
+    :icon ""
+    :vexpand true
+    :c_halign "center"
+    :c_vexpand true
+    (box
+      :class "weather"
+      :spacing 50
+      :space-evenly false
+      :valign "center"
+      :vexpand true
+      (label :class "icon" :text {weather.icon})
+      (box
+        :orientation "vertical"
+        :spacing 0
+        (label :class "type" :halign "start" :text {weather.type})
+        (label :class "temp" :halign "start" :text "${weather.temp}°"))
+    )))
+
+(defpoll weather :initial '{"icon":"","type":"--","temp":"--"}' :interval "30m" "../../scripts/weather")

@@ -1,0 +1,12 @@
+.battery {
+    font-weight: bold;
+    font-size: 13px;
+    background-color: $bg-light;
+    color: $fg-primary; 
+    padding: 6px;
+    border-radius: 8px;
+
+    .icon {
+        font-size: 18px;
+    }
+}

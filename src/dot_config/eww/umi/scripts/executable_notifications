@@ -1,0 +1,181 @@
+#!/usr/bin/env zsh
+
+function _set_vars() {
+    typeset -gx DUNST_CACHE_DIR="$HOME/.cache/dunst"
+    typeset -gx DUNST_LOG="$DUNST_CACHE_DIR/notifications.txt"
+    typeset -gx ICON_THEME="Tela"
+    typeset -gx SPOTIFY_TITLE="$(playerctl --player=spotify metadata --format '{{ title }}' 2>/dev/null)"
+}
+_set_vars
+
+function _unset_vars() {
+    unset DUNST_CACHE_DIR
+    unset DUNST_LOG
+}
+
+mkdir "$DUNST_CACHE_DIR" 2>/dev/null
+touch "$DUNST_LOG" 2>/dev/null
+
+function create_cache() {
+    local urgency
+    case "$DUNST_URGENCY" in
+        "LOW"|"NORMAL"|"CRITICAL") urgency="$DUNST_URGENCY";;
+        *) urgency="OTHER";;
+    esac
+    
+    local summary
+    local body
+    [ "$DUNST_SUMMARY" = "" ] && summary="Summary unavailable." || summary=${DUNST_SUMMARY//$'\n'}
+    [ "$DUNST_BODY" = "" ] && body="Body unavailable." || body=${"$(print "$DUNST_BODY" | recode html)"//$'\n'}
+    
+    local appname=$(echo "$DUNST_APP_NAME" | awk '{print tolower($0)}')
+    
+    # Fix for discord web
+    if [[ $body == *"discord"* ]]
+    then
+        fixed_body=$(echo $DUNST_BODY | awk FNR==3)
+        if [[ ${#fixed_body} -ge 30 ]]
+        then
+            body=$(python -c "print('${fixed_body}' + ' ...')")
+        else
+            body=$fixed_body
+        fi
+    fi
+    echo $body
+    # Fix for spotify
+    if [[ $DUNST_APP_NAME == "Spotify" ]]
+    then
+        if [[ ${#DUNST_BODY} -ge 30 ]]
+        then
+            fixed_body=$(echo $DUNST_BODY | cut -c 1-30)
+            body=$(python -c "print('${fixed_body}' + ' ...')")
+        else
+            body=$DUNST_BODY
+        fi
+        if [[ ${#DUNST_SUMMARY} -ge 25 ]]
+        then
+            fixed_summary=$(echo $DUNST_SUMMARY | cut -c 1-25)
+            summary=$(python -c "print('${fixed_summary}' + ' ...')")
+        else
+            summary=$DUNST_SUMMARY
+        fi
+    fi
+    
+    if [[ $DUNST_ICON_PATH == "" ]]
+    then
+        ICON_PATH=~/.local/share/icons/Tela/scalable/apps/$DUNST_APP_NAME.svg
+    else
+        FIXED_ICON_PATH=$(echo ${DUNST_ICON_PATH} | sed 's/32x32/48x48/g')
+        ICON_PATH=$FIXED_ICON_PATH
+    fi
+    
+    echo "$DUNST_APP_NAME"
+    if [[ $DUNST_APP_NAME == "Spotify" ]]
+    then
+        ICON_PATH=$HOME/.cache/temp-$SPOTIFY_TITLE.png
+    fi
+    
+    # pipe stdout -> pipe cat stdin (cat conCATs multiple files and sends to stdout) -> absorb stdout from cat
+    # concat: "one" + "two" + "three" -> notice how the order matters i.e. "one" will be prepended
+    print '{"id":"'$DUNST_ID'","urgency":"'$urgency'","app":"'$DUNST_APP_NAME'","body":"'$body'","summary":"'$summary'","icon":"'$ICON_PATH'"}' \
+    | cat - "$DUNST_LOG" \
+    | sponge "$DUNST_LOG"
+}
+
+function make_json() {
+    local json='{"count":'"$(count_once)"',"items":['
+    local delim=""
+    while read -r line; do
+        json+="$delim$line"
+        delim=","
+    done < $DUNST_LOG
+    json+="]}"
+    echo $json
+}
+
+function clear_logs() {
+    killall dunst 2>/dev/null
+    dunst & disown
+    print > "$DUNST_LOG"
+}
+
+function pop() { sed -i '1d' "$DUNST_LOG" }
+
+function drop() { sed -i '$d' "$DUNST_LOG" }
+
+function remove_line() { sed -i '/{"id":"'$1'",/d' "$DUNST_LOG" }
+
+function critical_count() {
+    local crits=$(cat $DUNST_LOG | grep CRITICAL | wc --lines)
+    local total=$(cat $DUNST_LOG | wc --lines)
+    [ $total -eq 0 ] && echo 0 || echo $(((crits*100)/total))
+}
+
+function normal_count() {
+    local norms=$(cat $DUNST_LOG | grep NORMAL | wc --lines)
+    local total=$(cat $DUNST_LOG | wc --lines)
+    [ $total -eq 0 ] && echo 0 || echo $(((norms*100)/total))
+}
+
+function low_count() {
+    local lows=$(cat $DUNST_LOG | grep LOW | wc --lines)
+    local total=$(cat $DUNST_LOG | wc --lines)
+    [ $total -eq 0 ] && echo 0 || echo $(((lows*100)/total))
+}
+
+function subscribe() {
+    make_json
+    local lines=$(cat $DUNST_LOG | wc -l)
+    while sleep 0.1; do
+        local new=$(cat $DUNST_LOG | wc -l)
+        [[ $lines -ne $new ]] && lines=$new && print
+    done | while read -r _ do; make_json done
+}
+
+function count_once() {
+    cat "$DUNST_LOG" | wc -l
+}
+
+function count() {
+    local count=$(count_once)
+    echo $count
+    while sleep 0.1; do
+        local nc=$(cat "$DUNST_LOG" | wc -l)
+        [[ $nc -ne $count ]] && count=$nc && echo $nc
+    done
+}
+
+function toggle_dnd() {
+    dunstctl set-paused toggle
+}
+
+function icon() {
+    if [ $(dunstctl is-paused) = "true" ];then
+        echo ""
+        elif (( $(count_once) > 0 ));then
+        echo ""
+    else
+        echo ""
+    fi
+}
+
+case "$1" in
+    "pop") pop;;
+    "drop") drop;;
+    "clear") clear_logs;;
+    "subscribe") subscribe;;
+    "count") count;;
+    "remove") remove_line $2;;
+    "crits") critical_count;;
+    "lows") low_count;;
+    "norms") normal_count;;
+    "toggle-dnd") toggle_dnd;;
+    "icon") icon;;
+    "json") make_json;;
+    *) create_cache;;
+esac
+
+sed -i '/^$/d' "$DUNST_LOG"
+_unset_vars
+
+# vim:ft=zsh
