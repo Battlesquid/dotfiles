@@ -100,6 +100,12 @@ touch ~/.config/eww/umi/scripts/secrets
 WEATHER_API_KEY="<YOUR_API_KEY_HERE>"
 WEATHER_API_CITY="<YOUR_CITY_HERE>"
 ```
+### **Updating**
+
+To apply updates:
+```bash
+chezmoi update
+```
 
 # **Credits**
 
