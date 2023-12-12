@@ -11,9 +11,6 @@
     </a>
 </div>
 
-### **NOTICE**
-These dotfiles and the instructions on how to set them up are still under construction, and testing is still being done. Proceed with caution.
-
 <br>
 
 <img align="right" width="500px" src="./assets/output_dash.png">
