@@ -1,0 +1,21 @@
+@import "../../widgets/scss/colors.scss";
+@import "../../widgets/scss/osu-user-card.scss";
+@import "../../widgets/scss/osu-media.scss";
+@import "../../widgets/scss/osu-meters.scss";
+@import "../../widgets/scss/osu-clock.scss";
+@import "../../widgets/scss/powermenu-large.scss";
+
+* {
+	all: unset;
+	transition: 100ms ease-in;
+}
+
+.dashboard {
+	font-family: Noto Sans, "Font Awesome 6 Free Solid";
+	background-color: rgba(24, 24, 33, 0.25);
+
+	.header {
+		background-color: rgba(24, 24, 33, 0.85);
+		padding: 1.3rem 1rem;
+	}
+}

@@ -13,21 +13,19 @@ function toggle() {
 }
 
 function close() {
-	eww -c "$HOME/.config/eww/fool_moon/dashboard" close darken clock power media
-	eww -c "$HOME/.config/eww/fool_moon/meters" close meters
-	eww -c "$HOME/.config/eww/fool_moon/bar" open bar
+	eww -c "$HOME/.config/eww/fool_moon/windows/dashboard" close dashboard
+	eww -c "$HOME/.config/eww/fool_moon/windows/bar" open bar
 	for i in $(bspc query -N -n .window.hidden -d);do
-		bspc node $i -g hidden=off
+		bspc node "$i" -g hidden=off
 	done
 	pkill glava
 }
 
 function open() {
-	eww -c "$HOME/.config/eww/fool_moon/dashboard" open-many darken clock power media 
-	eww -c "$HOME/.config/eww/fool_moon/meters" open meters
-	eww -c "$HOME/.config/eww/fool_moon/bar" close bar
+	eww -c "$HOME/.config/eww/fool_moon/windows/dashboard" open dashboard
+	eww -c "$HOME/.config/eww/fool_moon/windows/bar" close bar
 	for i in $(bspc query -N -n .window -d);do
-		bspc node $i -g hidden=on
+		bspc node "$i" -g hidden=on
 	done
 	glava 1> /dev/null &
 }

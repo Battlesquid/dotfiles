@@ -1,0 +1,20 @@
+(defwidget system-toggles[]
+  (box
+    :class "system-toggles"
+    :orientation "v"
+    :hexpand true
+    :spacing 15
+    (box
+      :class "row"
+      :spacing 15
+      (button :class "wifi ${toggles.wifi.state}" :timeout "5s" :tooltip "wifi" :onclick "../../scripts/system-toggles toggle-wifi" {toggles.wifi.icon})
+      (button :class "air ${toggles.air.state}" :timeout "5s" :tooltip "airplane mode" :onclick "../../scripts/system-toggles toggle-air" {toggles.air.icon})
+      (button :class "dnd ${toggles.dnd.state}" :timeout "5s" :tooltip "do not disturb" :onclick "../../scripts/system-toggles toggle-dnd" {toggles.dnd.icon}))
+    (box
+      :class "row"
+      :spacing 15
+      (button :class "night ${toggles.night.state}" :tooltip "night light" :onclick "../../scripts/system-toggles toggle-night" {toggles.night.icon})
+      (button :class "blue ${toggles.blue.state}" :tooltip "bluetooth" :onclick "../../scripts/system-toggles toggle-blue" {toggles.blue.icon})
+      (button :class "scr" :tooltip "take screenshot" :onclick "scripts/sys screenshot" ""))))
+
+(deflisten toggles :initial '{"wifi": {"state": "on","icon": ""},"air": {"state": "off","icon": ""},"dnd": {"state": "off","icon": ""},"night": {"state": "off","icon": ""},"blue": {"state": "on","icon": ""}}' "../../scripts/system-toggles follow")

@@ -1,0 +1,59 @@
+(defwidget osu-meters[?halign]
+  (box
+    :class "osu-meters"
+    :orientation "v"
+    :halign {halign ?: "fill"}
+    :space-evenly false
+    (box
+      :class "mic-box"
+      :space-evenly false
+      :halign "end"
+      (label :class "mic-label" :valign "center" :text "mic")
+      (box
+        :class "mic-wrapper"
+        :halign "end"
+        (circlemeter
+          :name "mic"
+          :thickness 6
+          :val {mic.percent}
+          :onscroll "../../scripts/mic change {}"
+          :icon "${round(mic.percent, 0)}%")))
+    (box
+      :halign "end"
+      :space-evenly false
+      (box
+        :class "bright-box"
+        :space-evenly false
+        :halign "end"
+        (label :class "bright-label" :valign "center" :text "brightness")
+        (box
+          :class "bright-wrapper"
+          :halign "end"
+          (circlemeter
+            :name "bright"
+            :thickness 6
+            :val {bright.percent}
+            :icon "${round(bright.percent, 0)}%"
+          :onscroll "../../scripts/bright change {}")))
+      (box
+        :class "vol-box"
+        :space-evenly false
+        :halign "end"
+        (label :class "vol-label" :valign "center" :text "volume")
+        (box
+          :class "vol-wrapper"
+          :halign "end"
+          (circlemeter
+            :name "vol"
+            :thickness 6
+            :val {volume.percent}
+            :icon "${round(volume.percent, 0)}%"
+            :onscroll "../../scripts/vol change {}"
+          :onclick "../../scripts/vol toggle-mute")))
+    )))
+
+(deflisten mic :initial '{"percent":0,"icon":""}' "../../scripts/mic follow-animated")
+
+(deflisten volume :initial '{"percent":0,"icon":""}' "../../scripts/volume follow-animated")
+
+(deflisten bright :initial '{"percent":0}' "../../scripts/bright follow-animated")

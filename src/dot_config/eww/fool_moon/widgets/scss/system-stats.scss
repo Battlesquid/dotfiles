@@ -1,0 +1,38 @@
+.system-stats {
+    background-color: $bg;
+    border-radius: 8px;
+    padding: 16px;
+
+    scale.ram-scale trough,
+    scale.cpu-scale trough,
+    scale.dsk-scale trough {
+        all: unset;
+        background-color: $gray;
+        border-radius: 8px;
+        min-height: 80px;
+        min-width: 15px;
+    }
+
+    .ram-scale trough highlight {
+        background-color: $blue;
+        border-radius: 8px;
+    }
+
+    .cpu-scale trough highlight {
+        background-color: $purple;
+        border-radius: 8px;
+    }
+
+    .dsk-scale trough highlight {
+        background-color: $light-blue;
+        border-radius: 8px;
+    }
+
+    .ram-icon,
+    .cpu-icon,
+    .dsk-icon {
+        font-size: 16px;
+        color: $whitesmoke;
+        padding: 16px 0 0 0;
+    }
+}

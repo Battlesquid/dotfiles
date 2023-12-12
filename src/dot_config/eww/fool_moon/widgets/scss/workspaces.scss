@@ -1,0 +1,35 @@
+.workspaces {
+    .wk-btn {
+        min-height: 16px;
+        min-width: 16px;
+        border-radius: 10px;
+
+        &.unoccupied {
+            background-color: $gray;
+            // min-width: 20px;
+        }
+
+        &.unoccupied:hover {
+            background-color: $light-gray;
+        }
+
+        &.occupied {
+            background-color: $dark-blue;
+            min-width: 20px;
+        }
+
+        &.occupied:hover {
+            min-width: 30px;
+            background-color: $blue;
+        }
+
+        &.focused {
+            background-color: $blue;
+            min-width: 40px;
+        }
+
+        &.focused:hover {
+            background-color: $blue;
+        }
+    }
+}

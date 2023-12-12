@@ -1,0 +1,18 @@
+(defwidget osu-user-card[]
+  (box
+    :class "osu-user-card"
+    :halign "start"
+    :space-evenly false
+    :spacing 15
+    (box :class "user-pfp" :halign "center" :valign "center" :style "background-image: url('../../assets/pfp.png');")
+    (box
+      :class "user-details"
+      :orientation "v"
+      :space-evenly false
+      (label :class "user-name" :halign "start" :text uname)
+      (label :class "user-uptime" :halign "start" :text uptime)
+      (label :class "user-pkgs" :halign "start" :text "${pkgs} packages"))))
+
+(defpoll uname :interval "1h" "echo $USER")
+(defpoll uptime :interval "30s" "uptime -p")
+(defpoll pkgs :interval "1m" "pacman -Q | wc -l")

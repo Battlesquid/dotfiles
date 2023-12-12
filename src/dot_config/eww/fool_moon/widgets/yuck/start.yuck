@@ -1,0 +1,8 @@
+(defwidget start[]
+  (eventbox
+    :class "start-eventbox"
+    :tooltip "Start Menu"
+    :onclick "eww -c ~/.config/eww/fool_moon/windows/start-menu open --toggle start-menu"
+    :timeout "5s"
+    (label :class "start-label" :text "")
+  ))

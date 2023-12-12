@@ -1,0 +1,24 @@
+.user-card {
+    border-radius: 16px;
+
+    .user-pfp {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        padding: 8px;
+        border-radius: 16px;
+        min-width: 80px;
+        min-height: 80px;
+    }
+
+    .user-name {
+        font-size: 18px;
+        font-weight: bold;
+        color: $whitesmoke;
+    }
+
+    .user-uptime {
+        font-size: 14px;
+        color: $light-gray;
+    }
+}

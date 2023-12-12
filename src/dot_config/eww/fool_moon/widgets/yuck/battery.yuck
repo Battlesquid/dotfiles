@@ -1,0 +1,31 @@
+(defwidget battery[]
+  (eventbox
+    :class "battery-eventbox"
+    :onhover "${EWW_CMD} update battery-visible=true"
+    :onhoverlost "${EWW_CMD} update battery-visible=false"
+    (box
+      :class "battery-box ${battery.status}"
+      :orientation "v"
+      :valign "center"
+      (overlay
+        (scale :class "battery-scale ${battery.status}" :active false :min 0 :max 101 :value {battery.level})
+        (box
+          :orientation "v"
+          :space-evenly false
+          :valign "center"
+          (revealer
+            :class "battery-revealer"
+            :reveal battery-visible
+            :transition "slideup"
+            :duration "550ms"
+            (label :class "battery-level" :halign "center" :valign "center" :text "${battery.level}%"))
+          (revealer
+            :class "battery-revealer"
+            :reveal {!battery-visible}
+            :transition "slideup"
+            :duration "550ms"
+            (label :class "battery-icon" :halign "center" :valign "center" :text {battery.icon})))))))
+
+
+(defpoll battery :interval "10s" :initial '{"icon":"","level":0}' "../../scripts/battery")
+(defvar battery-visible false)

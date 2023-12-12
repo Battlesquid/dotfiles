@@ -34,8 +34,8 @@ return require('packer').startup(function(use)
 	}
 	
 	use { 
-		'folke/tokyonight.nvim', 
-		branch = 'main' 
+		'folke/tokyonight.nvim',
+		branch = 'main'
 	}
 
 	use { 'ryanoasis/vim-devicons' }
@@ -63,7 +63,10 @@ return require('packer').startup(function(use)
 		requires = { 'nvim-lua/plenary.nvim' }
 	}
 
-	use 'airblade/vim-gitgutter'
+	use {
+		'airblade/vim-gitgutter',
+		branch = 'main'
+	}
 
 	use {
 		'lukas-reineke/indent-blankline.nvim',
@@ -121,4 +124,10 @@ return require('packer').startup(function(use)
 		config = setup("projectnvim")
 	}
 
+	use 'mfussenegger/nvim-jdtls'
+
+	use { 
+		'folke/trouble.nvim',
+		dependencies = { 'nvim-tree/nvim-web-devicons' }
+	}
 end)

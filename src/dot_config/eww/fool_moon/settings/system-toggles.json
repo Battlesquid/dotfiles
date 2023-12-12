@@ -1,0 +1,25 @@
+{
+  "wifi": {
+    "state": "on",
+    "icon": ""
+  },
+  "air": {
+    "state": "off",
+    "icon": ""
+  },
+  "dnd": {
+    "state": "off",
+    "icon": ""
+  },
+  "night": {
+    "state": "off",
+    "icon": ""
+  },
+  "blue": {
+    "state": "on",
+    "icon": ""
+  },
+  "bluetooth": {
+    "state": "on"
+  }
+}

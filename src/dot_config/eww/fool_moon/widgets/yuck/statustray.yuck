@@ -1,0 +1,17 @@
+(defwidget statustray[]
+  (box
+    :space-evenly false
+    :class "statustray"
+    :spacing 7
+    (eventbox
+      :class "notification-count-eventbox"
+      :tooltip "Notifications"
+      (label :class "notification-count-label" :text "${tray.notifications.icon}  ${tray.notifications.count}"))
+    (box
+      :class "tray-right"
+      :spacing 7
+      (label :class "volume" :text {tray.volume})
+      (label :class "network" :text {tray.network}))))
+    
+
+(deflisten tray :initial '{"notifications":{"icon":"","count":0},"volume":"","network":""}' "../../scripts/statustray follow")

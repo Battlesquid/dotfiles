@@ -1,0 +1,38 @@
+.powermenu {
+    font-size: 16px;
+    color: $whitesmoke;
+    background-color: $bg;
+    border-radius: 8px;
+
+    >button {
+        padding: 16px;
+    }
+
+    button:first-child {
+        border-radius: 8px 0 0 8px;
+    }
+
+    button:last-child {
+        border-radius: 0 8px 8px 0;
+    }
+
+    button:hover {
+        color: $bg;
+    }
+
+    .power-lock:hover {
+        background-color: $blue;
+    }
+
+    .power-exit:hover {
+        background-color: $purple;
+    }
+
+    .power-reboot:hover {
+        background-color: $mint;
+    }
+
+    .power-shutdown:hover {
+        background-color: $red;
+    }
+}

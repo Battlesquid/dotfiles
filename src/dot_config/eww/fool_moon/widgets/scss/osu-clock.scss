@@ -1,0 +1,22 @@
+.osu-clock {
+
+    .clock-progress {
+        background-color: $gray;
+        color: $blue;
+    }
+
+    .clock-contents {
+        background-color: $bg;
+        padding: 8rem;
+    }
+
+    .clock-time {
+        font-size: 72px;
+        color: #B8BDC9;
+    }
+
+    .clock-date {
+        font-size: 16px;
+        color: $light-gray;
+    }
+}

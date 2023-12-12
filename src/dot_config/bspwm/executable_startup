@@ -1,21 +1,21 @@
 #!/bin/sh
 
-EWW_DIR=$HOME/.config/eww/fool_moon
+EWW_DIR=$HOME/.config/eww/fool_moon/windows
 
-killall picom
+killall compfy
 killall dunst
 killall eww
 
 sxhkd &
 dunst &
 xsetroot -cursor_name left_ptr &
-picom --config $HOME/.config/picom/picom.ini --experimental-backends &
-feh --bg-fill ~/.config/wallpapers/fool_moon.jpg
+compfy --config "$HOME"/.config/picom/picom.ini &
+feh --bg-fill "$HOME"/.config/wallpapers/fool_moon.jpg
 
-eww -c $EWW_DIR/bar open bar
-eww -c $EWW_DIR/menu daemon
-eww -c $EWW_DIR/dashboard daemon
-eww -c $EWW_DIR/meters daemon
+eww -c "$EWW_DIR"/bar open bar
+eww -c "$EWW_DIR"/start-menu daemon
+eww -c "$EWW_DIR"/side-menu daemon
+# eww -c "$EWW_DIR"/meters daemon
 
-$HOME/.config/eww/fool_moon/menu/scripts/sys restore
+"$HOME"/.config/eww/fool_moon/scripts/system-toggles restore
 

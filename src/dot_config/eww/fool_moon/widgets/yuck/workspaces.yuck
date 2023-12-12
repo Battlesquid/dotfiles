@@ -1,0 +1,10 @@
+(defwidget workspaces[]
+  (box
+    :class "workspaces"
+    :valign "center"
+    (for wk in workspace-list
+      (box :halign "center"
+        (button :class "wk-btn ${wk.state}" :onclick {wk.command})))
+  ))
+
+(deflisten workspace-list :initial "[]" "../../scripts/workspaces")

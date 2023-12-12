@@ -1,0 +1,18 @@
+.clock {
+    .clock-eventbox {
+        font-weight: bold;
+        font-size: 14px;
+        color: $whitesmoke;
+        background-color: $raisin-black;
+        border-radius: 8px;
+    }
+    
+    .clock-eventbox:hover {
+        color: $bg;
+        background-color: $blue;
+    }
+    
+    .clock-time {
+        padding: 0.25rem 0.6rem;
+    }
+}

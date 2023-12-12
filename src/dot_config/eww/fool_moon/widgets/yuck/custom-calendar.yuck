@@ -1,0 +1,25 @@
+(defwidget custom-calendar[]
+  (box
+    :class "calendar"
+    :orientation "v"
+    :space-evenly false
+    (box
+      :class "date"
+      :hexpand true
+      (box
+        :space-evenly false
+        :spacing 5
+        :halign "center"
+        (label :class "month" :text month)
+        (label :class "year" :text "${year}")))
+    (box :class "calendar-header" "S" "M" "T" "W" "T" "F" "S")
+    (calendar
+      :valign "center"
+      :vexpand true
+      :active false
+      :show-heading false
+      :show-day-names false
+    )))
+
+(defpoll month :interval "30m" "date +'%B'")
+(defpoll year :interval "30m" "date +'%Y'")

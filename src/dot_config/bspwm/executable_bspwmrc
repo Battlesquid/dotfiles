@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 # wm parenting issue fix, see: https://www.reddit.com/r/bspwm/comments/267srd/comment/chotpgf/?utm_source=share&utm_medium=web2x&context=3
 # wmname LG3D
@@ -11,40 +11,29 @@ bspc config focused_border_color "#3c3c47"
 
 bspc config presel_feedback_color "577bca"
 
-bspc monitor -d 1 2 3 4 5 6 
+bspc monitor -d 1 2 3 4 5 6
 
-bspc config border_width        1 
-bspc config window_gap          10
+bspc config border_width 1
+bspc config window_gap 10
 
 bspc config pointer_modifier mod1
 bspc config pointer_action1 resize_side
 bspc config pointer_action1 resize_corner
 bspc config pointer_action3 move
-bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true	
+bspc config split_ratio 0.52
+bspc config borderless_monocle true
+bspc config gapless_monocle true
 
 bspc rule -a mplayer2 state=floating
 bspc rule -a GLava border=off state=floating sticky=on
 
 bspc subscribe node_state | while read -r _ _ _ _ state flag; do
-if [ "$state" != "fullscreen" ]; then
-	continue
-fi
-if [ "$flag" == on ]; then
-	eww -c $EWW_DIR/bar close bar 
-else
-	eww -c $EWW_DIR/bar open bar
-fi
+	if [ "$state" != "fullscreen" ]; then
+		continue
+	fi
+	if [ "$flag" == on ]; then
+		eww -c "$EWW_DIR"/bar close bar
+	else
+		eww -c "$EWW_DIR"/bar open bar
+	fi
 done &
-
-#while read -r line; do
-	#case "$line" in
-		#*'marked on')
-			#bspc config -n "$(bspc query -N -n .marked)" border_width 10
-			#;;
-		#*'marked off')
-			#bspc config border_width 1
-			#;;
-	#esac
-#done < <(bspc subscribe report node_flag) &

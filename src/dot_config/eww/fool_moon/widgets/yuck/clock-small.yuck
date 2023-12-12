@@ -1,0 +1,9 @@
+(defwidget clock-small[]
+  (box
+    :class "clock"
+    (eventbox
+      :class "clock-eventbox"
+      :onclick "eww -c ~/.config/eww/fool_moon/windows/side-menu open --toggle side-menu"
+      :cursor "pointer"
+      (label :class "clock-time" :text " ${formattime(EWW_TIME, '%I:%M')}")
+    )))

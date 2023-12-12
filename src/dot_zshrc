@@ -113,15 +113,5 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source /usr/share/nvm/init-nvm.sh
-
-alias chezit='chezmoi edit'
-
-path+=$HOME/bin
-path+=$HOME/.cargo/bin
-path+=$HOME/IHMC_CmapTools/
-path+=$HOME/.local/bin/
-PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
-
-export PATH
-
+source ~/.aliases.zsh
+source ~/.path.zsh

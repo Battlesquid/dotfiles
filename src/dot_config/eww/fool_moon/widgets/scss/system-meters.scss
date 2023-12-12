@@ -1,0 +1,49 @@
+.system-meters {
+    font-size: 16px;
+    border-radius: 1rem;
+
+    .vol-eventbox,
+    .mic-eventbox,
+    .bright-eventbox {
+        font-size: 14px;
+        color: $whitesmoke;
+        background-color: $raisin-black;
+        border-radius: 8px;
+    }
+
+    .vol-icon,
+    .mic-icon,
+    .bright-icon {
+        padding: 8px 0;
+    }
+
+    .vol-eventbox:hover,
+    .mic-eventbox:hover {
+        background-color: $gray;
+    }
+
+    scale.vol-scale trough,
+    scale.mic-scale trough,
+    scale.bright-scale trough {
+        all: unset;
+        background-color: $gray;
+        border-radius: 8px;
+        min-height: 15px;
+        min-width: 300px;
+    }
+
+    .vol-scale trough highlight {
+        background-color: $blue;
+        border-radius: 8px;
+    }
+
+    .mic-scale trough highlight {
+        background-color: $purple;
+        border-radius: 8px;
+    }
+
+    .bright-scale trough highlight {
+        background-color: $light-blue;
+        border-radius: 8px;
+    }
+}

@@ -1,0 +1,22 @@
+(defwidget osu-media[]
+  (box
+    :class "osu-media"
+    :orientation "v"
+    :space-evenly false
+    :spacing 8
+    :halign "end"
+    (label :class "media-title" :halign "end" :limit-width 40 :text "${media.title} - ${media.artist}")
+    (box
+      :class "media-controls"
+      :space-evenly false
+      :spacing 15
+      :halign "end"
+      (button :class "media-prev" :onclick "../../scripts/media prev" "")
+      (button :class "media-play" :onclick "../../scripts/media play" "")
+      (button :class "media-pause" :onclick "../../scripts/media pause" "")
+      (button :class "media-stop" :onclick "../../scripts/media stop" "")
+      (button :class "media-next" :onclick "../../scripts/media next" ""))
+    (scale :class "media-track" :min 0 :max 101 :value {media.percent} :active false)))
+
+(deflisten media :initial '{"icon":"","title":"---","artist":"---","percent":0,"can_seek":false}' "../../scripts/media follow")
+

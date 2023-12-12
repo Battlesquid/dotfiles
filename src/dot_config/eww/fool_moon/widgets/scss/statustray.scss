@@ -1,0 +1,19 @@
+.statustray {
+	.notification-count-eventbox {
+		font-weight: bold;
+		color: $bg;
+		background-color: $blue;
+		border-radius: 8px;
+	}
+	
+	.notification-count-label {
+		padding: 0 10px;
+	}
+
+	.tray-right {
+		background-color: $gray;
+		color: $whitesmoke;
+		border-radius: 8px;
+		padding: 0 12px;
+	}
+}

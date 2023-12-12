@@ -1,15 +1,7 @@
 require("nvim-tree").setup({
 	sort_by = "case_sensitive",
-	open_on_tab = true,
-	open_on_setup = true,
-	open_on_setup_file = true,
 	view = {
-		adaptive_size = true,
-		mappings = {
-			list = {
-				{ key = "u", action = "dir_up" },
-			},
-		},
+		adaptive_size = false,
 	},
 	respect_buf_cwd = true,
 	sync_root_with_cwd = true,
@@ -44,20 +36,20 @@ require("nvim-tree").setup({
 })
 
 local nvim_tree_events = require('nvim-tree.events')
-local bufferline_state = require('bufferline.state')
+local barbar_api = require('barbar.api')
 
 local function get_tree_size()
-	return require'nvim-tree.view'.View.width
+	return require'nvim-tree.view'.View.width + 1
 end
 
 nvim_tree_events.subscribe('TreeOpen', function()
-	bufferline_state.set_offset(get_tree_size())
+	barbar_api.set_offset(get_tree_size())
 end)
 
-nvim_tree_events.subscribe('Resize', function()
-	bufferline_state.set_offset(get_tree_size())
+nvim_tree_events.subscribe('Resize', function(cols)
+	barbar_api.set_offset(cols + 1)
 end)
 
 nvim_tree_events.subscribe('TreeClose', function()
-	bufferline_state.set_offset(0)
+	barbar_api.set_offset(0)
 end)

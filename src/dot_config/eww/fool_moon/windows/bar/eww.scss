@@ -1,0 +1,25 @@
+@import "../../widgets/scss/colors.scss";
+@import "../../widgets/scss/workspaces.scss";
+@import "../../widgets/scss/start.scss";
+@import "../../widgets/scss/battery.scss";
+@import "../../widgets/scss/statustray.scss";
+@import "../../widgets/scss/clock-small.scss";
+
+* {
+	all: unset;
+	transition: 60ms ease-in;
+}
+
+tooltip {
+    font-size: 13px;
+	color: $whitesmoke;
+	background-color: $bg;
+	border: 1px solid $gray;
+}
+
+.bar {
+	font-family: Noto Sans, "Font Awesome 6 Free Solid";
+	background-color: #181821;
+	border-bottom: 1px solid $gray;
+	padding: 11px 10px;
+}

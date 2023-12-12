@@ -1,0 +1,54 @@
+(defwidget notifications[]
+  (box
+    :class "notifications"
+    :space-evenly false
+    :spacing 10
+    :orientation "vertical"
+    (label :class "notif-title" :hexpand true :text "Notifications (${arraylength(notifications-list)})")
+    (scroll
+      :vscroll true
+      :hscroll false
+      :height 570
+      (box
+        :orientation "vertical"
+        :space-evenly false
+        :spacing 10
+        (for notif in {notifications-list}
+          (box
+            :class "notif-card"
+            :orientation "vertical"
+            :space-evenly false
+            (box
+              :space-evenly false
+              :spacing 5
+              (label :class "notif-app" :text {notif.app})
+              (label :class "notif-sep" :text "/")
+              (label :class "notif-time" :text {notif.time}))
+            
+            (box
+              :space-evenly false
+              :spacing 10
+              (image :class "notif-icon" :image-width 64 :image-height 64 :path {notif.icon})
+              (box
+                :class "notif-content"
+                :orientation "vertical"
+                :space-evenly false
+                :hexpand true
+                :valign "center"
+                :halign "start"
+                (label :class "notif-header" :halign "start" :xalign 0 :wrap true :limit-width 100 :text {notif.summary})
+                (label :class "notif-body" :halign "start" :xalign 0 :wrap true :limit-width 100 :text {notif.body}))
+              (eventbox :class "notif-close" :onclick "../../scripts/notifications.py remove ${notif.id}"
+                (label :text "" :tooltip "Dismiss")))))
+        (box
+          :class "notif-empty"
+          :visible {arraylength(notifications-list) == 0}
+          :hexpand true
+          :vexpand true
+          (label :class "notif-empty-label" :text "No Notifications"))))
+      
+    (eventbox :class "notif-clear" :cursor "pointer" :onclick "../../scripts/notifications.py clear"
+      (label :hexpand true :valign "end" :tooltip "Clear Notifications" :text ""))))
+  
+
+(defvar notifications-list '[]')

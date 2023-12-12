@@ -1,0 +1,19 @@
+(defwidget weather[]
+  (box
+    :class "weather"
+    :spacing 15
+    (label :class "weather-icon" :text {weather.icon})
+    (box
+      :class "weather-details"
+      :orientation "v"
+      :space-evenly false
+      :valign "center"
+      (label :class "weather-temp" :halign "start" :text "${weather.temp}°F")
+      (label :class "weather-type" :halign "start" :text {weather.type}))))
+
+(defpoll weather
+  :interval "30m"
+  :timeout "5s"
+  :initial '{"icon":"","type":"--","temp":0}'
+  "../../scripts/weather"
+)

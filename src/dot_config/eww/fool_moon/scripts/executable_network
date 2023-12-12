@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# TODO: needs revisions
+
+function status() {
+    nmcli -t -g "STATE" general
+}
+
+function name() {
+    nmcli -t -f CONNECTION,STATE device status | awk --field-separator ":" '{if($2=="connected")print$1}'
+}
+
+function type() {
+    nmcli -t -f TYPE,STATE device status | awk --field-separator ":" '{if($2=="connected")print$1}'
+}
+
+function strength() {
+    nmcli -t -fields SIGNAL,ACTIVE device wifi | awk --field-separator ':' '{if($2=="yes")print$1}'
+}
+
+function icon() {
+    if [ "$(status)" = "connected" ]; then
+        if [ "$(type)" = "wifi" ]; then
+            echo ""
+        else
+            echo ""
+        fi
+    else
+        echo ""
+    fi
+}
+
+function json() {
+    local net_name
+    local net_icon
+    net_name=$(name)
+    net_icon=$(icon)
+    echo '{"name":"'"$net_name"'","icon":"'"$net_icon"'"}'
+}
+
+function follow() {
+    local data
+    data=$(json)
+    echo "$data"
+    while sleep 0.1; do
+        new_json=$(json)
+        [[ $data != "$new_json" ]] && data=$new_json && echo "$data"
+    done
+}
+
+case "$1" in
+"icon") icon ;;
+"status") status ;;
+"follow") follow ;;
+*) echo "Unrecognized command" && exit 1 ;;
+esac

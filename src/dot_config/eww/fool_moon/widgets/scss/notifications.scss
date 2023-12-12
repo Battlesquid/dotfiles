@@ -1,0 +1,100 @@
+.notifications {
+		.notif-app {
+			font-weight: bold;
+			color: $whitesmoke;
+		}
+
+		.notif-time, .notif-sep {
+				font-weight: bold;
+				color: $gray;
+		}
+    .notif-title {
+        font-weight: bold;
+        font-size: 16px;
+        color: $whitesmoke;
+        padding: 8px;
+    }
+
+    .notif-header {
+        font-size: 16px;
+        font-weight: bold;
+        color: $whitesmoke;
+        background-color: $bg;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .notif-card {
+        border-bottom: 1px solid $raisin-black;
+        background-color: $bg;
+        padding: 8px;
+        border-radius: 8px;
+    }
+
+    .notif-clear {
+        font-size: 18px;
+        background-color: $raisin-black;
+        border-radius: 8px;
+        color: $light-gray;
+
+        label {
+            padding: 4px;
+        }
+    }
+
+    .notif-clear:hover {
+        background-color: $red;
+        color: $bg;
+    }
+
+    .notif-close {
+        color: $red;
+        font-size: 14px;
+        padding: 16px;
+        border-radius: 8px;
+
+        label {
+            padding: 8px 16px;
+        }
+    }
+
+    .notif-close:hover {
+        background-color: $red;
+        color: $bg;
+    }
+
+    .notif-empty-label {
+        font-size: 18px;
+        font-weight: bold;
+        color: $gray;
+    }
+
+    .notif-summary {
+        font-size: 16px;
+        font-weight: bold;
+        color: $whitesmoke;
+    }
+
+    .notif-body {
+        color: $light-gray;
+        font-size: 13px;
+    }
+
+    scrollbar {
+        -GtkScrollbar-has-backward-stepper: false;
+        -GtkScrollbar-has-forward-stepper: false;
+
+        slider {
+            padding: 4px;
+            border-radius: 4px;
+            background: $gray;
+
+            &:hover {
+                background: $blue;
+            }
+
+            &:active {
+                background: $dark-blue;
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+#!/bin/bash
+
+animate="$HOME/.config/eww/fool_moon/scripts/animations"
+delta=5
+
+function percent() {
+	brightnessctl -m | cut -d "," -f 4 | sed 's/%//'
+}
+
+function json() {
+	echo "{\"percent\":$(percent)}"
+}
+
+function change() {
+	if [ "$1" = "up" ]; then
+		brightnessctl set "+$delta%" 1> /dev/null
+	else
+		brightnessctl set "$delta%-" 1> /dev/null
+	fi
+}
+
+function set_value() { 
+	brightnessctl set "$1%" > /dev/null
+}
+
+function follow() {
+	local v
+	v=$(json)
+	echo "$v"
+	while sleep 0.1; do
+		local nv
+		nv=$(json)
+		[[ $v != "$nv" ]] && v=$nv && echo "$nv"
+	done
+}
+
+function follow_animated() {
+	local scalar
+	scalar=$(percent)
+    while read -r line; do
+		echo "{\"percent\":$line}"
+	done < <($animate run -i "bright" -s "$scalar" -e "ease_out_expo")
+	follow
+}
+
+case "$1" in
+	"percent") percent;;
+	"change") change "$2";;
+	"set") set_value "$2";;
+	"follow") follow;;
+	"follow-animated") follow_animated ;;
+	*) echo "Unknown command";;
+esac
+

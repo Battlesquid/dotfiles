@@ -1,0 +1,41 @@
+#!/bin/bash
+
+function level() {
+	cat /sys/class/power_supply/BAT0/capacity
+}
+
+function charging() {
+	[ "$(cat /sys/class/power_supply/BAT0/status)" = "Charging" ]
+}
+
+function icon() {
+	local lev
+	lev=$(level)
+	if charging; then
+		echo ""
+	elif ((lev < 20)); then
+		echo ""
+	elif ((lev < 40)); then
+		echo ""
+	elif ((lev < 60)); then
+		echo ""
+	elif ((lev < 80)); then
+		echo ""
+	else
+		echo ""
+	fi
+}
+
+function status() {
+	local lev
+	lev=$(level)
+	if ((lev < 20)); then
+		echo "low"
+	elif ((lev < 60)); then
+		echo "med"
+	else
+		echo "high"
+	fi
+}
+
+echo "{\"level\":$(level),\"icon\":\"$(icon)\",\"status\":\"$(status)\"}"

@@ -1,0 +1,104 @@
+#!/bin/bash
+
+SETTINGS="$HOME/.config/eww/fool_moon/settings/system-toggles.json"
+
+function restore() {
+	if [ "$(get_setting ".night.state")" = "on" ]; then
+		redshift -P -O 5000
+	fi
+	if [ "$(dunstctl is-paused)" = "true" ]; then
+		dunstctl set-paused true
+	fi
+}
+
+function set_setting() {
+	jq "$1" "$SETTINGS" | sponge "$SETTINGS"
+}
+
+function get_setting() {
+	jq -r "$1" "$SETTINGS"
+}
+
+function toggle_wifi() {
+	if [ "$(nmcli r wifi)" = "enabled" ]; then
+		nmcli r wifi off
+		set_setting '.wifi.state = "off"'
+	else
+		nmcli r wifi on
+		set_setting '.wifi.state = "on"'
+	fi
+}
+
+function toggle_air() {
+	if [ "$(get_setting ".air.state")" = "on" ]; then
+		rfkill block wlan
+		rfkill block bluetooth
+		set_setting '.air.state = "on"'
+	else
+		rfkill unblock wlan
+		rfkill unblock bluetooth
+		set_setting '.air.state = "off"'
+	fi
+}
+
+function toggle_dnd() {
+	if [ "$(dunstctl is-paused)" = "true" ]; then
+		dunstctl set-paused false
+		set_setting '.dnd.state = "off"'
+	else
+		dunstctl set-paused true
+		set_setting '.dnd.state = "on"'
+	fi
+}
+
+function toggle_night() {
+	if [ "$(get_setting ".night.state")" = "off" ]; then
+		redshift -P -O 5000
+		set_setting '.night.state = "on"'
+	else
+		redshift -x
+		set_setting '.night.state = "off"'
+	fi
+}
+
+function toggle_blue() {
+	if [ "$(get_setting ".blue.state")" = "on" ]; then
+		bluetoothctl power off
+		set_setting '.blue.state = "off"'
+
+	else
+		bluetoothctl power on
+		set_setting '.blue.state = "on"'
+	fi
+}
+
+function screenshot() {
+	eww -c "$HOME/.config/eww/fool_moon/windows/start-menu" close start-menu
+	flameshot gui
+}
+
+function follow() {
+	local json
+	local new_json
+	json=$(jq -Mc <"$SETTINGS")
+	echo "$json"
+	while sleep 0.1; do
+		new_json=$(jq -Mc <"$SETTINGS")
+		if [ "$json" != "$new_json" ]; then
+			json=$new_json
+			echo "$json"
+		fi
+	done
+}
+
+case "$1" in
+"toggle-wifi") toggle_wifi ;;
+"toggle-blue") toggle_blue ;;
+"toggle-air") toggle_air ;;
+"toggle-dnd") toggle_dnd ;;
+"toggle-night") toggle_night ;;
+"screenshot") screenshot ;;
+"follow") follow ;;
+"restore") restore ;;
+*) echo "unknown command" ;;
+esac

@@ -1,0 +1,24 @@
+@import "../../widgets/scss/colors.scss";
+@import "../../widgets/scss/custom-calendar.scss";
+@import "../../widgets/scss/weather.scss";
+@import "../../widgets/scss/notifications.scss";
+
+* {
+    all: unset;
+    transition: 100ms ease-in;
+}
+
+tooltip {
+    font-size: 13px;
+	color: $whitesmoke;
+	background-color: $bg;
+	border: 1px solid $gray;
+}
+
+.side-menu {
+    font-family: Noto Sans, "Font Awesome 6 Free Solid";
+    background-color: #181821;
+    border: 1px solid $gray;
+    border-radius: 15px;
+    padding: 15px;
+}

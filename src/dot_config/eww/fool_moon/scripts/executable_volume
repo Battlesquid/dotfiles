@@ -1,0 +1,77 @@
+#!/bin/bash
+
+delta=2
+animate="$HOME/.config/eww/fool_moon/scripts/animations"
+
+function percent() {
+	pamixer --get-volume
+}
+
+function icon() {
+	local per
+	local muted
+	per=$(percent)
+	muted=$(pamixer --get-mute)
+
+	if [ "$muted" = "true" ]; then
+		echo "" 
+	elif (( per >= 60 )); then
+		echo "" 
+	elif (( per >= 20 )); then
+		echo "" 
+	elif (( per <= 20 )); then
+		echo "" 
+	fi
+}
+
+function set_vol() {
+	local val
+	val=$(printf "%.0f\n" "$1")
+	pamixer --set-volume "$val"
+}
+
+function toggle_mute() {
+	pamixer --toggle-mute
+}
+
+function json() {
+	echo "{\"percent\":$(percent),\"icon\":\"$(icon)\"}"
+}
+
+function follow_animated() {
+	local scalar
+	scalar=$(percent)
+    while read -r line; do
+		echo "{\"percent\":$line,\"icon\":\"$(icon)\"}"
+	done < <($animate run -i "vol" -s "$scalar" -e "ease_out_expo")
+	follow
+}
+
+function follow() {
+	local v
+	v=$(json)
+	echo "$v"
+	while sleep 0.1; do
+		local nv
+		nv=$(json)
+		[[ $v != "$nv" ]] && v=$nv && echo "$nv"
+	done
+}
+
+function change() {
+	if [ "$1" = "up" ]; then
+		pamixer --increase $delta
+	else
+		pamixer --decrease $delta
+	fi
+}
+
+case "$1" in
+"set") set_vol "$2" ;;
+"change") change "$2" ;;
+"toggle-mute") toggle_mute ;;
+"icon") icon ;;
+"follow") follow ;;
+"follow-animated") follow_animated ;;
+*) echo "Unrecognized command" && exit 1 ;;
+esac

@@ -1,0 +1,20 @@
+(defwidget system-meters[]
+  (box
+    :class "system-meters"
+    :orientation "v"
+    :spacing 15
+    (h-iconmeter :name "vol" :min 0 :max 101 :val {volume.percent} :icon {volume.icon} :iwidth 45
+      :onclick "../../scripts/volume toggle-mute"
+      :onchange "../../scripts/volume set {}"
+    )
+    (h-iconmeter :name "mic" :min 0 :max 101 :val {mic.percent} :icon {mic.icon} :iwidth 45
+      :onclick "../../scripts/mic toggle-mute"
+      :onchange "../../scripts/mic set {}"
+    )
+    (h-iconmeter :name "bright" :min 0 :max 101 :val {bright.percent} :icon "" :iwidth 45
+      :onchange "../../scripts/bright set {}"
+    )))
+
+(deflisten mic :initial '{"percent":0,"icon":""}' "../../scripts/mic follow-animated")
+(deflisten volume :initial '{"percent":0,"icon":""}' "../../scripts/volume follow-animated")
+(deflisten bright :initial '{"percent":0}' "../../scripts/bright follow-animated")

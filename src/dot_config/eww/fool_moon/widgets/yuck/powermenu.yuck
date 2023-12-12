@@ -1,0 +1,10 @@
+(defwidget powermenu[?valign ?vexpand ?spacing]
+  (box
+    :class "powermenu"
+    :vexpand {vexpand ?: false}
+    :valign {valign ?: "fill"}
+    :spacing {spacing ?: 0}
+    (button :class "power-lock" :onclick "../../scripts/power lock" :tooltip "Lock" "")
+    (button :class "power-exit" :onclick "../../scripts/power logout" :tooltip "Exit BSPWM" "")
+    (button :class "power-reboot" :onclick "../../scripts/power reboot" :tooltip "Restart" "")
+    (button :class "power-shutdown" :onclick "../../scripts/power shutdown" :tooltip "Shutdown" "")))

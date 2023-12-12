@@ -1,0 +1,47 @@
+.system-toggles {
+    color: $whitesmoke;
+
+    button {
+        border: 1px solid $bg;
+    }
+
+    button:hover {
+        border: 1px solid $gray;
+    }
+
+    .wifi,
+    .air,
+    .dnd,
+    .scr,
+    .blue,
+    .night {
+        background-color: $bg;
+        border-radius: 8px;
+        padding: 1rem;
+    }
+
+    .wifi.on {
+        background-color: $blue;
+        color: $bg;
+    }
+
+    .air.on {
+        background-color: $mint;
+        color: $bg;
+    }
+
+    .dnd.on {
+        background-color: $red;
+        color: $bg;
+    }
+
+    .night.on {
+        background-color: $orange;
+        color: $bg;
+    }
+
+    .blue.on {
+        color: $bg;
+        background-color: $mint;
+    }
+}

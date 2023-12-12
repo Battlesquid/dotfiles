@@ -1,0 +1,38 @@
+#!/bin/bash
+
+FOCUS_ICON=""
+UNOCCUPIED_ICON=""
+
+function make_json() {
+    local ws_list=()
+    local workspaces=()
+    while read -r line; do workspaces+=("$line"); done < <(bspc query -D -m --names)
+    local delim=""
+    for ws in "${workspaces[@]}"; do
+        local focus
+        local occ
+        local state
+        focus=$(bspc query -D -d focused --names | grep "$ws" >/dev/null && echo "$ws" || echo "")
+        occ=$(bspc query -D -d .occupied --names | grep "$ws" >/dev/null && echo "$ws" || echo "")
+        if [ "$focus" ]; then
+            state="focused"
+        elif [ "$occ" ]; then
+            state="occupied"
+        else
+            state="unoccupied"
+        fi
+        [[ "$focus" ]] && icon=$FOCUS_ICON || icon=$UNOCCUPIED_ICON
+        local json="$delim{\"id\":\"$ws\",\"icon\":\"$icon\",\"command\":\"bspc desktop -f $ws\",\"state\":\"$state\"}"
+        ws_list+=("$json")
+        delim=","
+    done
+    echo "[" "${ws_list[@]}" "]"
+}
+
+function subscribe() {
+    bspc subscribe desktop report | while read -r _; do
+        make_json
+    done
+}
+
+subscribe

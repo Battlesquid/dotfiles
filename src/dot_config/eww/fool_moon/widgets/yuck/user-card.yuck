@@ -1,0 +1,17 @@
+(defwidget user-card[]
+  (box
+    :class "user-card"
+    :space-evenly false
+    :hexpand true
+    :spacing 15
+    (box :class "user-pfp" :halign "start" :valign "center" :style "background-image: url('../../assets/pfp.png');")
+    (box
+      :class "user-details"
+      :orientation "v"
+      :space-evenly false
+      :valign "center"
+      (label :class "user-name" :halign "start" :text uname)
+      (label :class "user-uptime" :halign "start" :text uptime))))
+
+(defpoll uname :interval "1h" "echo $USER")
+(defpoll uptime :interval "30s" "uptime -p")

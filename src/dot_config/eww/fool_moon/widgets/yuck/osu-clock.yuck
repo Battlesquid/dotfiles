@@ -1,0 +1,21 @@
+(defwidget osu-clock[]
+  (box :class "osu-clock"
+    (circular-progress
+      :class "clock-progress"
+      :thickness 20
+      :value min-perc
+      :start-at 75
+      (box
+        :class "clock-contents"
+        :orientation "v"
+        :space-evenly false
+        :valign "center"
+        (label :class "clock-time" :text "${round(hours, 0) < 10 ? '0' : ''}${round(hours, 0)}:${round(min, 0) < 10 ? '0' : ''}${round(min, 0)}")
+        (label :class "clock-date" :text clock-date)))))
+
+
+(deflisten min-perc "../../scripts/clock min_percent")
+(deflisten hours "../../scripts/clock hours")
+(deflisten min "../../scripts/clock min")
+(defpoll clock-date :interval "1s" "date +'%A %B %d'")
+

@@ -1,0 +1,31 @@
+(include "../../widgets/yuck/circlemeter.yuck")
+(include "../../widgets/yuck/powermenu.yuck")
+(include "../../widgets/yuck/osu-clock.yuck")
+(include "../../widgets/yuck/osu-user-card.yuck")
+(include "../../widgets/yuck/osu-media.yuck")
+(include "../../widgets/yuck/osu-meters.yuck")
+
+(defwidget dashboard-main[]
+  (box
+    :class "dashboard"
+    :orientation "v"
+    (box
+      :class "header"
+      :valign "start"
+      (osu-user-card)
+      (osu-media))
+    (osu-clock)
+    (box
+      :valign "end"
+      (box :halign "start"
+        (powermenu :valign "end" :spacing 15))
+      (box :halign "end"
+        (osu-meters)))
+  ))
+
+(defwindow dashboard
+  :monitor 0
+  :geometry (geometry :x "0px" :y "0px" :width "100%" :height "100%" :anchor "top left")
+  :windowtype "dock"
+  :wm-ignore false
+  (dashboard-main))

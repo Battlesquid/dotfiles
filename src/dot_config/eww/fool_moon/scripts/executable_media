@@ -1,0 +1,109 @@
+#!/bin/bash
+
+function has_player() {
+    if playerctl status &>/dev/null; then
+        [[ $(playerctl status) = "Stopped" ]] && return 1 || return 0
+    else
+        return 1
+    fi
+}
+
+function can_seek() {
+    busctl --user get-property org.mpris.MediaPlayer2."$(playerctl -l 2>/dev/null | head -1)" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player CanSeek 2>/dev/null | grep -q true
+}
+
+function _title() {
+    playerctl metadata title 2>/dev/null || echo "Nothing Playing"
+}
+
+function _artist() {
+    playerctl metadata artist 2>/dev/null || echo ""
+}
+
+function _time() {
+    if has_player; then
+        playerctl metadata --format "{{duration(position)}} / {{duration(mpris:length)}}"
+    else
+        echo "--:-- / --:--"
+    fi
+}
+
+function _class() {
+    [[ $(playerctl status) = "Playing" ]] && echo "pause" || echo "play"
+}
+
+function _icon() {
+    [[ $(playerctl status) = "Playing" ]] && echo "" || echo ""
+}
+
+function toggle() {
+    playerctl play-pause 2>/dev/null
+}
+
+function stop() {
+    playerctl stop 2>/dev/null
+}
+
+function play() {
+    playerctl play 2>/dev/null
+}
+
+function pause() {
+    playerctl pause 2>/dev/null
+}
+
+function percent() {
+    if can_seek; then
+        local pos
+        local len
+        pos=$(playerctl position)
+        len=$(playerctl metadata mpris:length)
+        echo "$pos $len" | awk '{ print ($1 / $2 * 1000000) * 100 }'
+    else
+        echo "0"
+    fi
+}
+
+function prev() {
+    playerctl previous 2>/dev/null
+}
+
+function next() {
+    playerctl next 2>/dev/null
+}
+
+function make_json() {
+    local jtitle
+    jtitle=$(_title | jq -Rar)
+    local jartist
+    jartist=$(_artist | jq -Rar)
+    local jclass
+    jclass=$(_class)
+    local jicon
+    jicon=$(_icon)
+    local seek
+    if can_seek; then
+        seek="true"
+    else
+        seek="false"
+    fi
+    echo "{\"title\":$jtitle,\"artist\":$jartist,\"class\":\"$jclass\",\"icon\":\"$jicon\",\"can_seek\":$seek,\"percent\":$(percent),\"time\":\"$(_time)\"}"
+}
+
+function follow() {
+    make_json
+    while sleep 1; do
+        make_json
+    done
+}
+
+case "$1" in
+"play") play ;;
+"pause") pause ;;
+"stop") stop ;;
+"play-pause") toggle ;;
+"prev") prev ;;
+"next") next ;;
+"follow") follow ;;
+*) echo "Unrecognized command" && exit 1 ;;
+esac

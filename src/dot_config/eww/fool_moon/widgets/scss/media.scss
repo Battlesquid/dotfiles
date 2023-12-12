@@ -1,0 +1,69 @@
+.media {
+
+    .media-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: $whitesmoke;
+    }
+
+    .media-artist {
+        font-weight: lighter;
+        margin-bottom: 0.4rem;
+    }
+
+    .media-overview {
+        background-color: $raisin-black;
+        border-radius: 8px;
+        padding: 1rem 1.5rem;
+    }
+
+    .media-playback {
+        font-size: 12px;
+        color: $whitesmoke
+    }
+
+    .media-prev,
+    .media-toggle,
+    .media-next {
+        font-size: 15px;
+        background-color: $bg;
+        padding: 8px 16px;
+    }
+
+    .media-prev:hover,
+    .media-next:hover {
+        background-color: $gray;
+    }
+
+    .media-toggle.play:hover {
+        background-color: $green;
+        color: $bg;
+    }
+
+    .media-toggle.pause:hover {
+        background-color: $yellow;
+        color: $bg;
+    }
+
+    .media-prev {
+        border-radius: 8px 8px 0 0;
+    }
+
+    .media-next {
+        border-radius: 0 0 8px 8px;
+    }
+
+    .media-time {
+        color: #B8BDC9;
+    }
+
+    scale.media-track trough {
+        all: unset;
+        background-color: $gray;
+        min-height: 7px;
+    }
+
+    scale.media-track trough highlight {
+        background: $light-gray;
+    }
+}

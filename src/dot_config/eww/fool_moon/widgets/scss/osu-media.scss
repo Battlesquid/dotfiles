@@ -1,0 +1,25 @@
+.osu-media {
+    .media-title,
+    .media-artist {
+        font-size: 16px;
+        color: $whitesmoke;
+    }
+
+    .media-controls {
+        font-size: 18px;
+    }
+
+    scale.media-track trough {
+        background-color: $gray;
+        min-height: 7px;
+        min-width: 300px;
+    }
+
+    scale.media-track trough highlight {
+        background-image: linear-gradient(to right, $blue, #678ac2);
+    }
+
+    .media-time {
+        color: $light-gray;
+    }
+}

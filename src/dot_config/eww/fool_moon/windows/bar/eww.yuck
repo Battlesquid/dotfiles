@@ -1,0 +1,38 @@
+(include "../../widgets/yuck/start.yuck")
+(include "../../widgets/yuck/workspaces.yuck")
+(include "../../widgets/yuck/battery.yuck")
+(include "../../widgets/yuck/statustray.yuck")
+(include "../../widgets/yuck/clock-small.yuck")
+
+(defwidget main []
+  (box
+    :class "bar"
+    (left)
+    (right)))
+
+(defwidget left[]
+  (box
+    :class "left"
+    :space-evenly false
+    :spacing 7
+    :halign "start"
+    (start)
+    (workspaces)))
+
+(defwidget right[]
+  (box
+    :class "right"
+    :space-evenly false
+    :spacing 7
+    :halign "end"
+    (battery)
+    (statustray)
+    (clock-small)))
+
+(defwindow bar
+  :geometry (geometry :x "0px" :y "0px" :width "100%" :height "48px" :anchor "top left")
+  :windowtype "dock"
+  :stacking "bg"
+  :reserve (struts :distance "52px" :side "top")
+  :wm-ignore false
+  (main))

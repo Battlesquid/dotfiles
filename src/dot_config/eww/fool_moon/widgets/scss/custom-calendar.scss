@@ -1,0 +1,41 @@
+.calendar {
+    .calendar-header {
+        font-weight: bold;
+        font-size: 18px;
+        color: $whitesmoke;
+        background-color: $bg;
+        padding: 5px 18px;
+    }
+
+    calendar {
+        color: $whitesmoke;
+        background-color: $bg;
+        border-radius: 0 0 8px 8px;
+        border: 0;
+        padding: 1em .75em 0em;
+
+        &:selected {
+            color: $blue;
+        }
+
+        &:indeterminate {
+            color: $gray;
+        }
+    }
+
+    .date {
+        background-color: $bg;
+        border-radius: 8px 8px 0 0;
+        padding: 16px;
+    }
+
+    .month, .year {
+        font-size: 22px;
+        font-weight: bold;
+        color: $whitesmoke;
+    }
+    
+    .year {
+        color: $gray;
+    }
+}

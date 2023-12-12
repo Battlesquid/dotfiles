@@ -1,0 +1,26 @@
+@import "../../widgets/scss/colors.scss";
+@import "../../widgets/scss/system-stats.scss";
+@import "../../widgets/scss/user-card.scss";
+@import "../../widgets/scss/system-toggles.scss";
+@import "../../widgets/scss/system-meters.scss";
+@import "../../widgets/scss/media.scss";
+@import "../../widgets/scss/powermenu.scss";
+
+* {
+    all: unset;
+    transition: 100ms ease-in;
+}
+
+tooltip {
+	color: $whitesmoke;
+	background-color: $bg;
+	border: 1px solid $gray;
+}
+
+.start-menu {
+    font-family: Noto Sans, "Font Awesome 6 Free Solid";
+    background-color: #181821;
+    border: 1px solid $gray;
+	border-radius: 15px;
+    padding: 14px;
+}

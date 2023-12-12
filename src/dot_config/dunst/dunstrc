@@ -197,7 +197,7 @@
     max_icon_size = 32
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/ePapirus/32x32/apps/:/usr/share/icons/ePapirus/32x32/devices/
+    icon_path = /usr/share/icons/Papirus-Dark/32x32/apps/:/usr/share/icons/Papirus-Dark/32x32/devices/
 
     ### History ###
 
@@ -388,7 +388,11 @@
 
 [eww]
 summary = "*"
-script = "~/.scripts/notifs"
+script = "~/.scripts/notifications"
+
+[eww-notifications-python]
+summary = "*"
+script = "~/.config/eww/fool_moon/scripts/notifications.py"
 
 [spotify]
 summary = "*"

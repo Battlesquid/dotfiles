@@ -1,0 +1,27 @@
+(defwidget media[]
+  (box
+    :class "media"
+    (box
+      :class "media-controls"
+      :space-evenly false
+      :spacing 14
+      (box
+        :class "media-overview"
+        :orientation "v"
+        :hexpand true
+        :space-evenly false
+        (label :class "media-title" :halign "start" :wrap true :xalign 0 :limit-width 40 :text {media.title})
+        (label :class "media-artist" :halign "start" :text {media.artist})
+        (box
+          :visible {media.can_seek}
+          (scale :class "media-track"  :min 0 :max 101 :value {media.percent} :active false)
+          (label :class "media-time"   :halign "end" :text {media.time})))
+      (box
+        :class "media-playback"
+        :orientation "v"
+        :halign "end"
+        (button :class "media-prev" :onclick "../../scripts/media prev" "")
+        (button :class "media-toggle ${media.class}" :onclick "../../scripts/media play-pause" {media.icon})
+        (button :class "media-next" :onclick "../../scripts/media next" "")))))
+
+(deflisten media :initial '{"icon":"","title":"---","artist":"---","percent":0,"can_seek":false}' "../../scripts/media follow")

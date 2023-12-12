@@ -1,0 +1,62 @@
+.battery-box {
+	color: $bg;
+
+	.battery-icon.high {
+		background-color: $green;
+	}
+
+	.battery-icon.med {
+		background-color: $yellow;
+	}
+
+	.battery-icon.low {
+		background-color: $red;
+	}
+
+	.battery-level {
+		font-weight: bold;
+	}
+
+	.battery-dark {
+		color: $bg;
+	}
+
+	.battery-light {
+		color: $light-gray;
+	}
+
+	scale.battery-scale trough {
+		all: unset;
+		background-color: $gray;
+		border-radius: 8px;
+		min-height: 25px;
+		min-width: 60px;
+	}
+
+	scale.battery-scale.high trough {
+		background-color: $dark-green;
+	}
+
+	scale.battery-scale.med trough {
+		background-color: $dark-yellow;
+	}
+
+	scale.battery-scale.low trough {
+		background-color: $dark-red;
+	}
+
+	.battery-scale.high trough highlight {
+		background-color: $green;
+		border-radius: 8px;
+	}
+
+	.battery-scale.med trough highlight {
+		background-color: $yellow;
+		border-radius: 8px;
+	}
+
+	.battery-scale.low trough highlight {
+		background-color: $red;
+		border-radius: 8px;
+	}
+}

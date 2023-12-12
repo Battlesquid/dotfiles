@@ -1,0 +1,41 @@
+#!/bin/bash
+
+SCRIPTS_DIR="$HOME/.config/eww/fool_moon/scripts"
+
+function toggle_menus() {
+    eww -c "$HOME"/.config/eww/fool_moon/windows/system open --toggle system
+}
+
+function follow() {
+    local notif_icon
+    local notif_count
+    local vol_icon
+    local net_icon
+
+    notif_icon=$("$SCRIPTS_DIR"/notifications.py icon)
+    vol_icon=$("$SCRIPTS_DIR"/volume icon)
+    net_icon=$("$SCRIPTS_DIR"/network icon)
+    notif_count=$("$SCRIPTS_DIR"/notifications.py count)
+
+    echo '{"notifications":{"icon":"'"$notif_icon"'","count":"'"$notif_count"'"},"volume":"'"$vol_icon"'","network":"'"$net_icon"'"}'
+
+    while sleep 0.1; do
+        new_notif=$("$SCRIPTS_DIR"/notifications.py icon)
+        new_vol=$("$SCRIPTS_DIR"/volume icon)
+        new_net=$("$SCRIPTS_DIR"/network icon)
+        new_notif_count=$("$SCRIPTS_DIR"/notifications.py count)
+        if [[ $notif_icon != "$new_notif" || $new_vol != "$vol_icon" || $new_net != "$net_icon" || $new_notif_count != "$notif_count" ]]; then
+            notif_icon=$new_notif
+            vol_icon=$new_vol
+            net_icon=$new_net
+            notif_count=$new_notif_count
+            echo '{"notifications":{"icon":"'"$notif_icon"'","count":"'"$notif_count"'"},"volume":"'"$vol_icon"'","network":"'"$net_icon"'"}'
+        fi
+    done
+}
+
+case "$1" in
+"follow") follow ;;
+"toggle-menus") toggle_menus ;;
+*) echo "Unrecognized option $1" && exit 1 ;;
+esac

@@ -1,0 +1,32 @@
+(include "../../widgets/yuck/v-iconmeter.yuck")
+(include "../../widgets/yuck/h-iconmeter.yuck")
+(include "../../widgets/yuck/user-card.yuck")
+(include "../../widgets/yuck/system-stats.yuck")
+(include "../../widgets/yuck/system-toggles.yuck")
+(include "../../widgets/yuck/system-meters.yuck")
+(include "../../widgets/yuck/media.yuck")
+(include "../../widgets/yuck/powermenu.yuck")
+
+(defwidget start-menu-main[]
+  (box
+    :class "start-menu"
+    :orientation "v"
+    :space-evenly false
+    :spacing 14
+    (user-card)
+    (box
+      :spacing 14
+      :space-evenly false
+      (system-stats)
+      (system-toggles))
+    (media)
+    (system-meters)
+    (powermenu :vexpand true)
+  ))
+
+(defwindow start-menu
+  :monitor 0
+  :geometry (geometry :x "10px" :y "62px" :width "384px" :anchor "top left")
+  :windowtype "dock"
+  :wm-ignore false
+  (start-menu-main))

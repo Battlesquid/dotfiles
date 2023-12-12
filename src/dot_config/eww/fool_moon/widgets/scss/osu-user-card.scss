@@ -1,0 +1,19 @@
+.osu-user-card {
+    .user-pfp {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        min-width: 80px;
+        min-height: 80px;
+    }
+
+    .user-name {
+        font-size: 22px;
+        color: #B8BDC9;
+    }
+
+    .user-uptime,
+    .user-pkgs {
+        color: $light-gray;
+    }
+}

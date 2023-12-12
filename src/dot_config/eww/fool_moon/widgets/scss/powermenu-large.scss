@@ -1,0 +1,27 @@
+.powermenu {
+	margin: 1rem;
+
+    button {
+		font-size: 32px;
+		color: #B8BDC9;
+		background-color: rgba(24, 24, 33, 0.95);
+		border: 1px solid rgba(24, 24, 33, 0.85);
+		padding: 3rem;
+    }
+
+	.power-lock:hover {
+		color: $blue;
+	}
+
+	.power-exit:hover {
+		color: $purple;
+	}
+
+	.power-reboot:hover {
+		color: $mint;
+	}
+
+	.power-shutdown:hover {
+		color: $red;
+	}
+}

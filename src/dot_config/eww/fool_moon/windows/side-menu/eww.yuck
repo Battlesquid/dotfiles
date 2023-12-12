@@ -1,0 +1,20 @@
+(include "../../widgets/yuck/custom-calendar.yuck")
+(include "../../widgets/yuck/weather.yuck")
+(include "../../widgets/yuck/notifications.yuck")
+
+(defwidget side-menu-main[]
+  (box
+    :class "side-menu"
+    :orientation "vertical"
+    :space-evenly false 
+    :spacing 15
+    (custom-calendar)
+    (weather)
+    (notifications)))
+  
+(defwindow side-menu
+  :monitor 0
+  :geometry (geometry :x "-10px" :y "62px" :width "384px" :height "94%" :anchor "top right")
+  :windowtype "dock"
+  :wm-ignore false
+  (side-menu-main))

@@ -1,0 +1,9 @@
+(defwidget system-stats[]
+  (box
+    :class "system-stats"
+    :spacing 15
+    (v-iconmeter :name "ram" :active false :min 0 :max 101 :val {system.ram} :icon "")
+    (v-iconmeter :name "cpu" :active false :min 0 :max 101 :val {system.cpu} :icon "")
+    (v-iconmeter :name "dsk" :active false :min 0 :max 101 :val {system.dsk} :icon "")))
+
+(deflisten system :initial '{"ram":0,"cpu":0,"dsk":0}' :timeout "5s" "../../scripts/system follow")
