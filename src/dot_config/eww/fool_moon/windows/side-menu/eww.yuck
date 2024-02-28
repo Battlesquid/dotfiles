@@ -14,7 +14,7 @@
   
 (defwindow side-menu
   :monitor 0
-  :geometry (geometry :x "-10px" :y "62px" :width "384px" :height "94%" :anchor "top right")
+  :geometry (geometry :x "-10px" :y "62px" :width "384px" :height "1008px" :anchor "top right")
   :windowtype "dock"
   :wm-ignore false
   (side-menu-main))

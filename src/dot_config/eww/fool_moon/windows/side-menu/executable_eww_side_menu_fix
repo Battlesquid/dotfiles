@@ -1,0 +1,3 @@
+#!/bin/zsh
+height=$(echo "$(xrandr | awk '/\*/ {print $1}' | awk -F 'x' '{print $2}') - 72" | bc)
+sed -i 's/:height "[0-9]*px"/:height "'$height'px"/g' ~/.config/eww/fool_moon/windows/side-menu/eww.yuck

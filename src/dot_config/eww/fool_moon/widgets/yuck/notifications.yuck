@@ -8,7 +8,7 @@
     (scroll
       :vscroll true
       :hscroll false
-      :height 570
+      :height 400
       (box
         :orientation "vertical"
         :space-evenly false
@@ -48,7 +48,7 @@
           (label :class "notif-empty-label" :text "No Notifications"))))
       
     (eventbox :class "notif-clear" :cursor "pointer" :onclick "../../scripts/notifications.py clear"
-      (label :hexpand true :valign "end" :tooltip "Clear Notifications" :text ""))))
+      (label :hexpand true :valign "end" :tooltip "Clear Notifications" :text ""))))
   
 
 (defvar notifications-list '[]')

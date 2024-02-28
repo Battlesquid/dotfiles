@@ -15,5 +15,5 @@
   :interval "30m"
   :timeout "5s"
   :initial '{"icon":"","type":"--","temp":0}'
-  "../../scripts/weather"
-)
+  "../../scripts/weather")
+

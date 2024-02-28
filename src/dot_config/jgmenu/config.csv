@@ -1,6 +1,6 @@
 Terminal,kitty,utilities-terminal
 Browser,firefox,applications-internet
-File Manager, thunar,folder
+File Manager, nemo,folder
 
 ^sep()
 
@@ -29,6 +29,6 @@ Spotify,spotify,spotify
 OBS,obs,obs
 
 ^tag(cfg)
-eww,kitty nvim ~/.config/eww/fool_moon/bar/eww.yuck ~/.config/eww/fool_moon/bar/eww.scss,preferences-desktop
+eww,kitty nvim ~/.config/eww/fool_moon/windows/bar/eww.yuck ~/.config/eww/fool_moon/windows/bar/eww.scss,preferences-desktop
 rofi,kitty nvim ~/.config/rofi/fool_moon/fool_moon.rasi,preferences-desktop-display
 bspwm,kitty nvim ~/.config/bspwm/bspwmrc,preferences-system-windows
