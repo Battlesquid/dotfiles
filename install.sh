@@ -16,11 +16,11 @@ paru -S chezmoi xorg xorg-xinit bspwm sxhkd compfy kitty eww-git rofi dmenu duns
 
 echo "Starting services"
 
-if ! [ lsmod | grep -wq "^btusb" ];then
+if ! [ $(lsmod | grep -wq "^btusb") ];then
     sudo modprobe btusb
 fi
-sudo systemctl --start bluetooth.service
-sudo systemctl --enable bluetooth.service
+sudo systemctl start bluetooth.service
+sudo systemctl enable bluetooth.service
 
 echo "Changing shell to zsh"
 chsh -s /usr/bin/zsh

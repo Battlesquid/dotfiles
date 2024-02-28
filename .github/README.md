@@ -49,11 +49,11 @@ paru -S chezmoi xorg xorg-xinit bspwm sxhkd compfy kitty eww-git rofi dmenu duns
 
 Start bluetooth service:
 ```bash
-if ! [ lsmod | grep -wq "^btusb" ];then
+if ! [ $(lsmod | grep -wq "^btusb") ];then
     sudo modprobe btusb
 fi
-sudo systemctl --start bluetooth.service
-sudo systemctl --enable bluetooth.service
+sudo systemctl start bluetooth.service
+sudo systemctl enable bluetooth.service
 ```
 
 Change your shell to `zsh`
