@@ -12,7 +12,7 @@ if ! command -v paru &> /dev/null; then
 fi
 
 echo "Installing dependencies"
-paru -S chezmoi xorg xorg-xinit bspwm sxhkd compfy kitty eww-git rofi dmenu dunst redshift pamixer networkmanager noto-fonts ttf-firacode-nerd ttf-noto-nerd ttf-font-awesome noto-fonts-cjk noto-fonts-emoji brightnessctl cava glava neofetch neovim betterlockscreen flameshot feh playerctl jq recode moreutils jgmenu xcolor xqp xdo zsh xdg-user-dirs bluez bluez-utils blueman nemo nemo-fileroller discord firefox spotify-launcher noisetorch-bin obs-studio visual-studio-code-bin capitaine-cursors btop python
+paru -S chezmoi xorg xorg-xinit bspwm sxhkd compfy kitty eww-git rofi dmenu dunst redshift pamixer networkmanager noto-fonts ttf-firacode-nerd ttf-noto-nerd ttf-font-awesome noto-fonts-cjk noto-fonts-emoji brightnessctl cava glava neofetch neovim betterlockscreen flameshot feh playerctl jq recode moreutils jgmenu xcolor xqp xdo zsh xdg-user-dirs bluez bluez-utils blueman nemo nemo-fileroller discord firefox spotify-launcher noisetorch-bin obs-studio visual-studio-code-bin capitaine-cursors btop python sass
 
 echo "Starting services"
 
@@ -60,5 +60,4 @@ xdg-user-dirs-update
 
 echo "Cleaning up"
 
-paru -R sass
 paru --clean

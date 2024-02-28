@@ -115,8 +115,6 @@ Create home directories
 xdg-user-dirs-update
 ```
 
-Cleanup
-
 If you're logged into a session, logout, then start with:
 ```zsh
 startx
