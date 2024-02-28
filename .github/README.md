@@ -147,10 +147,6 @@ WEATHER_API_KEY="<YOUR_API_KEY_HERE>"
 WEATHER_API_CITY="<YOUR_CITY_HERE>"
 ```
 
-### **GTK theme and icons**
-
-You can acess the GTK theme I made for this rice [here](https://github.com/Battlesquid/gtk). I use the [Tela](https://github.com/vinceliuice/Tela-icon-theme) icon theme (nord, gray variant).
-
 ### **Side Menu Fix (experimental)**
 
 You might notice that the side menu on the right is either too long or too short. This is due to your monitor resolution. To fix this, run:
