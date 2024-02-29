@@ -3,6 +3,8 @@
 if ! command -v paru &> /dev/null; then
     echo "Installing paru"
     sudo pacman -S --needed base-devel
+    sudo pacman -S git rustup
+    rustup default stable
     mkdir "$HOME/repos"
     cd "$HOME/repos"
     git clone https://aur.archlinux.org/paru.git
