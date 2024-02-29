@@ -19,7 +19,7 @@ echo "Installing icon theme"
 
 git clone https://github.com/vinceliuice/Tela-icon-theme.git ~/repos/tela-icon-theme
 chmod +x ~/repos/tela-icon-theme/install.sh
-~/repos/tela-icon-theme/install.sh -s nord -t grey
+~/repos/tela-icon-theme/install.sh nord
 
 echo "Installing GTK theme"
 
