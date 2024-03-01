@@ -30,7 +30,7 @@ chsh -s /usr/bin/zsh
 echo "Pulling dotfiles"
 chezmoi init --apply https://github.com/Battlesquid/dotfiles.git
 
-touch ~/.config/eww/fool_moon/common/scripts/secrets
+touch ~/.config/eww/fool_moon/scripts/secrets
 
 chezmoi cd
 

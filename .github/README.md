@@ -138,7 +138,7 @@ The archive will be in your home directory. This can be done with any folder/fil
 1. [Grab an OpenWeather API key](https://openweathermap.org/api). Also determine the [city](https://openweathermap.org/current#name) you would like to use.
 2. Create a `secrets` file with:
 ```
-touch ~/.config/eww/fool_moon/common/scripts/secrets
+touch ~/.config/eww/fool_moon/scripts/secrets
 ```
 3. Copy the contents below into the secrets file, substituting in the API key and city.
 ```bash
