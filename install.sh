@@ -34,4 +34,4 @@ touch ~/.config/eww/fool_moon/scripts/secrets
 
 chezmoi cd
 
-zsh -c zshinstall.zsh
+zsh -c "./zshinstall.zsh"
