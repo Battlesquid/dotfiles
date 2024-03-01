@@ -23,6 +23,7 @@ if ! [ $(lsmod | grep -wq "^btusb") ];then
 fi
 sudo systemctl start bluetooth.service
 sudo systemctl enable bluetooth.service
+systemctl --user enable --now pipewire pipewire-pulse
 
 echo "Changing shell to zsh"
 chsh -s /usr/bin/zsh
