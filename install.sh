@@ -32,6 +32,6 @@ chezmoi init --apply https://github.com/Battlesquid/dotfiles.git
 
 touch ~/.config/eww/fool_moon/scripts/secrets
 
-chezmoi cd
+cd ~/.local/share/chezmoi
 
 zsh -c "./zshinstall.zsh"
