@@ -27,4 +27,11 @@ sudo systemctl enable bluetooth.service
 echo "Changing shell to zsh"
 chsh -s /usr/bin/zsh
 
+echo "Pulling dotfiles"
+chezmoi init --apply https://github.com/Battlesquid/dotfiles.git
+
+touch ~/.config/eww/fool_moon/common/scripts/secrets
+
+chezmoi cd
+
 zsh -c zshinstall.zsh

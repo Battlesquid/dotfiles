@@ -1,5 +1,4 @@
 #/usr/bin/zsh
-chezmoi cd
 
 touch ~/.aliases.zsh
 touch ~/.path.zsh
@@ -10,11 +9,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 echo "Installing oh-my-zsh-plugins"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-echo "Installing dotfiles"
-chezmoi init --apply https://github.com/Battlesquid/dotfiles.git
-
-touch ~/.config/eww/fool_moon/common/scripts/secrets
 
 echo "Installing icon theme"
 
