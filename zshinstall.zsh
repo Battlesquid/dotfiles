@@ -1,4 +1,5 @@
 #/usr/bin/zsh
+chezmoi cd
 
 touch ~/.aliases.zsh
 touch ~/.path.zsh

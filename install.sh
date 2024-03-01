@@ -27,5 +27,4 @@ sudo systemctl enable bluetooth.service
 echo "Changing shell to zsh"
 chsh -s /usr/bin/zsh
 
-chezmoi cd
 zsh -c zshinstall.zsh
