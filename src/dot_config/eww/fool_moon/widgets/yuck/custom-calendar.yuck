@@ -3,16 +3,8 @@
     :class "calendar"
     :orientation "v"
     :space-evenly false
-    (box
-      :class "date"
-      :hexpand true
-      (box
-        :space-evenly false
-        :spacing 5
-        :halign "center"
-        (label :class "month" :text month)
-        (label :class "year" :text "${year}")))
-    (box :class "calendar-header" "S" "M" "T" "W" "T" "F" "S")
+    (box :class "date" :hexpand true {date})
+    (box :class "calendar-header" :spacing 10 "sun" "mon" "tue" "wed" "thu" "fri" "sat")
     (calendar
       :valign "center"
       :vexpand true
@@ -21,5 +13,4 @@
       :show-day-names false
     )))
 
-(defpoll month :interval "30m" "date +'%B'")
-(defpoll year :interval "30m" "date +'%Y'")
+(defpoll date :interval "30m" "date +'%B %Y'")

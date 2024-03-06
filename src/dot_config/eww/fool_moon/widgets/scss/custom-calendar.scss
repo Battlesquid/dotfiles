@@ -1,18 +1,17 @@
 .calendar {
     .calendar-header {
         font-weight: bold;
-        font-size: 18px;
-        color: $whitesmoke;
+        font-size: 14px;
+        color: $gray;
         background-color: $bg;
-        padding: 5px 18px;
+        padding: 5px 12px;
     }
 
     calendar {
         color: $whitesmoke;
         background-color: $bg;
         border-radius: 0 0 8px 8px;
-        border: 0;
-        padding: 1em .75em 0em;
+        padding: 0.2em;
 
         &:selected {
             color: $blue;
@@ -24,18 +23,11 @@
     }
 
     .date {
-        background-color: $bg;
-        border-radius: 8px 8px 0 0;
-        padding: 16px;
-    }
-
-    .month, .year {
-        font-size: 22px;
+        font-size: 18px;
         font-weight: bold;
         color: $whitesmoke;
-    }
-    
-    .year {
-        color: $gray;
+        background-color: $bg;
+        border-radius: 8px 8px 0 0;
+        padding: 16px 16px 8px;
     }
 }

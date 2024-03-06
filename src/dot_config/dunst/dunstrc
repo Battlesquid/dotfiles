@@ -74,7 +74,9 @@
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 10 
+    separator_height = 0
+
+    gap_size = 10
 
     # Padding between text and separator.
     padding = 8
@@ -152,7 +154,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    format = "<i>%a</i>\n<b>%s</b>\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
